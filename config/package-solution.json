@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "Corbit X Journey",
+    "id": "e3a91c57-0b4d-4f62-8d7a-6c15f2b9a840",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false
+  },
+  "paths": { "zippedPackage": "solution/corbit-x-journey.sppkg" }
+}

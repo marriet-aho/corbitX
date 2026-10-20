@@ -1,0 +1,8 @@
+node_modules
+lib
+dist
+temp
+sharepoint/solution
+release
+*.log
+tools/node_modules

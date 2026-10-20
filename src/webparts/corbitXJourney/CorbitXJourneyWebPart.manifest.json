@@ -1,0 +1,21 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "b7c2e4f1-3a5d-4e8b-9c61-2f0d7a1e5b93",
+  "alias": "CorbitXJourneyWebPart",
+  "componentType": "WebPart",
+  "version": "*",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+  "supportedHosts": ["SharePointWebPart"],
+  "supportsThemeVariants": true,
+  "preconfiguredEntries": [
+    {
+      "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+      "group": { "default": "Other" },
+      "title": { "default": "Corbit X Journey" },
+      "description": { "default": "Kukua's interactive storytelling journey for Corbit X readiness." },
+      "officeFabricIconFontName": "Rocket",
+      "properties": { "voiceBaseUrl": "" }
+    }
+  ]
+}

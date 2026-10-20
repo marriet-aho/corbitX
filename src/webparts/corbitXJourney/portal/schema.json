@@ -1,0 +1,30 @@
+{
+  "note": "Single source of truth for the SharePoint lists. Used by the web part loader and by seed/Provision-CorbitXPortal.ps1. Every list also gets Order (number) and IsActive (yes/no).",
+  "lists": [
+    { "list": "Kukua Messages", "key": "KukuaMessages", "kind": "rows", "titleProp": "Key", "fields": [ {"n":"Text","t":"note"}, {"n":"AudioUrl","t":"text"} ] },
+    { "list": "Section Intros", "key": "SectionIntros", "kind": "rows", "titleProp": "Key", "fields": [ {"n":"Text","t":"note"} ] },
+    { "list": "Journey Stages", "key": "JourneyStages", "kind": "rows", "titleProp": "Title", "fields": [
+      {"n":"RailLabel","t":"text"}, {"n":"PosterId","t":"text"}, {"n":"KukuaSays","t":"note"}, {"n":"SecondaryLabel","t":"text"},
+      {"n":"PanelKukua","t":"note"}, {"n":"PanelIntro","t":"note"}, {"n":"PanelPoints","t":"pairs"}, {"n":"PanelSay","t":"note"},
+      {"n":"PanelNote","t":"note"}, {"n":"KeyMessage","t":"note"} ] },
+    { "list": "Highlights", "key": "Highlights", "kind": "highlights", "titleProp": "Label", "fields": [
+      {"n":"Group","t":"text"}, {"n":"Icon","t":"text"}, {"n":"Value","t":"number"}, {"n":"Suffix","t":"text"}, {"n":"ShowBar","t":"bool"} ] },
+    { "list": "Customer Changes", "key": "CustomerChanges", "kind": "rows", "titleProp": "Title", "fields": [
+      {"n":"Points","t":"lines"}, {"n":"Alt","t":"bool"}, {"n":"Viz","t":"bool"} ] },
+    { "list": "Staff Changes", "key": "StaffChanges", "kind": "rows", "titleProp": "Title", "fields": [
+      {"n":"Icon","t":"text"}, {"n":"Today","t":"text"}, {"n":"CX","t":"text"}, {"n":"Gain","t":"text"} ] },
+    { "list": "Training Media", "key": "TrainingMedia", "kind": "rows", "titleProp": "Title", "fields": [
+      {"n":"Type","t":"choice","choices":["Video","Picture"]}, {"n":"Description","t":"text"}, {"n":"Url","t":"text"} ] },
+    { "list": "What's Next", "key": "WhatsNext", "kind": "rows", "titleProp": "Title", "fields": [
+      {"n":"Label","t":"text"}, {"n":"Text","t":"note"}, {"n":"Icon","t":"text"} ] },
+    { "list": "Daily Tips", "key": "DailyTips", "kind": "strings", "titleProp": "", "fields": [] },
+    { "list": "FAQs", "key": "FAQs", "kind": "rows", "titleProp": "Question", "fields": [
+      {"n":"Answer","t":"note"}, {"n":"Keywords","t":"text"}, {"n":"Suggested","t":"bool"}, {"n":"ActionLabel","t":"text"}, {"n":"ActionTarget","t":"text"} ] },
+    { "list": "Featured Guides", "key": "FeaturedGuides", "kind": "rows", "titleProp": "Title", "fields": [
+      {"n":"PosterId","t":"text"}, {"n":"KukuaCommentary","t":"note"} ] },
+    { "list": "Announcements", "key": "Announcements", "kind": "rows", "titleProp": "Title", "fields": [
+      {"n":"Body","t":"note"}, {"n":"Icon","t":"text"} ] },
+    { "list": "Posters", "key": "Posters", "kind": "posters", "titleProp": "Title", "fields": [
+      {"n":"PosterId","t":"text"}, {"n":"ImageUrl","t":"text"} ] }
+  ]
+}

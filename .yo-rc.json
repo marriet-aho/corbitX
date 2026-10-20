@@ -1,0 +1,1 @@
+{ "@microsoft/generator-sharepoint": { "version": "1.18.2", "libraryName": "corbit-x-journey", "libraryId": "5d1f8c3a-72b4-4e19-a6c0-9b3e41d8f207", "environment": "spo", "isDomainIsolated": false, "componentType": "webpart" } }
