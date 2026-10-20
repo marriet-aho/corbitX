@@ -1014,12 +1014,13 @@ const reduced=matchMedia("(prefers-reduced-motion: reduce)").matches;
 const VOICE_BASE="voice/emily/";
 const V={enabled:false,muted:false,speaking:false,paused:false,current:"",audio:null};
 const synth=null;
+const vh=t=>{let h=5381;for(let i=0;i<t.length;i++)h=((h<<5)+h+t.charCodeAt(i))|0;return "t"+(h>>>0).toString(16)};
+const VOICE_DATA=(typeof CXJ_VOICE_DATA!=="undefined")?CXJ_VOICE_DATA:{};   // single-file build embeds the recordings here
 function audioFor(text){
-  const m=LISTS.KukuaMessages.find(x=>x.Text===text);if(m)return VOICE_BASE+m.Key+".mp3";
-  const i=STAGES.findIndex(x=>x.KukuaSays===text);if(i>=0)return VOICE_BASE+"stage"+(i+1)+".mp3";
-  return "";
+  const m=LISTS.KukuaMessages.find(x=>x.Text===text),i=STAGES.findIndex(x=>x.KukuaSays===text);
+  const name=m?m.Key:i>=0?"stage"+(i+1):vh(text);
+  return VOICE_DATA[name]||VOICE_BASE+name+".mp3";
 }
-
 function setSpeaking(on){V.speaking=on;$("#stage").classList.toggle("speaking",on);$("#bubble").classList.toggle("speaking",on);$("#dock").classList.toggle("speaking",on);syncCtl()}
 function stopVoice(){if(synth)synth.cancel();if(V.audio){V.audio.pause();V.audio=null}V.paused=false;setSpeaking(false)}
 function speakText(text,audioUrl){

@@ -39,7 +39,7 @@ Every list also has **Order** (sort position) and **IsActive** (untick to hide a
 
 ## Kukua's voiceover
 Narration plays one fixed recording for every visitor; nothing depends on voices installed on the visitor's device.
-The 13 MP3s (neural voice `af_heart`, American female) are in `seed/voice/emily/`, and the provisioning script uploads them to
+The 31 MP3s (every spoken line: messages, stops, section intros, stop panels, featured guides) (neural voice `af_heart`, American female) are in `seed/voice/emily/`, and the provisioning script uploads them to
 `SiteAssets/CorbitX/voice/emily/`: `welcome`, `journeyIntro`, `start`, `finish`, `closing`, `chatGreeting`, `chatFallback`, `stage1` to `stage6`.
 A recording is matched to the on-screen text, so if you reword a line the old recording stops matching: put the new MP3 URL in that item's
 AudioUrl column (or re-record). To use another folder, set the web part's *Voice files folder URL*. If a file is missing the text still shows and Kukua is silent.
