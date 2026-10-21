@@ -572,6 +572,42 @@
    "titleProp": "",
    "titleLabel": "Message",
    "fields": []
+  },
+  {
+   "list": "Readiness Progress",
+   "key": "WORKSTREAMS",
+   "target": "rc",
+   "kind": "workstreams",
+   "titleProp": "",
+   "titleLabel": "Workstream",
+   "fields": [
+    {
+     "n": "Percent",
+     "t": "number"
+    }
+   ]
+  },
+  {
+   "list": "Readiness Figures",
+   "key": "KPIS",
+   "target": "rc",
+   "kind": "kpis",
+   "titleProp": "",
+   "titleLabel": "Label",
+   "fields": [
+    {
+     "n": "Value",
+     "t": "number"
+    },
+    {
+     "n": "Suffix",
+     "t": "text"
+    },
+    {
+     "n": "ShowDays",
+     "t": "bool"
+    }
+   ]
   }
  ]
 }

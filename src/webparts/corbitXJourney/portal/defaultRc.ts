@@ -589,8 +589,56 @@ export const RC_DEFAULTS: any = {
  ],
  "SETTINGS": {
   "GoLive": "2027-02-08T00:00:00+00:00",
-  "CurrentPhase": "1"
+  "CurrentPhase": "1",
+  "AnnouncementTitle": "The Corbit X Staff Guide series is live",
+  "AnnouncementBody": "Six practical guides now cover customer welcomes, account opening during the upgrade, new account numbers, cheques and the Sunday live checks. Read them before your next team huddle.",
+  "AnnouncementDate": "2026-10-19",
+  "FiguresAreIllustrative": "Yes"
  },
+ "WORKSTREAMS": [
+  [
+   "People & Training",
+   68
+  ],
+  [
+   "Processes & Procedures",
+   74
+  ],
+  [
+   "Branch Operations",
+   57
+  ],
+  [
+   "Data Migration",
+   63
+  ],
+  [
+   "Channels & Testing",
+   49
+  ]
+ ],
+ "KPIS": [
+  {
+   "v": 68,
+   "s": "%",
+   "l": "Staff training completed"
+  },
+  {
+   "v": 6,
+   "s": "",
+   "l": "Staff guides published"
+  },
+  {
+   "v": 57,
+   "s": "%",
+   "l": "Branches readiness-checked"
+  },
+  {
+   "v": "days",
+   "s": "",
+   "l": "Days to go-live"
+  }
+ ],
  "DATES": [
   {
    "Title": "Static data freeze begins",

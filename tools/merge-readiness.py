@@ -33,13 +33,24 @@ assert '"kjourney"' in rc_script
 rc_script = sub1(r'CONFIG\.goLiveConfirmed\?"Confirmed go-live date":"Provisional date[^"]*"', '"Expected go-live date"', rc_script)
 rc_script = rc_script.replace('${CONFIG.goLiveConfirmed?"confirmed":"provisional"} go-live date', 'expected go-live date')
 assert 'Provisional date' not in rc_script and '?"confirmed":"provisional"' not in rc_script
-# dashboard (readiness ring, bars, KPIs, announcement card, poster of the week): markup + its script block
+# dashboard: moved into the "Highlights so far" section (no overall-readiness ring). Markup is pulled out of the page flow here
+# and re-inserted right under the highlight numbers; its script stays as is.
 d0, d1 = rc_markup.index('<!-- DASHBOARD -->'), rc_markup.index('<!-- CTA BAND -->')
+dash_html = rc_markup[d0:d1]
 rc_markup = rc_markup[:d0] + rc_markup[d1:]
-j0, j1 = rc_script.index('/* DASHBOARD */'), rc_script.index('/* GALLERY */')
-rc_script = rc_script[:j0] + 'const A=CONFIG.announcement;\n\n' + rc_script[j1:]
-for gone in ('#bars', '#kpis', '#featCard', '#anTitle', 'dashIO', '.ready'):
-    assert gone not in rc_script, gone
+r0 = dash_html.index('<div class="ring-wrap">')
+r1 = dash_html.index('Overall ready</small></div>', r0)
+r1 = dash_html.index('</div>', r1 + len('Overall ready</small></div>')) + 6
+dash_html = dash_html[:r0] + dash_html[r1:]
+assert 'Overall ready' not in dash_html
+dash_html = dash_html.replace('<section class="dash">', '<section class="dash dash-hl" id="dashboard">', 1)
+assert 'dash-hl' in dash_html
+for old in ['const overall=Math.round(CONFIG.workstreams.reduce((a,w)=>a+w[1],0)/CONFIG.workstreams.length);\n',
+            '$("#overall").dataset.to=overall;\n',
+            '  const r=e.target.querySelector("#ringFg");if(r)r.style.strokeDashoffset=502.65*(1-overall/100);\n']:
+    assert old in rc_script, old
+    rc_script = rc_script.replace(old, '')
+assert 'overall' not in rc_script and 'ringFg' not in rc_script
 for label in ('<span class="eyebrow reveal">Corbit X Transformation Programme</span>', '<span class="eyebrow">Poster gallery</span>', '<span class="eyebrow">Coming to Corbit X</span>'):
     assert rc_markup.count(label) == 1, label
     rc_markup = rc_markup.replace(label, '')
@@ -113,12 +124,15 @@ rc_css += """
 @media (prefers-reduced-motion:reduce){.live-badge i,.live-ring{animation:none}.live-card{transition:none}}
 """
 rc_css += """
+.dash.dash-hl{background:#4A4F57;padding:4px 0 100px}
+.dash.dash-hl .ready{grid-template-columns:1fr;padding-bottom:72px}
+.kx #highlights{padding-bottom:40px}
 .cx-reading{outline:3px solid rgba(242,106,27,.55);outline-offset:-5px;transition:outline-color .3s}
-.cx-hear{position:absolute;z-index:6;right:14px;bottom:14px;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:#fff;color:var(--orange-deep);border:1.5px solid var(--orange);font:700 13px var(--body);box-shadow:var(--shadow);cursor:pointer;transition:transform .2s,background .2s}
-.cx-hear:hover{background:var(--orange-soft);transform:translateY(-2px)}
-.cx-hear svg{width:15px;height:15px;flex:none}
-.cx-hear.top{top:92px;bottom:auto;right:20px}
-.cx-hear.sec{top:22px;bottom:auto;right:22px}
+button.cx-hear,.kx button.cx-hear{position:absolute;z-index:6;right:14px;bottom:14px;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:#fff;color:var(--orange-deep);border:1.5px solid var(--orange);font:700 13px var(--body);box-shadow:var(--shadow);cursor:pointer;transition:transform .2s,background .2s}
+button.cx-hear:hover,.kx button.cx-hear:hover{background:var(--orange-soft);transform:translateY(-2px)}
+button.cx-hear svg,.kx button.cx-hear svg{width:15px;height:15px;flex:none}
+button.cx-hear.top,.kx button.cx-hear.top{top:92px;bottom:auto;right:20px}
+button.cx-hear.sec,.kx button.cx-hear.sec{top:22px;bottom:auto;right:22px}
 """
 fonts = re.search(r'<link href="https://fonts.googleapis.com/css2[^>]*>', KJ).group(0)
 rc_head = sub1(r'<link href="https://fonts.googleapis.com/css2[^>]*>', fonts, rc_head)
@@ -153,6 +167,8 @@ hero = sub1(r'<h1 class="display">.*?</h1>', '<h2 class="display"><span class="l
 hero = hero.replace('href="#journey"', 'href="#kjourney"')
 mid = mid.replace('id="journey"', 'id="kjourney"').replace('href="#journey"', 'href="#kjourney"')
 closing = closing.replace('href="#journey"', 'href="#kjourney"')
+j_ = mid.index('<!-- ============ JOURNEY')
+mid_a, mid_b = mid[:j_], mid[j_:]
 k_script = k_script.replace('#journey"', '#kjourney"')
 
 # --- Kukua narration: read the whole page, in order, from the hero
@@ -198,7 +214,7 @@ kx_css = res.stdout
 
 def wrap(js): return '(function(){\n' + js + '\n})();'
 doc = (rc_head + '<style>' + rc_css + '\n/* ===== Kukua (scoped under .kx) ===== */\n' + kx_css + '</style>\n</head>\n<body>'
-       + rc_a + '\n<div class="kx">\n' + hero + mid + '</div>\n' + rc_b
+       + rc_a + '\n<div class="kx">\n' + hero + mid_a + '</div>\n' + dash_html + '\n<div class="kx">\n' + mid_b + '</div>\n' + rc_b
        + '\n<div class="kx">\n' + closing + '</div>\n' + rc_c
        + '\n<div class="kx">\n' + overlays + '</div>\n'
        + voice_script + '\n<script>' + wrap(k_script) + '</script>\n<script>' + wrap(rc_script) + '</script>\n</body>\n</html>\n')
@@ -260,12 +276,12 @@ rsp = swap_const(rsp, 'DATES',
     'const label=d.Fmt==="Week"?fmt(t,{day:"numeric",month:"short"})+" week":d.Fmt==="Full"?fmt(t,{day:"numeric",month:"short",year:"numeric"}):fmt(t,{weekday:"short",day:"numeric",month:"short"});'
     'return [label,d.Title,d.Body,!!d.Big]});')
 m_ = re.search(r'\bconst CONFIG\s*=\s*', rsp); ce = scan_end(rsp, m_.end()); ce += 1 if rsp[ce] == ';' else 0
-rsp = rsp[:ce] + '\nif(RCDATA.SETTINGS){if(RCDATA.SETTINGS.GoLive)CONFIG.goLive=RCDATA.SETTINGS.GoLive;if(RCDATA.SETTINGS.CurrentPhase!==undefined&&RCDATA.SETTINGS.CurrentPhase!=="")CONFIG.currentPhase=Number(RCDATA.SETTINGS.CurrentPhase)}' + rsp[ce:]
+rsp = rsp[:ce] + '\n{const S=RCDATA.SETTINGS||{};if(RCDATA.WORKSTREAMS&&RCDATA.WORKSTREAMS.length)CONFIG.workstreams=RCDATA.WORKSTREAMS;if(RCDATA.KPIS&&RCDATA.KPIS.length)CONFIG.kpis=RCDATA.KPIS;if(S.AnnouncementTitle)CONFIG.announcement.title=S.AnnouncementTitle;if(S.AnnouncementBody)CONFIG.announcement.body=S.AnnouncementBody;if(/^\\d{4}-\\d{2}-\\d{2}/.test(S.AnnouncementDate||""))CONFIG.announcement.date=S.AnnouncementDate.slice(0,10);if(S.FiguresAreIllustrative!==undefined&&S.FiguresAreIllustrative!=="")CONFIG.dataIsIllustrative=/^(yes|true|1)$/i.test(S.FiguresAreIllustrative)}\nif(RCDATA.SETTINGS){if(RCDATA.SETTINGS.GoLive)CONFIG.goLive=RCDATA.SETTINGS.GoLive;if(RCDATA.SETTINGS.CurrentPhase!==undefined&&RCDATA.SETTINGS.CurrentPhase!=="")CONFIG.currentPhase=Number(RCDATA.SETTINGS.CurrentPhase)}' + rsp[ce:]
 m_ = re.search(r'\bconst IMG\s*=\s*', rsp); ie = scan_end(rsp, m_.end()); ie += 1 if rsp[ie] == ';' else 0
 rsp = rsp[:ie] + '\nObject.assign(IMG,RCDATA.IMG||{});' + rsp[ie:]
 
 # ---- markup
-page = '<div class="cxp">' + rc_a + '\n<div class="kx">\n' + hero + mid + '</div>\n' + rc_b + '\n<div class="kx">\n' + closing + '</div>\n' + rc_c + '\n<div class="kx">\n' + overlays + '</div>\n</div>'
+page = '<div class="cxp">' + rc_a + '\n<div class="kx">\n' + hero + mid_a + '</div>\n' + dash_html + '\n<div class="kx">\n' + mid_b + '</div>\n' + rc_b + '\n<div class="kx">\n' + closing + '</div>\n' + rc_c + '\n<div class="kx">\n' + overlays + '</div>\n</div>'
 page = tok(page)
 
 # ---- css, scoped under .cxp

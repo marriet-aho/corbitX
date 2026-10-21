@@ -305,7 +305,8 @@ function audioNameFor(text){
 
 const RCD=()=>window.CXJ_RC||{};
 function segs(){
-  const r=RCD(),P=r.POSTERS||[],out=[];
+  const r=RCD(),C=r.CONFIG||{},P=r.POSTERS||[],out=[];
+  const catName=id=>((r.CATS||[]).find(c=>c.id===id)||{}).name||"";
   let G=null;
   const group=(id,anchor,btn,card)=>{G={id,anchor,btn:btn!==false,card:!!card}};
   const add=(cap,sel,texts,pre,alts)=>out.push({cap,sel,texts,pre,alts,grp:G.id,anchor:G.anchor,btn:G.btn,card:G.card});
@@ -326,6 +327,14 @@ function segs(){
   group("highlights","#highlights");
   const hl=(LISTS.Highlights||[]).map(g=>g.Group+": "+g.Items.map(i=>N(i.Value)+(i.Suffix==="+"?" plus":i.Suffix==="%"?" percent":i.Suffix||"")+" "+i.Label).join("; ")+".").join(" ");
   add("Highlights so far","#highlights",[intro("highlights"),"Highlights so far. "+hl]);
+  group("readiness",".dash .ready",true,true);
+  const kp=((C.kpis)||[]).map(k=>k.v==="days"?"The dashboard also shows the number of days left to go-live.":k.l+": "+k.v+(k.s==="%"?" percent":"")+".").join(" ");
+  add("Readiness dashboard",".dash .ready",["Here is the readiness dashboard. "+(C.workstreams||[]).map(w=>w[0]+", "+w[1]+" percent.").join(" ")+" "+kp+(C.dataIsIllustrative?" These figures are illustrative until they come from the programme tracker.":"")]);
+  group("announce",".annc",true,true);
+  if(C.announcement)add("Latest announcement",".annc",["Latest announcement. "+C.announcement.title+". "+C.announcement.body]);
+  group("potw","#featCard",true,true);
+  const potw=p=>"Poster of the week. "+p.title+". "+p.short+" "+catName(p.cat)+".";
+  add("Poster of the week","#featCard",[document.getElementById("featTitle")?"Poster of the week. "+document.getElementById("featTitle").textContent+". "+document.getElementById("featText").textContent:""],null,P.map(p=>[potw(p)]));
   group("journey","#kjourney");
   add("Kukua's journey","#kjourney",[msg("journeyIntro").Text]);
   add("Start of the journey","#kjourney",[msg("start").Text],()=>goTo(0));
@@ -495,6 +504,7 @@ const CONFIG = {
     date: "2026-10-19"
   }
 };
+{const S=RCDATA.SETTINGS||{};if(RCDATA.WORKSTREAMS&&RCDATA.WORKSTREAMS.length)CONFIG.workstreams=RCDATA.WORKSTREAMS;if(RCDATA.KPIS&&RCDATA.KPIS.length)CONFIG.kpis=RCDATA.KPIS;if(S.AnnouncementTitle)CONFIG.announcement.title=S.AnnouncementTitle;if(S.AnnouncementBody)CONFIG.announcement.body=S.AnnouncementBody;if(/^\d{4}-\d{2}-\d{2}/.test(S.AnnouncementDate||""))CONFIG.announcement.date=S.AnnouncementDate.slice(0,10);if(S.FiguresAreIllustrative!==undefined&&S.FiguresAreIllustrative!=="")CONFIG.dataIsIllustrative=/^(yes|true|1)$/i.test(S.FiguresAreIllustrative)}
 if(RCDATA.SETTINGS){if(RCDATA.SETTINGS.GoLive)CONFIG.goLive=RCDATA.SETTINGS.GoLive;if(RCDATA.SETTINGS.CurrentPhase!==undefined&&RCDATA.SETTINGS.CurrentPhase!=="")CONFIG.currentPhase=Number(RCDATA.SETTINGS.CurrentPhase)}
 /* ================================================================ */
 
@@ -563,7 +573,26 @@ $("#cdDateNote").textContent="Expected go-live date";
 tickCd();setInterval(tickCd,1000);
 const daysToGo=Math.max(0,Math.floor((GO-new Date())/864e5));
 
-const A=CONFIG.announcement;
+/* DASHBOARD */
+if(!CONFIG.dataIsIllustrative){$("#dataTag").textContent="Live programme data";$("#dataTag").classList.add("or")}
+$("#bars").innerHTML=CONFIG.workstreams.map(([n,v])=>`<div class="bar-row"><div class="bar-top"><span>${n}</span><span><span class="count" data-to="${v}">0</span>%</span></div><div class="bar"><i data-w="${v}"></i></div></div>`).join("");
+$("#kpis").innerHTML=CONFIG.kpis.map(k=>{const v=k.v==="days"?daysToGo:k.v;return `<div class="kpi"><b><span class="count" data-to="${v}">0</span><span class="u">${k.s}</span></b><small>${k.l}</small></div>`}).join("");
+const A=CONFIG.announcement;$("#anTitle").textContent=A.title;$("#anBody").textContent=A.body;$("#anDate").textContent=fmt(new Date(A.date+"T12:00:00"));
+
+function countUp(el){const to=+el.dataset.to,dur=1600,t0=performance.now();
+  const step=t=>{const p=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-p,3);el.textContent=Math.round(to*e).toLocaleString();if(p<1)requestAnimationFrame(step)};requestAnimationFrame(step)}
+const dashIO=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;dashIO.unobserve(e.target);
+  e.target.querySelectorAll(".count").forEach(countUp);
+  e.target.querySelectorAll(".bar i").forEach(b=>b.style.width=b.dataset.w+"%");
+}),{threshold:.3});
+dashIO.observe(document.querySelector(".ready"));
+
+/* FEATURED POSTER OF THE WEEK — rotates weekly */
+const wk=Math.floor((Date.now()/864e5+3)/7);
+const feat=POSTERS[wk%POSTERS.length];
+$("#featImg").src=IMG[feat.id];$("#featImg").alt=feat.title;$("#featTitle").textContent=feat.title;$("#featText").textContent=feat.short+" "+catName(feat.cat)+".";
+$("#featCard").addEventListener("click",()=>openLb(POSTERS.indexOf(feat)));
+$("#featCard").addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();openLb(POSTERS.indexOf(feat))}});
 
 /* GALLERY */
 const ASIDE=`<div class="aside reveal"><span class="eyebrow">At a glance</span><h4>Go-live weekend<br>& the week after</h4>

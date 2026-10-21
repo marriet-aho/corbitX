@@ -28,6 +28,38 @@
   "say": "Highlights so far. No. of Staff: 2,500 plus Staff bank-wide; 94 percent Project completion rate. Staff Engagement: 30 plus Champions across the bank; 2 Bank-wide roadshows. Business Simulation: 3 Business simulations; 68 percent Staff confidence."
  },
  {
+  "name": "td9b43419",
+  "say": "Here is the readiness dashboard. People and Training, 68 percent. Processes and Procedures, 74 percent. Branch Operations, 57 percent. Data Migration, 63 percent. Channels and Testing, 49 percent. Staff training completed: 68 percent. Staff guides published: 6. Branches readiness-checked: 57 percent. The dashboard also shows the number of days left to go-live. These figures are illustrative until they come from the programme tracker."
+ },
+ {
+  "name": "tecf5551b",
+  "say": "Latest announcement. The Corbit X Staff Guide series is live. Six practical guides now cover customer welcomes, account opening during the upgrade, new account numbers, cheques and the Sunday live checks. Read them before your next team huddle."
+ },
+ {
+  "name": "tdbfd1d5a",
+  "say": "Poster of the week. New System. Same Warm Welcome. On go-live day, let your smile lead. Customer Experience."
+ },
+ {
+  "name": "t83056e73",
+  "say": "Poster of the week. Keep the Welcome. Start the Process. Account opening during the upgrade. Customer Experience."
+ },
+ {
+  "name": "ta227fcf7",
+  "say": "Poster of the week. Old Number? We Can Help!. Help customers find their new account number. Account and Chequebook Transition."
+ },
+ {
+  "name": "t14409eae",
+  "say": "Poster of the week. New Chapter. New Chequebook. Cheques with old account numbers. Account and Chequebook Transition."
+ },
+ {
+  "name": "ta7dc00b9",
+  "say": "Poster of the week. Older Chequebook? Find a Way Forward. Support customers with affected chequebooks. Account and Chequebook Transition."
+ },
+ {
+  "name": "tfafadd83",
+  "say": "Poster of the week. Sunday Checks. Monday Confidence. Live checks before go-live. Go-Live Operations."
+ },
+ {
   "name": "journeyIntro",
   "say": "Six stops, six guides. Use the arrows or swipe, and I'll tell you what each one is about."
  },
@@ -104,6 +136,10 @@
   "say": "What's in it for staff. Data Access: today, Screen-hopping; with Corbit X, Full 360 degree view in one screen. The gain: Faster and better service. Processing: today, Manual; with Corbit X, Automated. The gain: Less mundane work. Role Focus: today, Transaction processing; with Corbit X, Advisory and sales. The gain: A higher-value role. System Interface: today, Complex / static; with Corbit X, Modern / responsive. The gain: A better user experience."
  },
  {
+  "name": "tf593bd7a",
+  "say": "A little something for today. Share the new account number at every interaction."
+ },
+ {
   "name": "t3b0c78a9",
   "say": "A little something for today. Stay curious. Every guide brings us one step closer to Corbit X."
  },
@@ -122,10 +158,6 @@
  {
   "name": "taffe3d24",
   "say": "A little something for today. Not sure? Pause and check before you answer."
- },
- {
-  "name": "tf593bd7a",
-  "say": "A little something for today. Share the new account number at every interaction."
  },
  {
   "name": "t263bea50",

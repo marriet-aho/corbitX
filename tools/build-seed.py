@@ -33,7 +33,9 @@ for d in schema['lists']:
 # ---------- Readiness Centre lists
 RC = json.load(open(os.path.join(ROOT, 'seed/rc-defaults.json')))
 def addrc(name, rows): seed[name] = [dict(r, Order=i + 1, IsActive=True) for i, r in enumerate(rows)]
-addrc('Page Settings', [{'Title': 'GoLive', 'Value': RC['SETTINGS']['GoLive']}, {'Title': 'CurrentPhase', 'Value': RC['SETTINGS']['CurrentPhase']}])
+addrc('Page Settings', [{'Title': k, 'Value': v} for k, v in RC['SETTINGS'].items()])
+addrc('Readiness Progress', [{'Title': w[0], 'Percent': w[1]} for w in RC['WORKSTREAMS']])
+addrc('Readiness Figures', [{'Title': k['l'], 'Value': 0 if k['v'] == 'days' else k['v'], 'Suffix': k['s'], 'ShowDays': k['v'] == 'days'} for k in RC['KPIS']])
 addrc('Guide Categories', [{'Title': c['name'], 'CatId': c['id'], 'Description': c['desc']} for c in RC['CATS']])
 addrc('Staff Guides', [{'Title': p['title'], 'PosterId': p['id'], 'CatId': p['cat'], 'Short': p['short'], 'Intro': p['intro'], 'Steps': '\n'.join(a + ' | ' + b for a, b in p['steps']), 'Key': p.get('key', ''), 'Say': p.get('say', ''), 'Note': p.get('note', '')} for p in RC['POSTERS']])
 addrc('Programme Phases', [{'Title': p['n'], 'Icon': p['ic'], 'When': p['when'], 'Description': p['d'], 'Focus': '\n'.join(p['f']), 'Materials': '\n'.join(a + ' | ' + b for a, b in p['m'])} for p in RC['PHASES']])

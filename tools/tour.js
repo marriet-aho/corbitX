@@ -20,7 +20,8 @@ function audioNameFor(text){
 
 const RCD=()=>window.CXJ_RC||{};
 function segs(){
-  const r=RCD(),P=r.POSTERS||[],out=[];
+  const r=RCD(),C=r.CONFIG||{},P=r.POSTERS||[],out=[];
+  const catName=id=>((r.CATS||[]).find(c=>c.id===id)||{}).name||"";
   let G=null;
   const group=(id,anchor,btn,card)=>{G={id,anchor,btn:btn!==false,card:!!card}};
   const add=(cap,sel,texts,pre,alts)=>out.push({cap,sel,texts,pre,alts,grp:G.id,anchor:G.anchor,btn:G.btn,card:G.card});
@@ -41,6 +42,14 @@ function segs(){
   group("highlights","#highlights");
   const hl=(LISTS.Highlights||[]).map(g=>g.Group+": "+g.Items.map(i=>N(i.Value)+(i.Suffix==="+"?" plus":i.Suffix==="%"?" percent":i.Suffix||"")+" "+i.Label).join("; ")+".").join(" ");
   add("Highlights so far","#highlights",[intro("highlights"),"Highlights so far. "+hl]);
+  group("readiness",".dash .ready",true,true);
+  const kp=((C.kpis)||[]).map(k=>k.v==="days"?"The dashboard also shows the number of days left to go-live.":k.l+": "+k.v+(k.s==="%"?" percent":"")+".").join(" ");
+  add("Readiness dashboard",".dash .ready",["Here is the readiness dashboard. "+(C.workstreams||[]).map(w=>w[0]+", "+w[1]+" percent.").join(" ")+" "+kp+(C.dataIsIllustrative?" These figures are illustrative until they come from the programme tracker.":"")]);
+  group("announce",".annc",true,true);
+  if(C.announcement)add("Latest announcement",".annc",["Latest announcement. "+C.announcement.title+". "+C.announcement.body]);
+  group("potw","#featCard",true,true);
+  const potw=p=>"Poster of the week. "+p.title+". "+p.short+" "+catName(p.cat)+".";
+  add("Poster of the week","#featCard",[document.getElementById("featTitle")?"Poster of the week. "+document.getElementById("featTitle").textContent+". "+document.getElementById("featText").textContent:""],null,P.map(p=>[potw(p)]));
   group("journey","#kjourney");
   add("Kukua's journey","#kjourney",[msg("journeyIntro").Text]);
   add("Start of the journey","#kjourney",[msg("start").Text],()=>goTo(0));

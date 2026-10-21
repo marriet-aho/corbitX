@@ -86,6 +86,8 @@ export async function loadContent(http: SPHttpClient, webUrl: string): Promise<I
           const f = def.fields.filter(x => x.n === c)[0]; return f ? coerce(f, r[c]) : text(r[c]);
         }));
         break;
+      case 'workstreams': out.WORKSTREAMS = rows.map(r => [text(r.Title), num(r.Percent)]); break;
+      case 'kpis': out.KPIS = rows.map(r => ({ v: r.ShowDays === true ? 'days' : num(r.Value), s: text(r.Suffix), l: text(r.Title) })); break;
       case 'qrc':
         out[def.key] = rows.map(r => [text(r.Title), lines(r.Items).map(l => (l.charAt(0) === '-' ? ['x', l.slice(1).trim()] : ['tick', l.replace(/^\+/, '').trim()]))]);
         break;
