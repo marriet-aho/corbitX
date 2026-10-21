@@ -7,6 +7,12 @@ const path = require('path'), fs = require('fs');
   const errs = []; p.on('pageerror', e => errs.push(e.message));
   await p.goto('file://' + path.resolve(__dirname, '../preview/Corbit_X_Readiness_Centre_Kukua.html'));
   await p.waitForTimeout(1500);
+  await p.evaluate(() => {
+    const r = window.CXJ_RC; window.CXJ_HOVER_COLLECT();
+    (r.HUB || []).forEach(h => { r.showHub(h.id); window.CXJ_HOVER_COLLECT(); });
+    (r.PHASES || []).forEach((_, i) => { r.showPhase(i); window.CXJ_HOVER_COLLECT(); });
+    r.showHub('faq'); r.showPhase(r.CONFIG.currentPhase);
+  });
   const clips = await p.evaluate(() => window.CXJ_CLIPS());
   fs.writeFileSync(path.resolve(__dirname, '../preview/voice/clips.json'), JSON.stringify(clips, null, 1));
   const words = clips.reduce((n, c) => n + c.say.split(/\s+/).length, 0);

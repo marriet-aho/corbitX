@@ -1,7 +1,7 @@
 <#
  Sets up everything behind the Corbit X Readiness Centre web part, and locks it so ONLY OWNERS CAN EDIT.
    - creates 25 lists (columns included) and fills them with the current content
-   - uploads the 6 posters and the 83 voice clips to SiteAssets/CorbitX
+   - uploads the 6 posters and the 205 voice clips to SiteAssets/CorbitX
    - gives the site Owners Full Control and everyone else Read-only on every list and on the assets folder
 
  Needs PnP.PowerShell (Install-Module PnP.PowerShell) and Site Owner rights.

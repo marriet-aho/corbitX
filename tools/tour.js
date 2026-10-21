@@ -110,6 +110,7 @@ window.CXJ_STATE=()=>({muted:V.muted,enabled:V.enabled,follow:V.follow,view:V.cu
 window.CXJ_SAY=function(t){cancelTour();V.enabled=true;V.muted=false;narrate(t,audioFor(t),true)};
 window.CXJ_CLIPS=function(){
   const seen={},list=[];
+  Object.keys(window.CXJ_HOVER_SEEN||{}).forEach(t=>{const n=audioNameFor(t);if(!seen[n]){seen[n]=1;list.push({name:n,say:sp(t)})}});
   {const n=audioNameFor(window.CXJ_LIVE_TEXT);seen[n]=1;list.push({name:n,say:sp(window.CXJ_LIVE_TEXT)})}
   segs().forEach(s=>[s.texts].concat(s.alts?s.alts:[]).forEach(arr=>arr.forEach(t=>{if(!t)return;const n=audioNameFor(t);if(!seen[n]){seen[n]=1;list.push({name:n,say:(LISTS.KukuaMessages.some(x=>x.Text===t)||STAGES.some(x=>x.KukuaSays===t))?t:sp(t)})}})));
   return list;
@@ -195,6 +196,46 @@ function jumpSection(dir){
   if(e)e.scrollIntoView({behavior:reduced?"auto":"smooth",block:"start"});
   readGroup(ids[t].id);
 }
+
+/* ===================== HOVER TO HEAR =====================
+   With a mouse, resting the pointer on an item for a moment makes Kukua read it (her recorded voice). Only while her voice is on. */
+const HOVER_SEL=".nav-links a,a.btn,button.btn,.hub-tab,.filter,.phase,.node,button.poster,.mat,a.vt,#hubPanel summary,.kpi,.bar-row,.cap,.contact,.qrc,.upd,.dt-row,.cc,.sc,.ns,.news-item,.annc,.stop";
+const HOVER_SKIP="#dock,#chat,.live-pop,.lb,#viewer,#drawer,#ov,.cx-hear,.hearbtn,.listen,[data-play],[data-mute],#highlights";
+function hoverTarget(n){const t=n&&n.closest?n.closest(HOVER_SEL):null;return t&&!t.closest(HOVER_SKIP)?t:null}
+function hoverText(el){
+  const parts=[];
+  const w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT,{acceptNode:n=>{const p=n.parentElement;
+    if(!p||p.closest('.cx-hear,.hearbtn,.listen,.stop-btns,svg,[aria-hidden="true"],script,style'))return NodeFilter.FILTER_REJECT;
+    return n.nodeValue.trim()?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_REJECT}});
+  while(w.nextNode()){
+    const n=w.currentNode,p=n.parentElement;let t=n.nodeValue.replace(/\s+/g," ").trim();
+    const counter=p&&p.hasAttribute("data-to");
+    if(counter)t=Number(p.getAttribute("data-to")).toLocaleString("en");
+    else if(/^[\d\s·.\/]+$/.test(t))continue;                       // list numbers such as "01 ·"
+    if(/^[%+]$/.test(t)&&parts.length){parts[parts.length-1]+=t;continue}
+    parts.push(t);
+  }
+  return parts.reduce((a,t)=>a+(a?(/[.!?:]$/.test(a)?" ":". "):"")+t,"").replace(/\s+/g," ").trim();
+}
+const hoverOk=t=>t.length>=3&&t.length<=320;
+window.CXJ_HOVER_SEEN={};
+window.CXJ_HOVER_COLLECT=function(){document.querySelectorAll(HOVER_SEL).forEach(el=>{if(!hoverTarget(el))return;const t=hoverText(el);if(hoverOk(t))window.CXJ_HOVER_SEEN[t]=1})};
+function initHover(){
+  if(initHover.done||!window.matchMedia||!matchMedia("(hover:hover)").matches)return;initHover.done=true;
+  let cur=null,timer=null,last=new WeakMap();
+  document.addEventListener("pointerover",e=>{
+    if(e.pointerType&&e.pointerType!=="mouse")return;
+    const t=hoverTarget(e.target);if(t===cur)return;
+    clearTimeout(timer);cur=t;if(!t)return;
+    timer=setTimeout(()=>{
+      if(cur!==t||!V.enabled||V.muted||!t.isConnected||!t.matches(":hover"))return;
+      const now=performance.now();if(last.get(t)&&now-last.get(t)<5000)return;last.set(t,now);
+      const text=hoverText(t);if(!hoverOk(text))return;
+      playList([{cap:text.length>70?text.slice(0,67)+"…":text,sel:()=>t,texts:[text],grp:"hover"}],{noPre:true,quiet:true});
+    },550);
+  },true);
+  document.addEventListener("pointerout",e=>{if(cur&&!(e.relatedTarget&&cur.contains(e.relatedTarget))){clearTimeout(timer);cur=null}},true);
+}
 /* "Hear this section" buttons, and previous/next in the player */
 function setupSectionControls(){
   const HEAR='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/></svg>';
@@ -254,5 +295,5 @@ function autoVoice(){
   V.enabled=true;V.follow=true;V.touredOnce=true;
   setTimeout(()=>{if(V.enabled&&!V.muted)begin()},700);
 }
-window.CXJ_SETUP=function(){setupSectionControls();autoVoice()};
+window.CXJ_SETUP=function(){setupSectionControls();autoVoice();initHover()};
 window.addEventListener("load",window.CXJ_SETUP);

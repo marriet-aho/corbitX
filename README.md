@@ -8,7 +8,7 @@ lists are locked so only owners can edit them.**
 1. **Install the app.** Upload `package/corbit-x-journey.sppkg` to the App Catalog, Deploy, then add **Corbit X Journey** to your site (Site contents > New > App).
 2. **Create and lock the content.** In PowerShell with PnP.PowerShell installed:
    `.\seed\Provision-CorbitXPortal.ps1 -SiteUrl https://<tenant>.sharepoint.com/sites/<site> -OwnerEmail you@yourbank.com`
-   This creates 25 lists, fills them with the current content, uploads the 6 posters and 83 voice clips to `SiteAssets/CorbitX`, and makes
+   This creates 25 lists, fills them with the current content, uploads the 6 posters and 205 voice clips to `SiteAssets/CorbitX`, and makes
    **Owners = Full Control, everyone else = Read-only** on every list and on that folder. (`-SkipLock` skips the locking.)
 3. **Add it to a page.** Edit a page, add a **full-width section** (or one-column), add the **Corbit X Journey** web part, Publish.
 4. **Lock the page itself.** Site Pages > the page > Manage access > Stop inheriting permissions, then give Owners Edit and everyone else Read, so only owners can change the page layout.
@@ -46,7 +46,7 @@ If a visitor mutes Kukua, the browser remembers it and she stays quiet on their 
 When the countdown reaches zero a full-screen **"We are live!"** pop-up appears (confetti, Kukua, her voice) once per visitor. To preview it, add `?cxlive` to the page address.
 
 ## Kukua's voice
-Kukua reads each section **when the visitor gets to it** (once per section; she stops if they scroll on). Every section also has a **Hear this section** button that reads all of it, and her player has previous/next section buttons. Timeline phases, Knowledge Hub tabs and FAQs are read when opened.
+Kukua reads each section **when the visitor gets to it** (once per section; she stops if they scroll on). Every section also has a **Hear this section** button that reads all of it, and her player has previous/next section buttons. Timeline phases, Knowledge Hub tabs and FAQs are read when opened. **With a mouse, resting the pointer on an item** (menu items, cards, figure tiles, buttons, tabs, timeline phases and so on) for half a second makes Kukua read it; she stops if the pointer moves away, and stays quiet if she is muted.
 The voice is a set of pre-recorded clips in `SiteAssets/CorbitX/voice/emily/`, matched to the **exact on-screen wording**.
 If you reword something, that line has no recording and Kukua skips it silently (the text still shows). To get new recordings, re-run
 `node tools/list-clips.js && python3 tools/make-page-voice.py` (needs kokoro-onnx, see the script), or ask for them to be re-recorded.
