@@ -10,8 +10,7 @@ const path = require('path'), fs = require('fs');
   const dates = [ // label/format and offset for each key date (offsets are from the go-live date)
     { Days: -7, Months: 0, Fmt: 'Week' }, { Days: -1, Months: 0, Fmt: 'Day' }, { Days: 0, Months: 0, Fmt: 'Day' }, { Days: 3, Months: 0, Fmt: 'Day' }, { Days: 0, Months: 6, Fmt: 'Full' }];
   const out = { CATS: d.CATS, POSTERS: d.POSTERS, PHASES: d.PHASES, CAPS: d.CAPS, FAQS: d.FAQS, VIDEOS: d.VIDEOS, QRC: d.QRC, UPDATES: d.UPDATES, CONTACTS: d.CONTACTS, mq: d.mq,
-    SETTINGS: { GoLive: d.CONFIG.goLive, CurrentPhase: String(d.CONFIG.currentPhase), AnnouncementTitle: d.CONFIG.announcement.title, AnnouncementBody: d.CONFIG.announcement.body, AnnouncementDate: d.CONFIG.announcement.date, FiguresAreIllustrative: d.CONFIG.dataIsIllustrative ? 'Yes' : 'No' },
-    WORKSTREAMS: d.CONFIG.workstreams, KPIS: d.CONFIG.kpis,
+    SETTINGS: { GoLive: d.CONFIG.goLive, CurrentPhase: String(d.CONFIG.currentPhase), AnnouncementTitle: d.CONFIG.announcement.title, AnnouncementBody: d.CONFIG.announcement.body, AnnouncementDate: d.CONFIG.announcement.date },
     DATES: d.DATES.map((x, i) => Object.assign({ Title: x[1], Body: x[2], Big: !!x[3] }, dates[i])) };
   fs.writeFileSync(path.resolve(__dirname, '../seed/rc-defaults.json'), JSON.stringify(out, null, 1));
   console.log('rc defaults:', Object.keys(out).map(k => k + ':' + (Array.isArray(out[k]) ? out[k].length : 'obj')).join(' '));

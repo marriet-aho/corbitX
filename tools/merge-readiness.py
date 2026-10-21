@@ -55,6 +55,15 @@ assert 'overall' not in rc_script and 'ringFg' not in rc_script
 c0, c1 = rc_markup.index('<!-- CTA BAND -->'), rc_markup.index('<!-- GALLERY -->')
 rc_markup = rc_markup[:c0] + rc_markup[c1:]
 assert 'One Platform' not in rc_markup
+# the dashboard is built from the "Highlights so far" information (Kukua's Highlights list) instead of invented figures
+for old in ['if(!CONFIG.dataIsIllustrative){$("#dataTag").textContent="Live programme data";$("#dataTag").classList.add("or")}\n']:
+    assert old in rc_script; rc_script = rc_script.replace(old, '$("#dataTag").textContent="Programme highlights";$("#dataTag").classList.add("or");\n')
+b0 = rc_script.index('$("#bars").innerHTML=')
+b1 = rc_script.index('const A=CONFIG.announcement;')
+rc_script = rc_script[:b0] + r"""const hlItems=[];(window.CXJ_HL||[]).forEach(g=>g.Items.forEach(i=>hlItems.push(i)));
+$("#bars").innerHTML=hlItems.filter(i=>i.Bar).map(i=>`<div class="bar-row"><div class="bar-top"><span>${i.Label}</span><span><span class="count" data-to="${i.Value}">0</span>${i.Suffix||"%"}</span></div><div class="bar"><i data-w="${Math.min(100,i.Value)}"></i></div></div>`).join("");
+$("#kpis").innerHTML=hlItems.filter(i=>!i.Bar).map(i=>`<div class="kpi"><b><span class="count" data-to="${i.Value}">0</span><span class="u">${i.Suffix||""}</span></b><small>${i.Label}</small></div>`).join("");
+""" + rc_script[b1:]
 for label in ('<span class="eyebrow reveal">Corbit X Transformation Programme</span>', '<span class="eyebrow">Poster gallery</span>', '<span class="eyebrow">Coming to Corbit X</span>'):
     assert rc_markup.count(label) == 1, label
     rc_markup = rc_markup.replace(label, '')
@@ -129,8 +138,9 @@ rc_css += """
 """
 rc_css += """
 .dash.dash-hl{background:#4A4F57;padding:4px 0 100px}
-.dash.dash-hl .ready{grid-template-columns:1fr;padding-bottom:72px}
-.kx #highlights{padding-bottom:40px}
+.dash.dash-hl .ready{grid-template-columns:1fr}
+.kx #highlights{padding-bottom:28px}
+.kx #hlGrid{display:none}
 .cx-reading{outline:3px solid rgba(242,106,27,.55);outline-offset:-5px;transition:outline-color .3s}
 button.cx-hear,.kx button.cx-hear{position:absolute;z-index:6;right:14px;bottom:14px;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:#fff;color:var(--orange-deep);border:1.5px solid var(--orange);font:700 13px var(--body);box-shadow:var(--shadow);cursor:pointer;transition:transform .2s,background .2s}
 button.cx-hear:hover,.kx button.cx-hear:hover{background:var(--orange-soft);transform:translateY(-2px)}
@@ -181,6 +191,7 @@ def patch(old, new):
     assert k_script.count(old) == 1, old[:60]
     k_script = k_script.replace(old, new)
 patch('const a=new Audio(audioUrl);V.audio=a;', 'const a=V.el||(V.el=new Audio());a.onended=a.onerror=a.onplay=null;a.pause();a.src=audioUrl;V.audio=a;')
+patch('const POSTERS = {', 'window.CXJ_HL=LISTS.Highlights;\nconst POSTERS = {')
 patch('V.paused=false;setSpeaking(false)}', 'V.paused=false;V.after=null;setSpeaking(false)}')
 patch('a.onplay=()=>setSpeaking(true);a.onended=()=>setSpeaking(false);a.onerror=()=>setSpeaking(false);\n  a.play().catch(()=>setSpeaking(false));',
       'const fin=()=>{setSpeaking(false);const f=V.after;V.after=null;if(f)f()};\n  a.onplay=()=>setSpeaking(true);a.onended=fin;a.onerror=fin;\n  a.play().catch(e=>{setSpeaking(false);if(e&&e.name==="NotAllowedError")cancelTour()});')
@@ -264,7 +275,7 @@ def swap_const(src, name, new):
 # ---- Kukua script (content now comes from the LISTS argument)
 ksp = k_script
 a0, a1 = ksp.index('const LISTS = {'), ksp.index('const POSTERS = {')
-ksp = ksp[:a0] + ksp[a1:]
+ksp = ksp[:a0] + 'window.CXJ_HL=LISTS.Highlights;\n' + ksp[a1:]
 ksp = ksp.replace('const KHEAD=', 'Object.keys(POSTER_OVERRIDES||{}).forEach(k=>{const o=POSTER_OVERRIDES[k];if(POSTERS[k]&&o){if(o.title)POSTERS[k].title=o.title;if(o.img)POSTERS[k].img=o.img}});\nconst KHEAD=', 1)
 assert 'const VOICE_BASE="voice/emily/";' in ksp
 ksp = ksp.replace('const VOICE_BASE="voice/emily/";', 'const VOICE_BASE=(OPTS&&OPTS.voiceBase)||"voice/emily/";', 1)
@@ -280,7 +291,7 @@ rsp = swap_const(rsp, 'DATES',
     'const label=d.Fmt==="Week"?fmt(t,{day:"numeric",month:"short"})+" week":d.Fmt==="Full"?fmt(t,{day:"numeric",month:"short",year:"numeric"}):fmt(t,{weekday:"short",day:"numeric",month:"short"});'
     'return [label,d.Title,d.Body,!!d.Big]});')
 m_ = re.search(r'\bconst CONFIG\s*=\s*', rsp); ce = scan_end(rsp, m_.end()); ce += 1 if rsp[ce] == ';' else 0
-rsp = rsp[:ce] + '\n{const S=RCDATA.SETTINGS||{};if(RCDATA.WORKSTREAMS&&RCDATA.WORKSTREAMS.length)CONFIG.workstreams=RCDATA.WORKSTREAMS;if(RCDATA.KPIS&&RCDATA.KPIS.length)CONFIG.kpis=RCDATA.KPIS;if(S.AnnouncementTitle)CONFIG.announcement.title=S.AnnouncementTitle;if(S.AnnouncementBody)CONFIG.announcement.body=S.AnnouncementBody;if(/^\\d{4}-\\d{2}-\\d{2}/.test(S.AnnouncementDate||""))CONFIG.announcement.date=S.AnnouncementDate.slice(0,10);if(S.FiguresAreIllustrative!==undefined&&S.FiguresAreIllustrative!=="")CONFIG.dataIsIllustrative=/^(yes|true|1)$/i.test(S.FiguresAreIllustrative)}\nif(RCDATA.SETTINGS){if(RCDATA.SETTINGS.GoLive)CONFIG.goLive=RCDATA.SETTINGS.GoLive;if(RCDATA.SETTINGS.CurrentPhase!==undefined&&RCDATA.SETTINGS.CurrentPhase!=="")CONFIG.currentPhase=Number(RCDATA.SETTINGS.CurrentPhase)}' + rsp[ce:]
+rsp = rsp[:ce] + '\n{const S=RCDATA.SETTINGS||{};if(S.AnnouncementTitle)CONFIG.announcement.title=S.AnnouncementTitle;if(S.AnnouncementBody)CONFIG.announcement.body=S.AnnouncementBody;if(/^\\d{4}-\\d{2}-\\d{2}/.test(S.AnnouncementDate||""))CONFIG.announcement.date=S.AnnouncementDate.slice(0,10);if(S.FiguresAreIllustrative!==undefined&&S.FiguresAreIllustrative!=="")CONFIG.dataIsIllustrative=/^(yes|true|1)$/i.test(S.FiguresAreIllustrative)}\nif(RCDATA.SETTINGS){if(RCDATA.SETTINGS.GoLive)CONFIG.goLive=RCDATA.SETTINGS.GoLive;if(RCDATA.SETTINGS.CurrentPhase!==undefined&&RCDATA.SETTINGS.CurrentPhase!=="")CONFIG.currentPhase=Number(RCDATA.SETTINGS.CurrentPhase)}' + rsp[ce:]
 m_ = re.search(r'\bconst IMG\s*=\s*', rsp); ie = scan_end(rsp, m_.end()); ie += 1 if rsp[ie] == ';' else 0
 rsp = rsp[:ie] + '\nObject.assign(IMG,RCDATA.IMG||{});' + rsp[ie:]
 

@@ -9,6 +9,7 @@ export function runPortal(LISTS: any, RCDATA: any, POSTER_OVERRIDES: any, __A: s
    In the SPFx build these arrays are loaded with PnPjs; business users
    edit the lists, not this code.
    ===================================================================== */
+window.CXJ_HL=LISTS.Highlights;
 const POSTERS = {
   p1:{title:"New System. Same Warm Welcome.", img:__A[0]},
   p2:{title:"Keep the Welcome. Start the Process.", img:__A[1]},
@@ -325,9 +326,6 @@ function segs(){
   group("highlights","#highlights");
   const hl=(LISTS.Highlights||[]).map(g=>g.Group+": "+g.Items.map(i=>N(i.Value)+(i.Suffix==="+"?" plus":i.Suffix==="%"?" percent":i.Suffix||"")+" "+i.Label).join("; ")+".").join(" ");
   add("Highlights so far","#highlights",[intro("highlights"),"Highlights so far. "+hl]);
-  group("readiness",".dash .ready",true,true);
-  const kp=((C.kpis)||[]).map(k=>k.v==="days"?"The dashboard also shows the number of days left to go-live.":k.l+": "+k.v+(k.s==="%"?" percent":"")+".").join(" ");
-  add("Readiness dashboard",".dash .ready",["Here is the readiness dashboard. "+(C.workstreams||[]).map(w=>w[0]+", "+w[1]+" percent.").join(" ")+" "+kp+(C.dataIsIllustrative?" These figures are illustrative until they come from the programme tracker.":"")]);
   group("announce",".annc",true,true);
   if(C.announcement)add("Latest announcement",".annc",["Latest announcement. "+C.announcement.title+". "+C.announcement.body]);
   group("potw","#featCard",true,true);
@@ -502,7 +500,7 @@ const CONFIG = {
     date: "2026-10-19"
   }
 };
-{const S=RCDATA.SETTINGS||{};if(RCDATA.WORKSTREAMS&&RCDATA.WORKSTREAMS.length)CONFIG.workstreams=RCDATA.WORKSTREAMS;if(RCDATA.KPIS&&RCDATA.KPIS.length)CONFIG.kpis=RCDATA.KPIS;if(S.AnnouncementTitle)CONFIG.announcement.title=S.AnnouncementTitle;if(S.AnnouncementBody)CONFIG.announcement.body=S.AnnouncementBody;if(/^\d{4}-\d{2}-\d{2}/.test(S.AnnouncementDate||""))CONFIG.announcement.date=S.AnnouncementDate.slice(0,10);if(S.FiguresAreIllustrative!==undefined&&S.FiguresAreIllustrative!=="")CONFIG.dataIsIllustrative=/^(yes|true|1)$/i.test(S.FiguresAreIllustrative)}
+{const S=RCDATA.SETTINGS||{};if(S.AnnouncementTitle)CONFIG.announcement.title=S.AnnouncementTitle;if(S.AnnouncementBody)CONFIG.announcement.body=S.AnnouncementBody;if(/^\d{4}-\d{2}-\d{2}/.test(S.AnnouncementDate||""))CONFIG.announcement.date=S.AnnouncementDate.slice(0,10);if(S.FiguresAreIllustrative!==undefined&&S.FiguresAreIllustrative!=="")CONFIG.dataIsIllustrative=/^(yes|true|1)$/i.test(S.FiguresAreIllustrative)}
 if(RCDATA.SETTINGS){if(RCDATA.SETTINGS.GoLive)CONFIG.goLive=RCDATA.SETTINGS.GoLive;if(RCDATA.SETTINGS.CurrentPhase!==undefined&&RCDATA.SETTINGS.CurrentPhase!=="")CONFIG.currentPhase=Number(RCDATA.SETTINGS.CurrentPhase)}
 /* ================================================================ */
 
@@ -572,9 +570,10 @@ tickCd();setInterval(tickCd,1000);
 const daysToGo=Math.max(0,Math.floor((GO-new Date())/864e5));
 
 /* DASHBOARD */
-if(!CONFIG.dataIsIllustrative){$("#dataTag").textContent="Live programme data";$("#dataTag").classList.add("or")}
-$("#bars").innerHTML=CONFIG.workstreams.map(([n,v])=>`<div class="bar-row"><div class="bar-top"><span>${n}</span><span><span class="count" data-to="${v}">0</span>%</span></div><div class="bar"><i data-w="${v}"></i></div></div>`).join("");
-$("#kpis").innerHTML=CONFIG.kpis.map(k=>{const v=k.v==="days"?daysToGo:k.v;return `<div class="kpi"><b><span class="count" data-to="${v}">0</span><span class="u">${k.s}</span></b><small>${k.l}</small></div>`}).join("");
+$("#dataTag").textContent="Programme highlights";$("#dataTag").classList.add("or");
+const hlItems=[];(window.CXJ_HL||[]).forEach(g=>g.Items.forEach(i=>hlItems.push(i)));
+$("#bars").innerHTML=hlItems.filter(i=>i.Bar).map(i=>`<div class="bar-row"><div class="bar-top"><span>${i.Label}</span><span><span class="count" data-to="${i.Value}">0</span>${i.Suffix||"%"}</span></div><div class="bar"><i data-w="${Math.min(100,i.Value)}"></i></div></div>`).join("");
+$("#kpis").innerHTML=hlItems.filter(i=>!i.Bar).map(i=>`<div class="kpi"><b><span class="count" data-to="${i.Value}">0</span><span class="u">${i.Suffix||""}</span></b><small>${i.Label}</small></div>`).join("");
 const A=CONFIG.announcement;$("#anTitle").textContent=A.title;$("#anBody").textContent=A.body;$("#anDate").textContent=fmt(new Date(A.date+"T12:00:00"));
 
 function countUp(el){const to=+el.dataset.to,dur=1600,t0=performance.now();

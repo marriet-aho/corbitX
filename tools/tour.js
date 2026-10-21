@@ -40,9 +40,6 @@ function segs(){
   group("highlights","#highlights");
   const hl=(LISTS.Highlights||[]).map(g=>g.Group+": "+g.Items.map(i=>N(i.Value)+(i.Suffix==="+"?" plus":i.Suffix==="%"?" percent":i.Suffix||"")+" "+i.Label).join("; ")+".").join(" ");
   add("Highlights so far","#highlights",[intro("highlights"),"Highlights so far. "+hl]);
-  group("readiness",".dash .ready",true,true);
-  const kp=((C.kpis)||[]).map(k=>k.v==="days"?"The dashboard also shows the number of days left to go-live.":k.l+": "+k.v+(k.s==="%"?" percent":"")+".").join(" ");
-  add("Readiness dashboard",".dash .ready",["Here is the readiness dashboard. "+(C.workstreams||[]).map(w=>w[0]+", "+w[1]+" percent.").join(" ")+" "+kp+(C.dataIsIllustrative?" These figures are illustrative until they come from the programme tracker.":"")]);
   group("announce",".annc",true,true);
   if(C.announcement)add("Latest announcement",".annc",["Latest announcement. "+C.announcement.title+". "+C.announcement.body]);
   group("potw","#featCard",true,true);

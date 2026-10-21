@@ -1,14 +1,14 @@
 # Corbit X Readiness Centre with Kukua: SharePoint web part (SPFx 1.18)
 
 One page section containing the Readiness Centre (hero, countdown to go-live, staff guides, timeline, Knowledge Hub, what's coming)
-and Kukua's journey (the readiness dashboard sits inside "Highlights so far"), with Kukua reading the page section by section. **Every piece of content comes from SharePoint lists, and the
+and Kukua's journey (the dashboard is built from the "Highlights so far" figures), with Kukua reading the page section by section. **Every piece of content comes from SharePoint lists, and the
 lists are locked so only owners can edit them.**
 
 ## Set-up (4 steps)
 1. **Install the app.** Upload `package/corbit-x-journey.sppkg` to the App Catalog, Deploy, then add **Corbit X Journey** to your site (Site contents > New > App).
 2. **Create and lock the content.** In PowerShell with PnP.PowerShell installed:
    `.\seed\Provision-CorbitXPortal.ps1 -SiteUrl https://<tenant>.sharepoint.com/sites/<site> -OwnerEmail you@yourbank.com`
-   This creates 27 lists, fills them with the current content, uploads the 6 posters and 84 voice clips to `SiteAssets/CorbitX`, and makes
+   This creates 25 lists, fills them with the current content, uploads the 6 posters and 83 voice clips to `SiteAssets/CorbitX`, and makes
    **Owners = Full Control, everyone else = Read-only** on every list and on that folder. (`-SkipLock` skips the locking.)
 3. **Add it to a page.** Edit a page, add a **full-width section** (or one-column), add the **Corbit X Journey** web part, Publish.
 4. **Lock the page itself.** Site Pages > the page > Manage access > Stop inheriting permissions, then give Owners Edit and everyone else Read, so only owners can change the page layout.
@@ -21,7 +21,6 @@ Open a list, edit an item. **Order** sorts items and **IsActive** (untick) hides
 | Part of the page | List | Main columns |
 |---|---|---|
 | Go-live date, current phase, announcement card | Page Settings | Title = `GoLive` (e.g. `2027-02-08T00:00:00+00:00`), `CurrentPhase` (0 to 5), `AnnouncementTitle`, `AnnouncementBody`, `AnnouncementDate`, `FiguresAreIllustrative` (Yes/No); Value |
-| "How ready are we?" bars and small figures (inside Highlights so far) | Readiness Progress, Readiness Figures | Title, Percent; Title, Value, Suffix, ShowDays |
 | Staff-guide gallery and posters' detail pop-up | Staff Guides, Guide Categories | Title, PosterId, CatId, Short, Intro, Steps (one per line: `Heading \| text`), Key, Say, Note |
 | Timeline phases | Programme Phases | Title, Icon, When, Description, Focus (one per line), Materials (`p \| p1` poster, `h \| faq` hub tab) |
 | Knowledge Hub | Hub FAQs, Training Videos, Quick Reference Cards (`+` ok / `-` not), Project Updates, Key Dates (offset from go-live), Support Contacts | see each list |
@@ -29,7 +28,7 @@ Open a list, edit an item. **Order** sorts items and **IsActive** (untick) hides
 | Scrolling key-message banner | Key Messages | Title |
 | Kukua's welcome, intros, closing, chat greeting | Kukua Messages, Section Intros | Title = key, Text, AudioUrl |
 | Kukua's six journey stops and panels | Journey Stages | Title, RailLabel, PosterId, KukuaSays, SecondaryLabel, PanelKukua, PanelIntro, PanelPoints, PanelNote, KeyMessage |
-| Highlights, big changes, staff changes, training, what's next | Highlights, Customer Changes, Staff Changes, Training Media, What's Next | see each list |
+| Highlights so far (drives the dashboard: bars for items with ShowBar, tiles for the rest), big changes, staff changes, training, what's next | Highlights, Customer Changes, Staff Changes, Training Media, What's Next | see each list |
 | Daily tip, featured guide, latest updates | Daily Tips, Featured Guides, Announcements | Title, ... |
 | Ask Kukua answers | FAQs | Title = question, Answer, Keywords, Suggested |
 | Poster images | Posters | PosterId (p1 to p6), Title, ImageUrl |
