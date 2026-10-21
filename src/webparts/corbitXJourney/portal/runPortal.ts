@@ -318,8 +318,6 @@ function segs(){
   add("Welcome to the Readiness Centre","#home",["Welcome to the Corbit X Readiness Centre. Preparing our people, processes and branches for the future of banking. Use the menu at the top of the page to jump to the staff guides, Kukua's journey, the Knowledge Hub, and what's coming."]);
   group("countdown",".countdown",true,true);
   add("Countdown to go-live",".countdown",["Corbit X is expected to go live on "+fm(r.GO,{weekday:"long",day:"numeric",month:"long",year:"numeric"})+". The countdown shows the days, hours, minutes and seconds remaining. Every day counts, so let's get ready together."]);
-  group("cta",".band:not(.dark)",true,true);
-  add("One Journey. One Platform. One Corbit X.",".band:not(.dark)",["One Journey. One Platform. One Corbit X."]);
 
   /* ---- Kukua: welcome, highlights, journey */
   group("meet","#welcome");

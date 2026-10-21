@@ -51,6 +51,10 @@ for old in ['const overall=Math.round(CONFIG.workstreams.reduce((a,w)=>a+w[1],0)
     assert old in rc_script, old
     rc_script = rc_script.replace(old, '')
 assert 'overall' not in rc_script and 'ringFg' not in rc_script
+# "One Journey. One Platform. One Corbit X." band under the countdown: removed
+c0, c1 = rc_markup.index('<!-- CTA BAND -->'), rc_markup.index('<!-- GALLERY -->')
+rc_markup = rc_markup[:c0] + rc_markup[c1:]
+assert 'One Platform' not in rc_markup
 for label in ('<span class="eyebrow reveal">Corbit X Transformation Programme</span>', '<span class="eyebrow">Poster gallery</span>', '<span class="eyebrow">Coming to Corbit X</span>'):
     assert rc_markup.count(label) == 1, label
     rc_markup = rc_markup.replace(label, '')

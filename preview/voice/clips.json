@@ -12,10 +12,6 @@
   "say": "Corbit X is expected to go live on Monday 8 February 2027. The countdown shows the days, hours, minutes and seconds remaining. Every day counts, so let's get ready together."
  },
  {
-  "name": "t9599de41",
-  "say": "One Journey. One Platform. One Corbit X."
- },
- {
   "name": "welcome",
   "say": "Hello! I'm Kukua, your Corbit X guide. Over the coming months, I'll help you discover what Corbit X means for our customers, branches, and teams. Let's get started."
  },
@@ -136,10 +132,6 @@
   "say": "What's in it for staff. Data Access: today, Screen-hopping; with Corbit X, Full 360 degree view in one screen. The gain: Faster and better service. Processing: today, Manual; with Corbit X, Automated. The gain: Less mundane work. Role Focus: today, Transaction processing; with Corbit X, Advisory and sales. The gain: A higher-value role. System Interface: today, Complex / static; with Corbit X, Modern / responsive. The gain: A better user experience."
  },
  {
-  "name": "tf593bd7a",
-  "say": "A little something for today. Share the new account number at every interaction."
- },
- {
   "name": "t3b0c78a9",
   "say": "A little something for today. Stay curious. Every guide brings us one step closer to Corbit X."
  },
@@ -158,6 +150,10 @@
  {
   "name": "taffe3d24",
   "say": "A little something for today. Not sure? Pause and check before you answer."
+ },
+ {
+  "name": "tf593bd7a",
+  "say": "A little something for today. Share the new account number at every interaction."
  },
  {
   "name": "t263bea50",
