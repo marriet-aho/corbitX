@@ -323,9 +323,9 @@ function segs(){
   /* ---- Kukua: welcome, highlights, journey */
   group("meet","#welcome");
   add("Meet Kukua","#welcome",[msg("welcome").Text]);
-  group("highlights","#highlights");
+  group("highlights",".dash .ready",true,true);
   const hl=(LISTS.Highlights||[]).map(g=>g.Group+": "+g.Items.map(i=>N(i.Value)+(i.Suffix==="+"?" plus":i.Suffix==="%"?" percent":i.Suffix||"")+" "+i.Label).join("; ")+".").join(" ");
-  add("Highlights so far","#highlights",[intro("highlights"),"Highlights so far. "+hl]);
+  add("Highlights so far",".dash .ready",[intro("highlights"),"Highlights so far. "+hl]);
   group("announce",".annc",true,true);
   if(C.announcement)add("Latest announcement",".annc",["Latest announcement. "+C.announcement.title+". "+C.announcement.body]);
   group("potw","#featCard",true,true);
@@ -455,9 +455,11 @@ document.addEventListener("click",e=>{
 
 /* which section is the visitor in? (the one under a line 40% down the screen; the smallest wins when sections nest) */
 function currentGroup(){
-  const y=innerHeight*0.4;let best=null,bh=1e9;
-  groupAnchors().forEach(g=>{const e=document.querySelector(g.anchor);if(!e)return;const r=e.getBoundingClientRect();if(r.top<=y&&r.bottom>=y&&r.height<bh){best=g.id;bh=r.height}});
-  return best;
+  const y=innerHeight*0.4,hits=[];
+  groupAnchors().forEach((g,i)=>{const e=document.querySelector(g.anchor);if(!e)return;const r=e.getBoundingClientRect();if(r.top<=y&&r.bottom>=y&&r.height>0)hits.push({id:g.id,el:e,i})});
+  const leaves=hits.filter(h=>!hits.some(o=>o!==h&&h.el.contains(o.el)));   // nested sections: the inner one wins
+  leaves.sort((a,b)=>a.i-b.i);                                               // side by side: the first in reading order wins
+  return leaves.length?leaves[0].id:null;
 }
 function onScroll(){
   if(onScroll.raf)return;
@@ -641,7 +643,7 @@ tickCd();setInterval(tickCd,1000);
 const daysToGo=Math.max(0,Math.floor((GO-new Date())/864e5));
 
 /* DASHBOARD */
-$("#dataTag").textContent="Programme highlights";$("#dataTag").classList.add("or");
+$("#dataTag").textContent="Highlights so far";$("#dataTag").classList.add("or");
 const hlItems=[];(window.CXJ_HL||[]).forEach(g=>g.Items.forEach(i=>hlItems.push(i)));
 $("#bars").innerHTML=hlItems.filter(i=>i.Bar).map(i=>`<div class="bar-row"><div class="bar-top"><span>${i.Label}</span><span><span class="count" data-to="${i.Value}">0</span>${i.Suffix||"%"}</span></div><div class="bar"><i data-w="${Math.min(100,i.Value)}"></i></div></div>`).join("");
 $("#kpis").innerHTML=hlItems.filter(i=>!i.Bar).map(i=>`<div class="kpi"><b><span class="count" data-to="${i.Value}">0</span><span class="u">${i.Suffix||""}</span></b><small>${i.Label}</small></div>`).join("");

@@ -128,8 +128,8 @@
   "say": "What's in it for staff. Data Access: today, Screen-hopping; with Corbit X, Full 360 degree view in one screen. The gain: Faster and better service. Processing: today, Manual; with Corbit X, Automated. The gain: Less mundane work. Role Focus: today, Transaction processing; with Corbit X, Advisory and sales. The gain: A higher-value role. System Interface: today, Complex / static; with Corbit X, Modern / responsive. The gain: A better user experience."
  },
  {
-  "name": "t263bea50",
-  "say": "A little something for today. Encourage customers to request new chequebooks early."
+  "name": "t8003339b",
+  "say": "A little something for today. Small actions today help ensure a smooth transition tomorrow."
  },
  {
   "name": "t3b0c78a9",
@@ -138,10 +138,6 @@
  {
   "name": "ta4656c70",
   "say": "A little something for today. Prepared teams create exceptional customer experiences."
- },
- {
-  "name": "t8003339b",
-  "say": "A little something for today. Small actions today help ensure a smooth transition tomorrow."
  },
  {
   "name": "tdc7b9577",
@@ -154,6 +150,10 @@
  {
   "name": "tf593bd7a",
   "say": "A little something for today. Share the new account number at every interaction."
+ },
+ {
+  "name": "t263bea50",
+  "say": "A little something for today. Encourage customers to request new chequebooks early."
  },
  {
   "name": "t27a05b9c",

@@ -57,7 +57,7 @@ rc_markup = rc_markup[:c0] + rc_markup[c1:]
 assert 'One Platform' not in rc_markup
 # the dashboard is built from the "Highlights so far" information (Kukua's Highlights list) instead of invented figures
 for old in ['if(!CONFIG.dataIsIllustrative){$("#dataTag").textContent="Live programme data";$("#dataTag").classList.add("or")}\n']:
-    assert old in rc_script; rc_script = rc_script.replace(old, '$("#dataTag").textContent="Programme highlights";$("#dataTag").classList.add("or");\n')
+    assert old in rc_script; rc_script = rc_script.replace(old, '$("#dataTag").textContent="Highlights so far";$("#dataTag").classList.add("or");\n')
 b0 = rc_script.index('$("#bars").innerHTML=')
 b1 = rc_script.index('const A=CONFIG.announcement;')
 rc_script = rc_script[:b0] + r"""const hlItems=[];(window.CXJ_HL||[]).forEach(g=>g.Items.forEach(i=>hlItems.push(i)));
@@ -137,10 +137,13 @@ rc_css += """
 @media (prefers-reduced-motion:reduce){.live-badge i,.live-ring{animation:none}.live-card{transition:none}}
 """
 rc_css += """
-.dash.dash-hl{padding:56px 0 96px}
-.dash.dash-hl .ready{grid-template-columns:1fr}
-.kx #highlights{padding-bottom:64px}
-.kx #hlGrid{display:none}
+.dash.dash-hl .ready{grid-template-columns:1fr;padding-bottom:72px}
+.kx #highlights{display:none!important}
+.dash-kukua{display:flex;align-items:center;gap:12px;margin:-4px 0 22px;padding:10px 14px;background:var(--orange-soft);border-radius:14px;font-size:15px;color:var(--grey-700)}
+.dash-kukua img{width:42px;height:42px;border-radius:50%;border:2px solid var(--orange);flex:none;object-fit:cover}
+.dash-kukua p{margin:0}
+.dash-kukua .hearbtn{display:inline-flex;align-items:center;gap:5px;margin-left:6px;color:var(--orange-deep);font-weight:700;font-size:13px;cursor:pointer}
+.dash-kukua .hearbtn svg{width:15px;height:15px}
 .dock.wait{animation:dockHint 1.8s ease-in-out infinite}
 @keyframes dockHint{0%,100%{box-shadow:0 0 0 0 rgba(242,106,27,.0)}50%{box-shadow:0 0 0 10px rgba(242,106,27,.28)}}
 .cx-reading{outline:3px solid rgba(242,106,27,.55);outline-offset:-5px;transition:outline-color .3s}
@@ -185,6 +188,14 @@ mid = mid.replace('id="journey"', 'id="kjourney"').replace('<section class="next
 closing = closing.replace('href="#journey"', 'href="#kjourney"')
 j_ = mid.index('<!-- ============ JOURNEY')
 mid_a, mid_b = mid[:j_], mid[j_:]
+# Kukua's Highlights intro (avatar, text, "Hear Kukua") moves into the dashboard card
+hl_src = mid[mid.index('id="highlights"'):mid.index('<!-- ============ JOURNEY')]
+av_src = re.search(r'<div class="kline"><img class="av" src="([^"]+)"', hl_src).group(1)
+hear_btn = re.search(r'<button class="hearbtn" data-hear="highlights">.*?</button>', hl_src, re.S).group(0)
+kline = '<div class="dash-kukua"><img src="' + av_src + '" alt=""><p><span data-ktext="highlights"></span> ' + hear_btn + '</p></div>\n        '
+assert '<div class="bars" id="bars">' in dash_html
+dash_html = dash_html.replace('<div class="bars" id="bars">', kline + '<div class="bars" id="bars">', 1)
+
 k_script = k_script.replace('#journey"', '#kjourney"')
 
 # --- Kukua narration: read the whole page, in order, from the hero
