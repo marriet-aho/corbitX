@@ -427,8 +427,7 @@ function playSeg(list,i,j,tok,o){
     const el=typeof s.sel==="function"?s.sel():document.querySelector(s.sel);
     if(el){setReading(el);if(o.scroll)el.scrollIntoView({behavior:reduced?"auto":"smooth",block:"start"})}
   }
-  const ids=groupAnchors();
-  narrate((o.quiet?"Reading: ":"Section "+(ids.findIndex(x=>x.id===s.grp)+1)+" of "+ids.length+": ")+s.cap,audioFor(texts[j]),true);
+  narrate(s.cap,audioFor(texts[j]),true);
   V.after=()=>playSeg(list,i,j+1,tok,o);
 }
 function endSection(){
