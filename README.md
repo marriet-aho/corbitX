@@ -1,57 +1,52 @@
-# Corbit X Journey: SPFx portal with SharePoint lists as the CMS
+# Corbit X Readiness Centre with Kukua: SharePoint web part (SPFx 1.18)
 
-The approved design (`preview/Corbit_X_Journey.html`) as an SPFx 1.18 web part. **Every piece of text, tip, FAQ, poster,
-number and link comes from SharePoint lists**, so you change the portal by editing list items, with no code and no redeploy.
+One page section containing the Readiness Centre (hero, countdown to go-live, staff guides, timeline, Knowledge Hub, what's coming)
+and Kukua's journey, with Kukua reading the page section by section. **Every piece of content comes from SharePoint lists, and the
+lists are locked so only owners can edit them.**
 
-## One-time setup
-```
-npm install
-gulp bundle --ship && gulp package-solution --ship        # -> sharepoint/solution/corbit-x-journey.sppkg
-```
-1. Upload the `.sppkg` to the App Catalog and add the app to your site. Node 18.17+ is required.
-2. Create the lists and posters (PnP.PowerShell):
-   `.\seed\Provision-CorbitXPortal.ps1 -SiteUrl https://<tenant>.sharepoint.com/sites/<site>`
-   This creates the 13 lists, fills them with the current content, and uploads the six posters to `SiteAssets/CorbitX/posters`.
-3. Edit a page, add the **Corbit X Journey** web part in a full-width section, publish.
+## Set-up (4 steps)
+1. **Install the app.** Upload `package/corbit-x-journey.sppkg` to the App Catalog, Deploy, then add **Corbit X Journey** to your site (Site contents > New > App).
+2. **Create and lock the content.** In PowerShell with PnP.PowerShell installed:
+   `.\seed\Provision-CorbitXPortal.ps1 -SiteUrl https://<tenant>.sharepoint.com/sites/<site> -OwnerEmail you@yourbank.com`
+   This creates 25 lists, fills them with the current content, uploads the 6 posters and 76 voice clips to `SiteAssets/CorbitX`, and makes
+   **Owners = Full Control, everyone else = Read-only** on every list and on that folder. (`-SkipLock` skips the locking.)
+3. **Add it to a page.** Edit a page, add a **full-width section** (or one-column), add the **Corbit X Journey** web part, Publish.
+4. **Lock the page itself.** Site Pages > the page > Manage access > Stop inheriting permissions, then give Owners Edit and everyone else Read, so only owners can change the page layout.
 
-Until the lists exist, or while a list is empty, the web part shows its built-in content, so it never appears blank.
+Until the lists exist, or if a list is empty, the web part shows its built-in content, so it is never blank.
 
-## What you edit, and where
-Every list also has **Order** (sort position) and **IsActive** (untick to hide an item without deleting it). Add, remove, reorder or hide items freely.
+## Editing (owners only)
+Open a list, edit an item. **Order** sorts items and **IsActive** (untick) hides an item without deleting it. Changes appear on the page straight away.
 
-| Page section | List | Key columns |
+| Part of the page | List | Main columns |
 |---|---|---|
-| Kukua's spoken/bubble lines | Kukua Messages | Title = key (`welcome`, `journeyIntro`, `start`, `finish`, `closing`, `chatGreeting`, `chatFallback`), Text, AudioUrl |
-| Intro line under each section heading | Section Intros | Title = key, Text |
-| The six journey stops and their guide panels | Journey Stages | Title, RailLabel, PosterId, KukuaSays, SecondaryLabel, PanelKukua, PanelIntro, PanelPoints (one per line: `Heading \| text`), PanelNote, KeyMessage |
-| Poster images and titles | Posters | PosterId (p1 to p6), Title, ImageUrl. Replace the image file in `SiteAssets/CorbitX/posters`, or point ImageUrl elsewhere |
-| Highlights so far (the animated numbers) | Highlights | Title = label, Group, Icon, Value, Suffix, ShowBar |
-| Big Changes for customers | Customer Changes | Title, Points (one per line) |
-| What's in it for staff (Today vs Corbit X) | Staff Changes | Title, Icon, Today, CX, Gain |
-| Training videos and pictures | Training Media | Title, Type (Video/Picture), Description, Url |
-| What's next | What's Next | Title, Label, Text, Icon |
-| Daily tip card (random each visit) | Daily Tips | Title = the tip |
-| Ask Kukua answers and suggested questions | FAQs | Title = question, Answer, Keywords, Suggested, ActionLabel, ActionTarget |
-| Featured guide (rotates weekly in Order) | Featured Guides | Title, PosterId, KukuaCommentary |
-| Latest updates | Announcements | Title, Body, Icon |
+| Go-live date and current phase | Page Settings | Title = `GoLive` (e.g. `2027-02-08T00:00:00+00:00`) or `CurrentPhase` (0 to 5), Value |
+| Staff-guide gallery and posters' detail pop-up | Staff Guides, Guide Categories | Title, PosterId, CatId, Short, Intro, Steps (one per line: `Heading \| text`), Key, Say, Note |
+| Timeline phases | Programme Phases | Title, Icon, When, Description, Focus (one per line), Materials (`p \| p1` poster, `h \| faq` hub tab) |
+| Knowledge Hub | Hub FAQs, Training Videos, Quick Reference Cards (`+` ok / `-` not), Project Updates, Key Dates (offset from go-live), Support Contacts | see each list |
+| "What's coming" tiles | Capabilities | Title, Icon, Text, Wide |
+| Scrolling key-message banner | Key Messages | Title |
+| Kukua's welcome, intros, closing, chat greeting | Kukua Messages, Section Intros | Title = key, Text, AudioUrl |
+| Kukua's six journey stops and panels | Journey Stages | Title, RailLabel, PosterId, KukuaSays, SecondaryLabel, PanelKukua, PanelIntro, PanelPoints, PanelNote, KeyMessage |
+| Highlights, big changes, staff changes, training, what's next | Highlights, Customer Changes, Staff Changes, Training Media, What's Next | see each list |
+| Daily tip, featured guide, latest updates | Daily Tips, Featured Guides, Announcements | Title, ... |
+| Ask Kukua answers | FAQs | Title = question, Answer, Keywords, Suggested |
+| Poster images | Posters | PosterId (p1 to p6), Title, ImageUrl |
 
-`PosterId` links a stop or featured guide to its poster. To add a seventh stop, add a poster (p7) and a Journey Stages item that uses it.
+## Kukua's voice
+Press Play in Kukua's player (bottom-left) and she reads the page from the hero, section by section, scrolling as she goes.
+Every section also has a **Hear this section** button, and the player has previous/next section buttons.
+The voice is a set of pre-recorded clips in `SiteAssets/CorbitX/voice/emily/`, matched to the **exact on-screen wording**.
+If you reword something, that line has no recording and Kukua skips it silently (the text still shows). To get new recordings, re-run
+`node tools/list-clips.js && python3 tools/make-page-voice.py` (needs kokoro-onnx, see the script), or ask for them to be re-recorded.
+For Kukua's own lines you can also put an MP3 link in the item's **AudioUrl** column.
 
-## Kukua's voiceover
-Narration plays one fixed recording for every visitor; nothing depends on voices installed on the visitor's device.
-The 31 MP3s (every spoken line: messages, stops, section intros, stop panels, featured guides) (neural voice `af_heart`, American female) are in `seed/voice/emily/`, and the provisioning script uploads them to
-`SiteAssets/CorbitX/voice/emily/`: `welcome`, `journeyIntro`, `start`, `finish`, `closing`, `chatGreeting`, `chatFallback`, `stage1` to `stage6`.
-A recording is matched to the on-screen text, so if you reword a line the old recording stops matching: put the new MP3 URL in that item's
-AudioUrl column (or re-record). To use another folder, set the web part's *Voice files folder URL*. If a file is missing the text still shows and Kukua is silent.
-
-## Changing the design itself
-The look is `preview/Corbit_X_Journey.html`. After editing it, regenerate the web part sources:
-```
-cd tools && npm i && cd ..
-python3 tools/extract-portal.py && python3 tools/build-seed.py
-```
-Files under `src/webparts/corbitXJourney/portal/` marked GENERATED are overwritten by that command. The list definitions live in `portal/schema.json`.
+## Changing the design
+The look is generated from `preview/Corbit-X-Readiness-Centre.html` (the Readiness Centre) and `preview/Corbit_X_Journey_standalone.html` (Kukua).
+`python3 tools/merge-readiness.py` rebuilds both the single-file preview and the web part sources. Files marked GENERATED are overwritten.
+List definitions live in `src/webparts/corbitXJourney/portal/schema.json`.
 
 ## Notes
-* Fonts (Barlow) load from Google Fonts. If your tenant blocks that, the page falls back to Arial.
-* Lists are read with the visitor's own permissions, so give visitors read access to the Corbit X lists and let only your editors have edit rights.
+* Fonts (Barlow) load from Google Fonts; if blocked the page falls back to Arial.
+* The preview file `preview/Corbit_X_Readiness_Centre_Kukua.html` is a standalone copy with the voice embedded. It is not editable and is only for review.
+* Not yet tested inside a real SharePoint tenant. Test on a page first.

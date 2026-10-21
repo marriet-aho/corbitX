@@ -7,6 +7,7 @@ import { PORTAL_ASSETS } from './portal/portalAssets';
 import { runPortal } from './portal/runPortal';
 import { loadContent } from './portal/ContentLoader';
 import { DEFAULT_LISTS } from './portal/defaultLists';
+import { RC_DEFAULTS } from './portal/defaultRc';
 
 export interface ICorbitXJourneyWebPartProps {
   voiceBaseUrl: string;
@@ -36,13 +37,13 @@ export default class CorbitXJourneyWebPart extends BaseClientSideWebPart<ICorbit
   public render(): void {
     const token = ++this.renderToken;
     const webUrl = this.context.pageContext.web.absoluteUrl;
-    this.domElement.innerHTML = '<div class="cxj" style="padding:48px 24px;text-align:center;font:600 16px Segoe UI,sans-serif;color:#545557">Kukua is getting ready…</div>';
+    this.domElement.innerHTML = '<div class="cxp" style="padding:48px 24px;text-align:center;font:600 16px Segoe UI,sans-serif;color:#545557">Kukua is getting ready…</div>';
 
     loadContent(this.context.spHttpClient, webUrl).catch(() => undefined).then(loaded => {
       if (token !== this.renderToken) return; // a newer render superseded this one
-      this.domElement.innerHTML = '<div class="cxj">' + PORTAL_TEMPLATE.replace(/\{\{A(\d+)\}\}/g, (_m, n) => PORTAL_ASSETS[Number(n)]) + '</div>';
+      this.domElement.innerHTML = PORTAL_TEMPLATE.replace(/\{\{A(\d+)\}\}/g, (_m, n) => PORTAL_ASSETS[Number(n)]);
       const base = (this.properties.voiceBaseUrl || `${webUrl}/SiteAssets/CorbitX/voice/emily/`).replace(/\/?$/, '/');
-      runPortal(loaded ? loaded.lists : DEFAULT_LISTS, loaded ? loaded.posters : {}, PORTAL_ASSETS, { voiceBase: base });
+      runPortal(loaded ? loaded.lists : DEFAULT_LISTS, loaded ? loaded.rc : RC_DEFAULTS, loaded ? loaded.posters : {}, PORTAL_ASSETS, { voiceBase: base });
     });
   }
 

@@ -1,0 +1,306 @@
+[
+ {
+  "name": "ta8d0f1ea",
+  "say": "Welcome to the Corbit X Readiness Centre. Preparing our people, processes and branches for the future of banking. Use the menu at the top of the page to jump to the staff guides, Kukua's journey, the Knowledge Hub, and what's coming."
+ },
+ {
+  "name": "t5ccb4584",
+  "say": "Corbit X is expected to go live on Monday 8 February 2027. The countdown shows the days, hours, minutes and seconds remaining. Every day counts, so let's get ready together."
+ },
+ {
+  "name": "t9599de41",
+  "say": "One Journey. One Platform. One Corbit X."
+ },
+ {
+  "name": "welcome",
+  "say": "Hello! I'm Kukua, your Corbit X guide. Over the coming months, I'll help you discover what Corbit X means for our customers, branches, and teams. Let's get started."
+ },
+ {
+  "name": "tab43d428",
+  "say": "Look how far we've come together! These numbers show the energy our people are putting into Corbit X."
+ },
+ {
+  "name": "t791bfb15",
+  "say": "Highlights so far. No. of Staff: 2,500 plus Staff bank-wide; 94 percent Project completion rate. Staff Engagement: 30 plus Champions across the bank; 2 Bank-wide roadshows. Business Simulation: 3 Business simulations; 68 percent Staff confidence."
+ },
+ {
+  "name": "journeyIntro",
+  "say": "Six stops, six guides. Use the arrows or swipe, and I'll tell you what each one is about."
+ },
+ {
+  "name": "start",
+  "say": "Ready? Our first stop is all about account numbers. Let's go!"
+ },
+ {
+  "name": "ta86c339a",
+  "say": "Stop 1. Understanding the Transition."
+ },
+ {
+  "name": "stage1",
+  "say": "Customers may have questions about account numbers. Corbit X will introduce changes designed to support a smoother banking experience. This guide helps you confidently support every customer conversation."
+ },
+ {
+  "name": "t5b902b0a",
+  "say": "Stop 2. Chequebook Transition."
+ },
+ {
+  "name": "stage2",
+  "say": "Chequebook updates can raise customer questions. Understanding the process ensures we provide the right guidance and support."
+ },
+ {
+  "name": "tab5477c5",
+  "say": "Stop 3. Supporting Special Cases."
+ },
+ {
+  "name": "stage3",
+  "say": "Some situations require special attention. Explore practical ways to help customers and identify available alternatives."
+ },
+ {
+  "name": "t93493b65",
+  "say": "Stop 4. Operational Preparedness."
+ },
+ {
+  "name": "stage4",
+  "say": "Preparation drives success. Learn how readiness activities help teams operate confidently during key milestones."
+ },
+ {
+  "name": "t3facbbfe",
+  "say": "Stop 5. Customer Experience First."
+ },
+ {
+  "name": "stage5",
+  "say": "Technology will evolve, but our commitment to exceptional customer service remains unchanged."
+ },
+ {
+  "name": "te655015c",
+  "say": "Stop 6. Keeping Business Moving."
+ },
+ {
+  "name": "stage6",
+  "say": "Business continues while we prepare for change. Discover how we maintain excellent service and support customers throughout the journey."
+ },
+ {
+  "name": "finish",
+  "say": "You've reached the end of the journey. Well done! Come back any time to refresh your knowledge."
+ },
+ {
+  "name": "t37cef6d9",
+  "say": "Big changes are coming, and they're good ones. Here's what Corbit X means for our customers."
+ },
+ {
+  "name": "tde923271",
+  "say": "For customers. At the Counter: Serve customers faster, Full 360 degree view in one screen, Credits and salaries at speed. Account Numbers: New format, same C I F: add “00” in front, Old numbers usable during the transition, Longer format = more security. Cheque Books: Order new books within 182 days, Current leaves accepted meanwhile, Books 5 plus years old won't migrate. Statements: 0–12 months: instant via Corbit X, 12 months+: from secure backup, Cleaner, faster request process."
+ },
+ {
+  "name": "t467636ac",
+  "say": "Corbit X makes our work simpler too. Tap 'Today' and 'With Corbit X' to see the difference."
+ },
+ {
+  "name": "t1321da0",
+  "say": "What's in it for staff. Data Access: today, Screen-hopping; with Corbit X, Full 360 degree view in one screen. The gain: Faster and better service. Processing: today, Manual; with Corbit X, Automated. The gain: Less mundane work. Role Focus: today, Transaction processing; with Corbit X, Advisory and sales. The gain: A higher-value role. System Interface: today, Complex / static; with Corbit X, Modern / responsive. The gain: A better user experience."
+ },
+ {
+  "name": "tf593bd7a",
+  "say": "A little something for today. Share the new account number at every interaction."
+ },
+ {
+  "name": "t3b0c78a9",
+  "say": "A little something for today. Stay curious. Every guide brings us one step closer to Corbit X."
+ },
+ {
+  "name": "ta4656c70",
+  "say": "A little something for today. Prepared teams create exceptional customer experiences."
+ },
+ {
+  "name": "t8003339b",
+  "say": "A little something for today. Small actions today help ensure a smooth transition tomorrow."
+ },
+ {
+  "name": "tdc7b9577",
+  "say": "A little something for today. Knowledge builds confidence."
+ },
+ {
+  "name": "taffe3d24",
+  "say": "A little something for today. Not sure? Pause and check before you answer."
+ },
+ {
+  "name": "t263bea50",
+  "say": "A little something for today. Encourage customers to request new chequebooks early."
+ },
+ {
+  "name": "t27a05b9c",
+  "say": "A little something for today. Never let a system change become a reason to turn a customer away."
+ },
+ {
+  "name": "t7d618889",
+  "say": "Guide of the week. New System. Same Warm Welcome. Kukua's take: This one is close to my heart. Systems change, but a warm smile never goes out of style."
+ },
+ {
+  "name": "tea0402ca",
+  "say": "Guide of the week. Old Number? We Can Help!. Kukua's take: Account numbers are the question I expect most. Look it up, share it and keep banking moving."
+ },
+ {
+  "name": "td03b52dd",
+  "say": "Guide of the week. New Chapter. New Chequebook. Kukua's take: A gentle nudge to request a new chequebook early gives customers a real head start."
+ },
+ {
+  "name": "t47154723",
+  "say": "Guide of the week. Keep the Welcome. Start the Process. Kukua's take: Account opening pauses briefly, but our welcome never does. Start in Newgen and finalise from Thursday."
+ },
+ {
+  "name": "t51864de3",
+  "say": "Guide of the week. Older Chequebook? Find a Way Forward. Kukua's take: Some customers need a little extra care. Explain kindly and help them find an approved alternative."
+ },
+ {
+  "name": "t4f73afa0",
+  "say": "Guide of the week. Sunday Checks. Monday Confidence. Kukua's take: Real transactions, real funds, real teamwork. This is how we start strong."
+ },
+ {
+  "name": "t9a6ffcb2",
+  "say": "Latest updates. Six Corbit X staff guides are now available. Explore them all on Kukua's journey, from account numbers to go-live readiness. Look-up process included in training. Training covers how to find a customer's new account number in Corbit X. Printing new account numbers. Guidance on printing new account numbers for customers will follow."
+ },
+ {
+  "name": "t7143f47f",
+  "say": "Learning is how we get ready. Watch the training videos and see our teams in action."
+ },
+ {
+  "name": "t5222ee40",
+  "say": "End-user training. Videos: Corbit X: the big picture; Finding a new account number; The 360 degree customer view; Account opening during the freeze; Sunday live checks walkthrough; Serving customers through change. Pictures: Campaign: New System. Same Warm Welcome.; Campaign: Sunday Checks; Campaign: Old Number? We Can Help!. Some videos are marked coming soon."
+ },
+ {
+  "name": "tc8f7c8a5",
+  "say": "So, what's next? Here are the steps that will take us from today all the way to go-live."
+ },
+ {
+  "name": "t9d790dc1",
+  "say": "What's next. Keep learning: Complete your training. Finish your end-user training modules and practise the new processes. Practise: Business simulations. Take part in simulations to build confidence before go-live. Connect: Meet your champion. Our 30 plus Corbit X champions are on hand to answer questions locally. Get ready: Sunday live checks. Join the live transaction and channel checks on the Sunday before go-live. Go-live: Same warm welcome. Serve every customer with confidence on Corbit X."
+ },
+ {
+  "name": "t919d6ceb",
+  "say": "Corbit X Staff Guides. Clear, practical guidance for every customer moment around go-live. Tap any poster to open it full size and read the detailed guidance."
+ },
+ {
+  "name": "t7dc03f0d",
+  "say": "Customer Experience. Helping staff deliver exceptional customer service during transition. New System. Same Warm Welcome. On go-live day, let your smile lead. Keep the Welcome. Start the Process. Account opening during the upgrade."
+ },
+ {
+  "name": "te60f6ad7",
+  "say": "Account and Chequebook Transition. Guidance on account number changes, cheque handling and customer support. Old Number? We Can Help!. Help customers find their new account number. New Chapter. New Chequebook. Cheques with old account numbers. Older Chequebook? Find a Way Forward. Support customers with affected chequebooks."
+ },
+ {
+  "name": "ta7630389",
+  "say": "Go-Live Operations. Operational readiness activities, testing responsibilities and go-live procedures. Sunday Checks. Monday Confidence. Live checks before go-live."
+ },
+ {
+  "name": "t3bab008c",
+  "say": "Our key messages. One Journey. One Platform. One Corbit X. Smile. Check. Serve. Look it up. Share it. Keep banking moving. Check together. Start strong. Give customers a head start! Here for your journey"
+ },
+ {
+  "name": "t35a1c9b8",
+  "say": "The road to go-live. Six phases take us from awareness to a stable new platform. Select a phase to see what it means for you and the materials that support it."
+ },
+ {
+  "name": "t2b1eb6bd",
+  "say": "Phase 1, Awareness. Now, ongoing. Building understanding of what Corbit X is, why we are moving and what changes for customers and staff. What to focus on: Read the six Corbit X Staff Guides; Share the key messages in team huddles; Know where to find answers in the Knowledge Hub."
+ },
+ {
+  "name": "t1a590321",
+  "say": "Phase 2, Training. Before go-live. Hands-on learning so every colleague can work confidently in Corbit X, including the new account-number look-up process. What to focus on: Complete your assigned training modules; Practise looking up new account numbers; Keep the quick reference cards close."
+ },
+ {
+  "name": "t8971a1ed",
+  "say": "Phase 3, Readiness Testing. Go-live weekend. Live transaction and channel checks on the Sunday immediately before go-live, led by Branch Operations Supervisors with all branch staff participating. What to focus on: Test deposits, branch transactions, ATMs and the mobile app; Real transactions with real funds: follow controls; Do not close the branch day or run end of day on Sunday."
+ },
+ {
+  "name": "t8ce33bad",
+  "say": "Phase 4, Go-Live. Go-live Monday. Corbit X opens for business. Continue the same branch day from Sunday and lead every interaction with a warm welcome. What to focus on: Run end of day at close of business on Monday; Start account-opening requests in Newgen; Smile. Check. Serve."
+ },
+ {
+  "name": "ta97f3eb0",
+  "say": "Phase 5, Customer Support. First weeks after go-live. Helping customers through the change: new account numbers, cheques, chequebooks and account opening. What to focus on: Look up and share new account numbers at every interaction; Accept old-number cheques subject to the usual checks; Help customers with affected chequebooks find a way forward."
+ },
+ {
+  "name": "t7fcdaf68",
+  "say": "Phase 6, Stabilization. Six months after go-live. Embedding new ways of working, closing out transition arrangements and building on the platform. What to focus on: Old-number cheques no longer accepted after six months; Keep encouraging use of new account numbers; Share feedback to help us improve."
+ },
+ {
+  "name": "t8d776ae8",
+  "say": "Preparing today for tomorrow's banking experience."
+ },
+ {
+  "name": "td0ab87b2",
+  "say": "Corbit X Knowledge Hub. Everything you need, in one place. Answers, training, quick references and key dates, so you can serve customers with confidence from day one. The hub has seven tabs: frequently asked questions, training videos, staff guides, quick reference cards, project updates, key dates and milestones, and support contacts."
+ },
+ {
+  "name": "ta06045d6",
+  "say": "Frequently asked question. Will customers' old account numbers still work after go-live? Yes. Old account numbers will continue to be accepted for more than six months after go-live. Look up the new number in Corbit X using the process covered in training, serve the customer, and share the new number so they use it next time."
+ },
+ {
+  "name": "t28b61005",
+  "say": "Frequently asked question. Can customers still use cheques that show their old account number? Yes, for six months after go-live, subject to the usual checks. After six months these cheques will no longer be accepted, so encourage customers to request new chequebooks early."
+ },
+ {
+  "name": "t3ddb80b5",
+  "say": "Frequently asked question. What about chequebooks recorded more than five years ago? These chequebooks will not be migrated to Corbit X and can no longer be used. Affected customers have been notified. Explain the position with care, help them access funds through an approved alternative, and assist with a new chequebook where required."
+ },
+ {
+  "name": "t96643bc4",
+  "say": "Frequently asked question. Can we open new accounts during the upgrade? Account opening is unavailable in Flexcube 11.1 and Corbit X during the static data freeze (the week before go-live) and for the first three days after go-live. Start the application in Newgen, receive deposits through the designated G L, and finalise from Thursday after go-live. Never turn a customer away."
+ },
+ {
+  "name": "tf7e688c3",
+  "say": "Frequently asked question. What happens on the Sunday before go-live? Branch Operations Supervisors will open the branch day and all branch staff take part in live transaction and channel checks: deposits, branch transactions, ATMs, the mobile app and other instructed channels. These are real transactions with real funds. Do not close the branch day or run end of day on Sunday; continue into Monday and run end of day at close of business."
+ },
+ {
+  "name": "t396f8c18",
+  "say": "Frequently asked question. What should I do if I'm not sure how to answer a customer? Pause and check before answering. Consult the relevant internal team, or find the guidebook or procedure in the repository. Never let a system change become a reason to turn a customer away."
+ },
+ {
+  "name": "t4258d4d2",
+  "say": "Frequently asked question. Will new account numbers be printed for customers? Guidance on printing new account numbers will follow. Until then, look up and share the new number at every interaction."
+ },
+ {
+  "name": "tb7e29baa",
+  "say": "Training videos. Short, focused videos to build your confidence in Corbit X. Corbit X: The big picture. Why we're moving and what changes. Finding a new account number. The look-up process in Corbit X. Account opening during the freeze. Start in Newgen, finalise from Thursday. Sunday live checks walkthrough. Your role on go-live weekend. Cheques and chequebooks after go-live. Old numbers, older books, new requests. Serving customers through change. Smile. Check. Serve. Links open in the learning platform once published."
+ },
+ {
+  "name": "tad73f450",
+  "say": "Staff guides. All six campaign guides. Open any guide for the full poster and detailed guidance. The guides are: New System. Same Warm Welcome.; Keep the Welcome. Start the Process.; Old Number? We Can Help!; New Chapter. New Chequebook.; Older Chequebook? Find a Way Forward.; Sunday Checks. Monday Confidence."
+ },
+ {
+  "name": "td3c95b52",
+  "say": "Quick reference cards. The essentials at a glance, for the counter and the back office. Account numbers: Old numbers accepted for 6 plus months; Look up the new number in Corbit X; Share the new number every time. Cheques: Old-number cheques: 6 months, usual checks; Encourage new chequebook requests early; Books recorded 5 plus years ago can't be used. Account opening: Start in Newgen, collect all documents; Deposits via the designated G L; Finalise from Thursday after go-live. Go-live weekend: Sunday: live checks with real funds; No branch-day close or end of day on Sunday; Run end of day at close of business Monday. Every customer: Smile and serve. Keep customers informed; Listen calmly; pause and check if unsure; Never turn a customer away."
+ },
+ {
+  "name": "t3fd697bd",
+  "say": "Project updates. The latest news from the Corbit X programme. Staff Guide series complete. All six Corbit X Staff Guide posters are now available in the gallery, covering customer experience, account and chequebook transition, and go-live operations. Account-number look-up included in training. Training covers how to look up a customer's new account number in Corbit X. Complete your modules before go-live. Printing new account numbers. Guidance on printing new account numbers for customers will follow. Watch this space."
+ },
+ {
+  "name": "t3a98d09a",
+  "say": "Key dates and milestones. Calculated from the expected go-live date of Monday 8 February 2027. 1 February week: Static data freeze begins. Account opening unavailable in Flexcube 11.1 and Corbit X. Start applications in Newgen. Sunday, 7 February: Sunday live checks. Branch Operations Supervisors open the branch day; all staff run live transaction and channel checks. Monday, 8 February: Corbit X go-live. Continue Sunday's branch day; run end of day at close of business. Thursday, 11 February: Account opening resumes. Finalise pending applications and provide account numbers. 8 August 2027: Old-number cheques end. Cheques bearing old account numbers are no longer accepted. Dates will update automatically once the go-live date is confirmed."
+ },
+ {
+  "name": "t3b02542f",
+  "say": "Support contacts. Not sure? Pause, check, and reach out. Help is close by. You can contact: Corbit X Programme Office, for programme questions and feedback; Branch Operations Support, for go-live weekend and branch-day issues; IT Service Desk, for system access and technical faults; Learning and Development, for training access and completion; Customer Experience Team, for escalated customer concerns; Your Regional Champion, for local support and floor-walking. Contact details are shown on the page."
+ },
+ {
+  "name": "tce4999bd",
+  "say": "Coming to Corbit X. A platform built for what's next. Corbit X is more than a system change. Here's what it will make possible for our customers and for us."
+ },
+ {
+  "name": "te2a8cde2",
+  "say": "What Corbit X will bring. Enhanced Customer Experience. Faster, smoother service at every touchpoint, so customers spend less time waiting and more time banking. Faster Account Opening. A streamlined onboarding journey that gets new customers up and running sooner. Improved Branch Operations. Simpler processes and less manual effort, freeing branch teams to focus on customers. Unified Customer View. One complete picture of every customer, wherever you serve them. Better Reporting and Analytics. Clearer, timelier insight to support smarter decisions. Modern Banking Platform. A scalable, resilient core built for growth and innovation. Digital Self-Service Features. More ways for customers to bank on their own terms, any time."
+ },
+ {
+  "name": "closing",
+  "say": "Corbit X is more than a system. It's a journey we are taking together. Keep learning, stay informed, and let's prepare for the future."
+ },
+ {
+  "name": "tf306a823",
+  "say": "One Team. One Journey. One Corbit X."
+ },
+ {
+  "name": "t4077d5a5",
+  "say": "Together we are ready for Corbit X. Read the guides, complete your training, and bring the same warm welcome to every customer through go-live and beyond. Here for your journey. Fidelity Bank. Believe with us."
+ }
+]

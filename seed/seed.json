@@ -688,5 +688,520 @@
    "Order": 6,
    "IsActive": true
   }
+ ],
+ "Page Settings": [
+  {
+   "Title": "GoLive",
+   "Value": "2027-02-08T00:00:00+00:00",
+   "Order": 1,
+   "IsActive": true
+  },
+  {
+   "Title": "CurrentPhase",
+   "Value": "1",
+   "Order": 2,
+   "IsActive": true
+  }
+ ],
+ "Guide Categories": [
+  {
+   "Title": "Customer Experience",
+   "CatId": "cx",
+   "Description": "Helping staff deliver exceptional customer service during transition.",
+   "Order": 1,
+   "IsActive": true
+  },
+  {
+   "Title": "Account & Chequebook Transition",
+   "CatId": "acc",
+   "Description": "Guidance on account number changes, cheque handling and customer support.",
+   "Order": 2,
+   "IsActive": true
+  },
+  {
+   "Title": "Go-Live Operations",
+   "CatId": "ops",
+   "Description": "Operational readiness activities, testing responsibilities and go-live procedures.",
+   "Order": 3,
+   "IsActive": true
+  }
+ ],
+ "Staff Guides": [
+  {
+   "Title": "New System. Same Warm Welcome.",
+   "PosterId": "p1",
+   "CatId": "cx",
+   "Short": "On go-live day, let your smile lead.",
+   "Intro": "Our upgrade should improve the customer experience. Make every customer feel welcome, valued and supported.",
+   "Steps": "Smile & Serve | Bring the same warmth, patience and care to every interaction. Keep customers informed and reassured.\nListen & Pause | If a customer complains, listen calmly. If you are unsure, pause and check before answering.\nCheck Quickly | Consult the relevant internal team for the information you need to serve the customer well.\nUse the Repository | Find the relevant guidebook or procedure. The information is at your fingertips — use it.",
+   "Key": "<b>Smile. Check. Serve.</b> Never let a system change become a reason to turn a customer away.",
+   "Say": "",
+   "Note": "",
+   "Order": 1,
+   "IsActive": true
+  },
+  {
+   "Title": "Keep the Welcome. Start the Process.",
+   "PosterId": "p2",
+   "CatId": "cx",
+   "Short": "Account opening during the upgrade.",
+   "Intro": "During the static data freeze in the week before go-live and the first three days after go-live, account opening is unavailable in Flexcube 11.1 and Corbit X.",
+   "Steps": "Start | Start in Newgen. Collect all required documents.\nReceive | Receive deposits through the designated GL. Record and monitor every deposit.\nFinalise | Finalise from Thursday after go-live and provide account numbers.",
+   "Key": "<b>Never turn away</b> an account-opening request because of the upgrade.",
+   "Say": "We are upgrading our systems to serve you better. We can start your application now. Your account number will be provided from Thursday after the upgrade.",
+   "Note": "",
+   "Order": 2,
+   "IsActive": true
+  },
+  {
+   "Title": "Old Number? We Can Help!",
+   "PosterId": "p3",
+   "CatId": "acc",
+   "Short": "Help customers find their new account number.",
+   "Intro": "Old account numbers will continue to be accepted for more than six months after go-live.",
+   "Steps": "Look Up | Look up the new account number in Corbit X using the process covered in training.\nServe | Serve the customer and support their transaction.\nShare | Share the new account number at every interaction. Encourage its use next time.",
+   "Key": "<b>Look it up. Share it.</b> Keep banking moving.",
+   "Say": "",
+   "Note": "Guidance on printing new account numbers will follow.",
+   "Order": 3,
+   "IsActive": true
+  },
+  {
+   "Title": "New Chapter. New Chequebook.",
+   "PosterId": "p4",
+   "CatId": "acc",
+   "Short": "Cheques with old account numbers.",
+   "Intro": "Accept cheques bearing old account numbers for six months after go-live, subject to the usual checks. After six months, these cheques will no longer be accepted.",
+   "Steps": "Accept | Accept old-number cheques for six months after go-live, subject to the usual checks.\nEncourage | Encourage customers to request new chequebooks early.\nExplain | Explain the transition clearly and help customers with their request.",
+   "Key": "<b>Give customers a head start!</b>",
+   "Say": "",
+   "Note": "",
+   "Order": 4,
+   "IsActive": true
+  },
+  {
+   "Title": "Older Chequebook? Find a Way Forward.",
+   "PosterId": "p5",
+   "CatId": "acc",
+   "Short": "Support customers with affected chequebooks.",
+   "Intro": "Affected chequebooks recorded in the system more than five years ago will not be migrated to Corbit X and can no longer be used. These customers have been notified.",
+   "Steps": "Explain | Explain the position with care.\nHelp | Help the customer access funds through an approved alternative.\nAssist | Assist with a new chequebook where required.",
+   "Key": "<b>Do not turn the customer away.</b> Help them find a solution.",
+   "Say": "",
+   "Note": "",
+   "Order": 5,
+   "IsActive": true
+  },
+  {
+   "Title": "Sunday Checks. Monday Confidence.",
+   "PosterId": "p6",
+   "CatId": "ops",
+   "Short": "Live checks before go-live.",
+   "Intro": "On the Sunday immediately before go-live, BOSs will open the branch day. All branch staff will participate in live transaction and channel checks.",
+   "Steps": "Test | Test deposits, branch transactions, ATMs, the mobile app and other instructed channels.\nReal Funds | These are REAL transactions with REAL funds. Follow controls and report issues promptly.\nDo Not Close | Do not close the branch day or run end of day on Sunday.\nContinue | Continue the same branch day into Monday. Run end of day at the close of business on Monday.",
+   "Key": "<b>Check together.</b> Start strong.",
+   "Say": "",
+   "Note": "",
+   "Order": 6,
+   "IsActive": true
+  }
+ ],
+ "Programme Phases": [
+  {
+   "Title": "Awareness",
+   "Icon": "megaphone",
+   "When": "Now – ongoing",
+   "Description": "Building understanding of what Corbit X is, why we are moving and what changes for customers and staff.",
+   "Focus": "Read the six Corbit X Staff Guides\nShare the key messages in team huddles\nKnow where to find answers in the Knowledge Hub",
+   "Materials": "p | p1\np | p3\nh | updates\nh | faq",
+   "Order": 1,
+   "IsActive": true
+  },
+  {
+   "Title": "Training",
+   "Icon": "cap",
+   "When": "Before go-live",
+   "Description": "Hands-on learning so every colleague can work confidently in Corbit X, including the new account-number look-up process.",
+   "Focus": "Complete your assigned training modules\nPractise looking up new account numbers\nKeep the quick reference cards close",
+   "Materials": "h | videos\nh | qrc\np | p3\np | p2",
+   "Order": 2,
+   "IsActive": true
+  },
+  {
+   "Title": "Readiness Testing",
+   "Icon": "check",
+   "When": "Go-live weekend",
+   "Description": "Live transaction and channel checks on the Sunday immediately before go-live, led by BOSs with all branch staff participating.",
+   "Focus": "Test deposits, branch transactions, ATMs and the mobile app\nReal transactions with real funds: follow controls\nDo not close the branch day or run end of day on Sunday",
+   "Materials": "p | p6\nh | dates\nh | contacts",
+   "Order": 3,
+   "IsActive": true
+  },
+  {
+   "Title": "Go-Live",
+   "Icon": "rocket",
+   "When": "Go-live Monday",
+   "Description": "Corbit X opens for business. Continue the same branch day from Sunday and lead every interaction with a warm welcome.",
+   "Focus": "Run end of day at close of business on Monday\nStart account-opening requests in Newgen\nSmile. Check. Serve.",
+   "Materials": "p | p1\np | p2\np | p6",
+   "Order": 4,
+   "IsActive": true
+  },
+  {
+   "Title": "Customer Support",
+   "Icon": "heart",
+   "When": "First weeks after go-live",
+   "Description": "Helping customers through the change: new account numbers, cheques, chequebooks and account opening.",
+   "Focus": "Look up and share new account numbers at every interaction\nAccept old-number cheques subject to the usual checks\nHelp customers with affected chequebooks find a way forward",
+   "Materials": "p | p3\np | p4\np | p5\nh | contacts",
+   "Order": 5,
+   "IsActive": true
+  },
+  {
+   "Title": "Stabilization",
+   "Icon": "chart",
+   "When": "Six months after go-live",
+   "Description": "Embedding new ways of working, closing out transition arrangements and building on the platform.",
+   "Focus": "Old-number cheques no longer accepted after six months\nKeep encouraging use of new account numbers\nShare feedback to help us improve",
+   "Materials": "p | p4\nh | dates\nh | updates\nh | faq",
+   "Order": 6,
+   "IsActive": true
+  }
+ ],
+ "Capabilities": [
+  {
+   "Title": "Enhanced Customer Experience",
+   "Icon": "heart",
+   "Text": "Faster, smoother service at every touchpoint, so customers spend less time waiting and more time banking.",
+   "Wide": true,
+   "Order": 1,
+   "IsActive": true
+  },
+  {
+   "Title": "Faster Account Opening",
+   "Icon": "bolt",
+   "Text": "A streamlined onboarding journey that gets new customers up and running sooner.",
+   "Wide": false,
+   "Order": 2,
+   "IsActive": true
+  },
+  {
+   "Title": "Improved Branch Operations",
+   "Icon": "building",
+   "Text": "Simpler processes and less manual effort, freeing branch teams to focus on customers.",
+   "Wide": false,
+   "Order": 3,
+   "IsActive": true
+  },
+  {
+   "Title": "Unified Customer View",
+   "Icon": "eye",
+   "Text": "One complete picture of every customer, wherever you serve them.",
+   "Wide": false,
+   "Order": 4,
+   "IsActive": true
+  },
+  {
+   "Title": "Better Reporting & Analytics",
+   "Icon": "chart",
+   "Text": "Clearer, timelier insight to support smarter decisions.",
+   "Wide": false,
+   "Order": 5,
+   "IsActive": true
+  },
+  {
+   "Title": "Modern Banking Platform",
+   "Icon": "layers",
+   "Text": "A scalable, resilient core built for growth and innovation.",
+   "Wide": false,
+   "Order": 6,
+   "IsActive": true
+  },
+  {
+   "Title": "Digital Self-Service Features",
+   "Icon": "phoneapp",
+   "Text": "More ways for customers to bank on their own terms, any time.",
+   "Wide": false,
+   "Order": 7,
+   "IsActive": true
+  }
+ ],
+ "Hub FAQs": [
+  {
+   "Title": "Will customers' old account numbers still work after go-live?",
+   "Answer": "Yes. Old account numbers will continue to be accepted for more than six months after go-live. Look up the new number in Corbit X using the process covered in training, serve the customer, and share the new number so they use it next time.",
+   "PosterId": "p3",
+   "Order": 1,
+   "IsActive": true
+  },
+  {
+   "Title": "Can customers still use cheques that show their old account number?",
+   "Answer": "Yes, for six months after go-live, subject to the usual checks. After six months these cheques will no longer be accepted, so encourage customers to request new chequebooks early.",
+   "PosterId": "p4",
+   "Order": 2,
+   "IsActive": true
+  },
+  {
+   "Title": "What about chequebooks recorded more than five years ago?",
+   "Answer": "These chequebooks will not be migrated to Corbit X and can no longer be used. Affected customers have been notified. Explain the position with care, help them access funds through an approved alternative, and assist with a new chequebook where required.",
+   "PosterId": "p5",
+   "Order": 3,
+   "IsActive": true
+  },
+  {
+   "Title": "Can we open new accounts during the upgrade?",
+   "Answer": "Account opening is unavailable in Flexcube 11.1 and Corbit X during the static data freeze (the week before go-live) and for the first three days after go-live. Start the application in Newgen, receive deposits through the designated GL, and finalise from Thursday after go-live. Never turn a customer away.",
+   "PosterId": "p2",
+   "Order": 4,
+   "IsActive": true
+  },
+  {
+   "Title": "What happens on the Sunday before go-live?",
+   "Answer": "BOSs will open the branch day and all branch staff take part in live transaction and channel checks: deposits, branch transactions, ATMs, the mobile app and other instructed channels. These are real transactions with real funds. Do not close the branch day or run end of day on Sunday; continue into Monday and run end of day at close of business.",
+   "PosterId": "p6",
+   "Order": 5,
+   "IsActive": true
+  },
+  {
+   "Title": "What should I do if I'm not sure how to answer a customer?",
+   "Answer": "Pause and check before answering. Consult the relevant internal team, or find the guidebook or procedure in the repository. Never let a system change become a reason to turn a customer away.",
+   "PosterId": "p1",
+   "Order": 6,
+   "IsActive": true
+  },
+  {
+   "Title": "Will new account numbers be printed for customers?",
+   "Answer": "Guidance on printing new account numbers will follow. Until then, look up and share the new number at every interaction.",
+   "PosterId": "p3",
+   "Order": 7,
+   "IsActive": true
+  }
+ ],
+ "Training Videos": [
+  {
+   "Title": "Corbit X: The big picture",
+   "Description": "Why we're moving and what changes",
+   "Order": 1,
+   "IsActive": true
+  },
+  {
+   "Title": "Finding a new account number",
+   "Description": "The look-up process in Corbit X",
+   "Order": 2,
+   "IsActive": true
+  },
+  {
+   "Title": "Account opening during the freeze",
+   "Description": "Start in Newgen, finalise from Thursday",
+   "Order": 3,
+   "IsActive": true
+  },
+  {
+   "Title": "Sunday live checks walkthrough",
+   "Description": "Your role on go-live weekend",
+   "Order": 4,
+   "IsActive": true
+  },
+  {
+   "Title": "Cheques & chequebooks after go-live",
+   "Description": "Old numbers, older books, new requests",
+   "Order": 5,
+   "IsActive": true
+  },
+  {
+   "Title": "Serving customers through change",
+   "Description": "Smile. Check. Serve.",
+   "Order": 6,
+   "IsActive": true
+  }
+ ],
+ "Quick Reference Cards": [
+  {
+   "Title": "Account numbers",
+   "Items": "+ Old numbers accepted for 6+ months\n+ Look up the new number in Corbit X\n+ Share the new number every time",
+   "Order": 1,
+   "IsActive": true
+  },
+  {
+   "Title": "Cheques",
+   "Items": "+ Old-number cheques: 6 months, usual checks\n+ Encourage new chequebook requests early\n- Books recorded 5+ years ago can't be used",
+   "Order": 2,
+   "IsActive": true
+  },
+  {
+   "Title": "Account opening",
+   "Items": "+ Start in Newgen, collect all documents\n+ Deposits via the designated GL\n+ Finalise from Thursday after go-live",
+   "Order": 3,
+   "IsActive": true
+  },
+  {
+   "Title": "Go-live weekend",
+   "Items": "+ Sunday: live checks with real funds\n- No branch-day close or EOD on Sunday\n+ Run EOD at close of business Monday",
+   "Order": 4,
+   "IsActive": true
+  },
+  {
+   "Title": "Every customer",
+   "Items": "+ Smile & serve. Keep customers informed\n+ Listen calmly; pause and check if unsure\n- Never turn a customer away",
+   "Order": 5,
+   "IsActive": true
+  }
+ ],
+ "Project Updates": [
+  {
+   "Title": "Staff Guide series complete",
+   "Date": "2026-10-19",
+   "Body": "All six Corbit X Staff Guide posters are now available in the gallery, covering customer experience, account and chequebook transition, and go-live operations.",
+   "Order": 1,
+   "IsActive": true
+  },
+  {
+   "Title": "Account-number look-up included in training",
+   "Date": "2026-10-19",
+   "Body": "Training covers how to look up a customer's new account number in Corbit X. Complete your modules before go-live.",
+   "Order": 2,
+   "IsActive": true
+  },
+  {
+   "Title": "Printing new account numbers",
+   "Date": "2026-10-19",
+   "Body": "Guidance on printing new account numbers for customers will follow. Watch this space.",
+   "Order": 3,
+   "IsActive": true
+  }
+ ],
+ "Key Dates": [
+  {
+   "Title": "Static data freeze begins",
+   "Body": "Account opening unavailable in Flexcube 11.1 and Corbit X. Start applications in Newgen.",
+   "OffsetDays": -7,
+   "OffsetMonths": 0,
+   "Format": "Week",
+   "Big": false,
+   "Order": 1,
+   "IsActive": true
+  },
+  {
+   "Title": "Sunday live checks",
+   "Body": "BOSs open the branch day; all staff run live transaction and channel checks.",
+   "OffsetDays": -1,
+   "OffsetMonths": 0,
+   "Format": "Day",
+   "Big": false,
+   "Order": 2,
+   "IsActive": true
+  },
+  {
+   "Title": "Corbit X go-live",
+   "Body": "Continue Sunday's branch day; run end of day at close of business.",
+   "OffsetDays": 0,
+   "OffsetMonths": 0,
+   "Format": "Day",
+   "Big": true,
+   "Order": 3,
+   "IsActive": true
+  },
+  {
+   "Title": "Account opening resumes",
+   "Body": "Finalise pending applications and provide account numbers.",
+   "OffsetDays": 3,
+   "OffsetMonths": 0,
+   "Format": "Day",
+   "Big": false,
+   "Order": 4,
+   "IsActive": true
+  },
+  {
+   "Title": "Old-number cheques end",
+   "Body": "Cheques bearing old account numbers are no longer accepted.",
+   "OffsetDays": 0,
+   "OffsetMonths": 6,
+   "Format": "Full",
+   "Big": true,
+   "Order": 5,
+   "IsActive": true
+  }
+ ],
+ "Support Contacts": [
+  {
+   "Title": "Corbit X Programme Office",
+   "Icon": "user",
+   "Purpose": "Programme questions and feedback",
+   "Contact": "[Add email / extension]",
+   "Order": 1,
+   "IsActive": true
+  },
+  {
+   "Title": "Branch Operations Support",
+   "Icon": "shield",
+   "Purpose": "Go-live weekend and branch-day issues",
+   "Contact": "[Add contact]",
+   "Order": 2,
+   "IsActive": true
+  },
+  {
+   "Title": "IT Service Desk",
+   "Icon": "phoneapp",
+   "Purpose": "System access and technical faults",
+   "Contact": "[Add contact]",
+   "Order": 3,
+   "IsActive": true
+  },
+  {
+   "Title": "Learning & Development",
+   "Icon": "cap",
+   "Purpose": "Training access and completion",
+   "Contact": "[Add contact]",
+   "Order": 4,
+   "IsActive": true
+  },
+  {
+   "Title": "Customer Experience Team",
+   "Icon": "heart",
+   "Purpose": "Escalated customer concerns",
+   "Contact": "[Add contact]",
+   "Order": 5,
+   "IsActive": true
+  },
+  {
+   "Title": "Your Regional Champion",
+   "Icon": "building",
+   "Purpose": "Local support and floor-walking",
+   "Contact": "[Add name]",
+   "Order": 6,
+   "IsActive": true
+  }
+ ],
+ "Key Messages": [
+  {
+   "Title": "One Journey. One Platform. One Corbit X.",
+   "Order": 1,
+   "IsActive": true
+  },
+  {
+   "Title": "Smile. Check. Serve.",
+   "Order": 2,
+   "IsActive": true
+  },
+  {
+   "Title": "Look it up. Share it. Keep banking moving.",
+   "Order": 3,
+   "IsActive": true
+  },
+  {
+   "Title": "Check together. Start strong.",
+   "Order": 4,
+   "IsActive": true
+  },
+  {
+   "Title": "Give customers a head start!",
+   "Order": 5,
+   "IsActive": true
+  },
+  {
+   "Title": "Here for your journey",
+   "Order": 6,
+   "IsActive": true
+  }
  ]
 }

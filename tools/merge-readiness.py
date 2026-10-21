@@ -29,23 +29,29 @@ rc_script = sub1(r'goLive: "[^"]*"', 'goLive: "%s"' % GO_LIVE, rc_script)
 rc_script = rc_script.replace('["home","guides","journey","hub","coming"]', '["home","kjourney","guides","journey","hub","coming"]')
 assert '"kjourney"' in rc_script
 
-# --- Readiness Centre edits: "Expected" go-live wording, no overall-readiness ring, expose data to Kukua's narrator
+# --- Readiness Centre edits: "Expected" go-live wording; no dashboard section; three labels removed; data exposed to Kukua's narrator
 rc_script = sub1(r'CONFIG\.goLiveConfirmed\?"Confirmed go-live date":"Provisional date[^"]*"', '"Expected go-live date"', rc_script)
 rc_script = rc_script.replace('${CONFIG.goLiveConfirmed?"confirmed":"provisional"} go-live date', 'expected go-live date')
 assert 'Provisional date' not in rc_script and '?"confirmed":"provisional"' not in rc_script
-for old in ['const overall=Math.round(CONFIG.workstreams.reduce((a,w)=>a+w[1],0)/CONFIG.workstreams.length);\n',
-            '$("#overall").dataset.to=overall;\n',
-            '  const r=e.target.querySelector("#ringFg");if(r)r.style.strokeDashoffset=502.65*(1-overall/100);\n']:
-    assert old in rc_script, old
-    rc_script = rc_script.replace(old, '')
-assert 'overall' not in rc_script and 'ringFg' not in rc_script
+# dashboard (readiness ring, bars, KPIs, announcement card, poster of the week): markup + its script block
+d0, d1 = rc_markup.index('<!-- DASHBOARD -->'), rc_markup.index('<!-- CTA BAND -->')
+rc_markup = rc_markup[:d0] + rc_markup[d1:]
+j0, j1 = rc_script.index('/* DASHBOARD */'), rc_script.index('/* GALLERY */')
+rc_script = rc_script[:j0] + 'const A=CONFIG.announcement;\n\n' + rc_script[j1:]
+for gone in ('#bars', '#kpis', '#featCard', '#anTitle', 'dashIO', '.ready'):
+    assert gone not in rc_script, gone
+for label in ('<span class="eyebrow reveal">Corbit X Transformation Programme</span>', '<span class="eyebrow">Poster gallery</span>', '<span class="eyebrow">Coming to Corbit X</span>'):
+    assert rc_markup.count(label) == 1, label
+    rc_markup = rc_markup.replace(label, '')
 rc_script += '\nwindow.CXJ_RC={CONFIG,POSTERS,CATS,PHASES,CAPS,FAQS,VIDEOS,QRC,UPDATES,DATES,CONTACTS,HUB,mq,GO,fmt,showPhase,showHub};\n'
-r0 = rc_markup.index('<div class="ring-wrap">')
-r1 = rc_markup.index('Overall ready</small></div>', r0)
-r1 = rc_markup.index('</div>', r1 + len('Overall ready</small></div>')) + 6
-rc_markup = rc_markup[:r0] + rc_markup[r1:]
-assert 'Overall ready' not in rc_markup
-rc_css += '\n.ready{grid-template-columns:1fr}\n.cx-reading{outline:3px solid rgba(242,106,27,.55);outline-offset:-5px;transition:outline-color .3s}\n'
+rc_css += """
+.cx-reading{outline:3px solid rgba(242,106,27,.55);outline-offset:-5px;transition:outline-color .3s}
+.cx-hear{position:absolute;z-index:6;right:14px;bottom:14px;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:#fff;color:var(--orange-deep);border:1.5px solid var(--orange);font:700 13px var(--body);box-shadow:var(--shadow);cursor:pointer;transition:transform .2s,background .2s}
+.cx-hear:hover{background:var(--orange-soft);transform:translateY(-2px)}
+.cx-hear svg{width:15px;height:15px;flex:none}
+.cx-hear.top{top:92px;bottom:auto;right:20px}
+.cx-hear.sec{top:22px;bottom:auto;right:22px}
+"""
 fonts = re.search(r'<link href="https://fonts.googleapis.com/css2[^>]*>', KJ).group(0)
 rc_head = sub1(r'<link href="https://fonts.googleapis.com/css2[^>]*>', fonts, rc_head)
 rc_head = rc_head.replace('<title>Corbit X Readiness Centre</title>', '<title>Corbit X Readiness Centre</title>')
@@ -86,9 +92,10 @@ def patch(old, new):
     global k_script
     assert k_script.count(old) == 1, old[:60]
     k_script = k_script.replace(old, new)
+patch('const a=new Audio(audioUrl);V.audio=a;', 'const a=V.el||(V.el=new Audio());a.onended=a.onerror=a.onplay=null;a.pause();a.src=audioUrl;V.audio=a;')
 patch('V.paused=false;setSpeaking(false)}', 'V.paused=false;V.after=null;setSpeaking(false)}')
 patch('a.onplay=()=>setSpeaking(true);a.onended=()=>setSpeaking(false);a.onerror=()=>setSpeaking(false);\n  a.play().catch(()=>setSpeaking(false));',
-      'const fin=()=>{setSpeaking(false);const f=V.after;V.after=null;if(f)f()};\n  a.onplay=()=>setSpeaking(true);a.onended=fin;a.onerror=fin;\n  a.play().catch(()=>{setSpeaking(false);cancelTour()});')
+      'const fin=()=>{setSpeaking(false);const f=V.after;V.after=null;if(f)f()};\n  a.onplay=()=>setSpeaking(true);a.onended=fin;a.onerror=fin;\n  a.play().catch(e=>{setSpeaking(false);if(e&&e.name==="NotAllowedError")cancelTour()});')
 patch('function narrate(text,audioUrl){', 'function narrate(text,audioUrl,fromTour){if(!fromTour)cancelTour();')
 patch('if(speak){if(i===0)', 'if(speak&&!V.tour){if(i===0)')
 patch('if(e.isIntersecting&&!seen.has(k)&&$("#dock").classList.contains("show")){', 'if(false){')
@@ -129,3 +136,86 @@ doc = (rc_head + '<style>' + rc_css + '\n/* ===== Kukua (scoped under .kx) =====
        + voice_script + '\n<script>' + wrap(k_script) + '</script>\n<script>' + wrap(rc_script) + '</script>\n</body>\n</html>\n')
 open(OUT, 'w', encoding='utf8').write(doc)
 print('written', OUT, len(doc) // 1024, 'KB; keyframes prefixed:', sorted(names))
+
+# =====================================================================================================
+# SPFx export: the same page as a SharePoint web part. Content comes from lists (see portal/schema.json);
+# voice clips are served from SiteAssets instead of being embedded.
+# =====================================================================================================
+SPD = os.path.join(ROOT, 'src', 'webparts', 'corbitXJourney', 'portal')
+URI_RE = re.compile(r'data:image/[a-z+]+;base64,[A-Za-z0-9+/=]+')
+assets, aindex = [], {}
+def aid(uri):
+    key = hashlib.md5(uri.encode()).hexdigest() if 'hashlib' in globals() else uri
+    if key not in aindex: aindex[key] = len(assets); assets.append(uri)
+    return aindex[key]
+import hashlib
+def tok(s): return URI_RE.sub(lambda m: '{{A%d}}' % aid(m.group(0)), s)
+def jsa(s): return re.sub(r'"(' + URI_RE.pattern + r')"', lambda m: '__A[%d]' % aid(m.group(1)), s)
+
+def scan_end(src, i):
+    """index just after the bracketed value that starts at src[i] (string/template aware)"""
+    depth, q = 0, None
+    while i < len(src):
+        c = src[i]
+        if q:
+            if c == '\\': i += 1
+            elif c == q: q = None
+        elif c in '"\'`': q = c
+        elif c in '([{': depth += 1
+        elif c in ')]}':
+            depth -= 1
+            if depth == 0: return i + 1
+        i += 1
+    raise ValueError('unbalanced')
+def swap_const(src, name, new):
+    m = re.search(r'\bconst ' + re.escape(name) + r'\s*=\s*', src); assert m, name
+    end = scan_end(src, m.end())
+    if src[end] == ';': end += 1
+    return src[:m.start()] + new + src[end:]
+
+# ---- Kukua script (content now comes from the LISTS argument)
+ksp = k_script
+a0, a1 = ksp.index('const LISTS = {'), ksp.index('const POSTERS = {')
+ksp = ksp[:a0] + ksp[a1:]
+ksp = ksp.replace('const KHEAD=', 'Object.keys(POSTER_OVERRIDES||{}).forEach(k=>{const o=POSTER_OVERRIDES[k];if(POSTERS[k]&&o){if(o.title)POSTERS[k].title=o.title;if(o.img)POSTERS[k].img=o.img}});\nconst KHEAD=', 1)
+assert 'const VOICE_BASE="voice/emily/";' in ksp
+ksp = ksp.replace('const VOICE_BASE="voice/emily/";', 'const VOICE_BASE=(OPTS&&OPTS.voiceBase)||"voice/emily/";', 1)
+ksp = jsa(ksp)
+
+# ---- Readiness Centre script (content now comes from the RCDATA argument)
+rsp = jsa(rc_script)
+for name in ('CATS', 'POSTERS', 'PHASES', 'CAPS', 'FAQS', 'VIDEOS', 'QRC', 'UPDATES', 'CONTACTS', 'mq'):
+    extra = 'CONFIG.currentPhase=Math.max(0,Math.min(Number(CONFIG.currentPhase)||0,PHASES.length-1));' if name == 'PHASES' else ''
+    rsp = swap_const(rsp, name, 'const %s=RCDATA.%s;%s' % (name, name, extra))
+rsp = swap_const(rsp, 'DATES',
+    'const DATES=RCDATA.DATES.map(d=>{const t=addMonths(addDays(GO,d.Days),d.Months);'
+    'const label=d.Fmt==="Week"?fmt(t,{day:"numeric",month:"short"})+" week":d.Fmt==="Full"?fmt(t,{day:"numeric",month:"short",year:"numeric"}):fmt(t,{weekday:"short",day:"numeric",month:"short"});'
+    'return [label,d.Title,d.Body,!!d.Big]});')
+m_ = re.search(r'\bconst CONFIG\s*=\s*', rsp); ce = scan_end(rsp, m_.end()); ce += 1 if rsp[ce] == ';' else 0
+rsp = rsp[:ce] + '\nif(RCDATA.SETTINGS){if(RCDATA.SETTINGS.GoLive)CONFIG.goLive=RCDATA.SETTINGS.GoLive;if(RCDATA.SETTINGS.CurrentPhase!==undefined&&RCDATA.SETTINGS.CurrentPhase!=="")CONFIG.currentPhase=Number(RCDATA.SETTINGS.CurrentPhase)}' + rsp[ce:]
+m_ = re.search(r'\bconst IMG\s*=\s*', rsp); ie = scan_end(rsp, m_.end()); ie += 1 if rsp[ie] == ';' else 0
+rsp = rsp[:ie] + '\nObject.assign(IMG,RCDATA.IMG||{});' + rsp[ie:]
+
+# ---- markup
+page = '<div class="cxp">' + rc_a + '\n<div class="kx">\n' + hero + mid + '</div>\n' + rc_b + '\n<div class="kx">\n' + closing + '</div>\n' + rc_c + '\n<div class="kx">\n' + overlays + '</div>\n</div>'
+page = tok(page)
+
+# ---- css, scoped under .cxp
+rcs = re.sub(r'(^|\n)html\{[^}]*\}', r'\1', rc_css).replace(':root{', '&{', 1)
+rcs = re.sub(r'(^|\n)body\{', r'\1&{', rcs, count=1)
+rcs = re.sub(r'html\{scroll-behavior:auto\}', '', rcs)
+rcs += '\n.nav{position:sticky}\nsection,header,[id]{scroll-margin-top:84px}\n'
+open('/tmp/_sp.scss', 'w').write('.cxp{\n' + rcs + '\n}\n.cxp{\n' + kx_css + '\n}')
+res = subprocess.run(['node', '-e', "process.stdout.write(require('sass').compile('/tmp/_sp.scss',{style:'compressed'}).css)"], capture_output=True, text=True, cwd=os.path.join(ROOT, 'tools'))
+assert res.returncode == 0, res.stderr
+sp_css = res.stdout
+
+def w(name, body): open(os.path.join(SPD, name), 'w', encoding='utf8').write(body)
+HDR = '// GENERATED by tools/merge-readiness.py. Do not edit.\n'
+w('portalCss.ts', HDR + 'export const PORTAL_CSS: string = ' + json.dumps(sp_css) + ';\n')
+w('portalTemplate.ts', HDR + 'export const PORTAL_TEMPLATE: string = ' + json.dumps(page) + ';\n')
+w('runPortal.ts', HDR + '// @ts-nocheck\n/* eslint-disable */\nexport function runPortal(LISTS: any, RCDATA: any, POSTER_OVERRIDES: any, __A: string[], OPTS: any): void {\n(function(){\n' + ksp + '\n})();\n(function(){\n' + rsp + '\n})();\nif (window.CXJ_SETUP) window.CXJ_SETUP();\n}\n')
+rcd = json.load(open(os.path.join(ROOT, 'seed', 'rc-defaults.json')))
+w('defaultRc.ts', HDR + '/* eslint-disable */\nexport const RC_DEFAULTS: any = ' + json.dumps(rcd, ensure_ascii=False, indent=1) + ';\n')
+w('portalAssets.ts', HDR + 'export const PORTAL_ASSETS: string[] = ' + json.dumps(assets) + ';\n')
+print('SPFx export: assets', len(assets), '| css', len(sp_css) // 1024, 'KB | template', len(page) // 1024, 'KB')
