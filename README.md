@@ -33,12 +33,20 @@ Open a list, edit an item. **Order** sorts items and **IsActive** (untick) hides
 | Ask Kukua answers | FAQs | Title = question, Answer, Keywords, Suggested |
 | Poster images | Posters | PosterId (p1 to p6), Title, ImageUrl |
 
+## Sound and browsers (so Kukua starts without a click)
+Kukua tries to start reading the first section as soon as the page opens, then reads each new section as a visitor scrolls to it.
+Browsers only allow sound after a visitor has touched the page once, so on a browser that blocks sound she waits for one tap, click or key press
+anywhere (she says so in her player), then starts at the section the visitor is on.
+**To make her start with no click for everyone:** ask IT to allow sound for your SharePoint site in Microsoft Edge and Chrome with the
+`AutoplayAllowlist` policy (Edge: "Allow media autoplay on a specific list of sites"), for example `https://yourtenant.sharepoint.com`,
+deployed by Group Policy or Intune. Individual users can also set Site settings > Sound/Media autoplay > Allow for the site.
+If a visitor mutes Kukua, the browser remembers it and she stays quiet on their next visits.
+
 ## Go-live celebration
 When the countdown reaches zero a full-screen **"We are live!"** pop-up appears (confetti, Kukua, her voice) once per visitor. To preview it, add `?cxlive` to the page address.
 
 ## Kukua's voice
-Press Play in Kukua's player (bottom-left) and she reads the page from the hero, section by section, scrolling as she goes.
-Every section also has a **Hear this section** button, and the player has previous/next section buttons.
+Kukua reads each section **when the visitor gets to it** (once per section; she stops if they scroll on). Every section also has a **Hear this section** button that reads all of it, and her player has previous/next section buttons. Timeline phases, Knowledge Hub tabs and FAQs are read when opened.
 The voice is a set of pre-recorded clips in `SiteAssets/CorbitX/voice/emily/`, matched to the **exact on-screen wording**.
 If you reword something, that line has no recording and Kukua skips it silently (the text still shows). To get new recordings, re-run
 `node tools/list-clips.js && python3 tools/make-page-voice.py` (needs kokoro-onnx, see the script), or ask for them to be re-recorded.

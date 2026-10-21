@@ -137,10 +137,12 @@ rc_css += """
 @media (prefers-reduced-motion:reduce){.live-badge i,.live-ring{animation:none}.live-card{transition:none}}
 """
 rc_css += """
-.dash.dash-hl{background:#4A4F57;padding:4px 0 100px}
+.dash.dash-hl{padding:56px 0 96px}
 .dash.dash-hl .ready{grid-template-columns:1fr}
-.kx #highlights{padding-bottom:28px}
+.kx #highlights{padding-bottom:64px}
 .kx #hlGrid{display:none}
+.dock.wait{animation:dockHint 1.8s ease-in-out infinite}
+@keyframes dockHint{0%,100%{box-shadow:0 0 0 0 rgba(242,106,27,.0)}50%{box-shadow:0 0 0 10px rgba(242,106,27,.28)}}
 .cx-reading{outline:3px solid rgba(242,106,27,.55);outline-offset:-5px;transition:outline-color .3s}
 button.cx-hear,.kx button.cx-hear{position:absolute;z-index:6;right:14px;bottom:14px;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:#fff;color:var(--orange-deep);border:1.5px solid var(--orange);font:700 13px var(--body);box-shadow:var(--shadow);cursor:pointer;transition:transform .2s,background .2s}
 button.cx-hear:hover,.kx button.cx-hear:hover{background:var(--orange-soft);transform:translateY(-2px)}
@@ -179,7 +181,7 @@ hero = hero.replace('<header class="hero" id="welcome">', '<section class="kwel"
 hero = hero.replace('wrap hero-grid', 'wrap kwel-grid').replace('class="hero-ctas"', 'class="kwel-ctas"')
 hero = sub1(r'<h1 class="display">.*?</h1>', '<h2 class="display"><span class="ln"><span class="o">Meet Kukua</span></span><span class="ln"><span>Your Corbit X guide</span></span></h2>', hero, re.S)
 hero = hero.replace('href="#journey"', 'href="#kjourney"')
-mid = mid.replace('id="journey"', 'id="kjourney"').replace('href="#journey"', 'href="#kjourney"')
+mid = mid.replace('id="journey"', 'id="kjourney"').replace('<section class="next" id="next"', '<section class="next" id="knext"').replace('href="#journey"', 'href="#kjourney"')
 closing = closing.replace('href="#journey"', 'href="#kjourney"')
 j_ = mid.index('<!-- ============ JOURNEY')
 mid_a, mid_b = mid[:j_], mid[j_:]
@@ -194,18 +196,18 @@ patch('const a=new Audio(audioUrl);V.audio=a;', 'const a=V.el||(V.el=new Audio()
 patch('const POSTERS = {', 'window.CXJ_HL=LISTS.Highlights;\nconst POSTERS = {')
 patch('V.paused=false;setSpeaking(false)}', 'V.paused=false;V.after=null;setSpeaking(false)}')
 patch('a.onplay=()=>setSpeaking(true);a.onended=()=>setSpeaking(false);a.onerror=()=>setSpeaking(false);\n  a.play().catch(()=>setSpeaking(false));',
-      'const fin=()=>{setSpeaking(false);const f=V.after;V.after=null;if(f)f()};\n  a.onplay=()=>setSpeaking(true);a.onended=fin;a.onerror=fin;\n  a.play().catch(e=>{setSpeaking(false);if(e&&e.name==="NotAllowedError")cancelTour()});')
+      'const fin=()=>{setSpeaking(false);const f=V.after;V.after=null;if(f)f()};\n  a.onplay=()=>setSpeaking(true);a.onended=fin;a.onerror=fin;\n  a.play().catch(e=>{setSpeaking(false);if(e&&e.name==="NotAllowedError"){cancelTour();if(window.CXJ_BLOCKED)window.CXJ_BLOCKED()}});')
 patch('function narrate(text,audioUrl){', 'function narrate(text,audioUrl,fromTour){if(!fromTour)cancelTour();')
 patch('if(speak){if(i===0)', 'if(speak&&!V.tour){if(i===0)')
 patch('if(e.isIntersecting&&!seen.has(k)&&$("#dock").classList.contains("show")){', 'if(false){')
-patch('V.enabled=true;V.muted=false;speakText(V.current,V.currentAudio);syncCtl();', 'V.enabled=true;V.muted=false;if(!V.touredOnce||V.tourDone){V.touredOnce=true;startTour(0)}else speakText(V.current,V.currentAudio);syncCtl();')
-patch('function toggleMute(){V.muted=!V.muted;if(V.muted)stopVoice();syncCtl()}', 'function toggleMute(){V.muted=!V.muted;if(V.muted){cancelTour();stopVoice()}syncCtl()}')
-patch('"Tap play to hear Kukua"', '"Tap play and I\'ll read the whole page"')
+patch('V.enabled=true;V.muted=false;speakText(V.current,V.currentAudio);syncCtl();', 'V.enabled=true;V.muted=false;V.follow=true;if(!V.touredOnce){V.touredOnce=true;readCurrentSection()}else speakText(V.current,V.currentAudio);syncCtl();')
+patch('function toggleMute(){V.muted=!V.muted;if(V.muted)stopVoice();syncCtl()}', 'function toggleMute(){V.muted=!V.muted;try{localStorage.setItem("cxj-muted",V.muted?"1":"0")}catch(e){}if(V.muted){cancelTour();stopVoice()}else{V.enabled=true;V.follow=true}syncCtl()}')
+patch('"Tap play to hear Kukua"', '"Your browser needs one tap or click before it allows sound. Tap anywhere and I\'ll start reading"')
 patch('new IntersectionObserver(([e])=>$("#dock").classList.toggle("show",!e.isIntersecting),{threshold:.15}).observe($("#stage"));', '$("#dock").classList.add("show");')
 patch(':vh(text);', ':vh(sp(text));')
 patch('if(e.isIntersecting&&!closedNarrated){closedNarrated=true;narrate(cm,msg("closing").AudioUrl)}', 'if(false){}')
 patch('setTimeout(()=>narrate(msg("welcome").Text,msg("welcome").AudioUrl),reduced?0:1200);',
-      'setTimeout(()=>{narrate(msg("welcome").Text,msg("welcome").AudioUrl,true);$("#dText").textContent="Tap play and I\'ll read this whole page to you, from the top."},reduced?0:1200);')
+      'setTimeout(()=>{if(!V.enabled){V.current=msg("welcome").Text;V.currentAudio="";$("#bText").textContent=strip(msg("welcome").Text);if(!V.muted)$("#dText").textContent="Your browser needs one tap or click before it allows sound. Tap anywhere and I\'ll start reading."}},reduced?0:1200);')
 k_script += '\n' + open(os.path.join(ROOT, 'tools', 'tour.js'), encoding='utf8').read()
 for s_ in (hero, mid, closing, overlays): assert 'id="journey"' not in s_
 
