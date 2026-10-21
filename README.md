@@ -8,7 +8,7 @@ lists are locked so only owners can edit them.**
 1. **Install the app.** Upload `package/corbit-x-journey.sppkg` to the App Catalog, Deploy, then add **Corbit X Journey** to your site (Site contents > New > App).
 2. **Create and lock the content.** In PowerShell with PnP.PowerShell installed:
    `.\seed\Provision-CorbitXPortal.ps1 -SiteUrl https://<tenant>.sharepoint.com/sites/<site> -OwnerEmail you@yourbank.com`
-   This creates 25 lists, fills them with the current content, uploads the 6 posters and 76 voice clips to `SiteAssets/CorbitX`, and makes
+   This creates 25 lists, fills them with the current content, uploads the 6 posters and 77 voice clips to `SiteAssets/CorbitX`, and makes
    **Owners = Full Control, everyone else = Read-only** on every list and on that folder. (`-SkipLock` skips the locking.)
 3. **Add it to a page.** Edit a page, add a **full-width section** (or one-column), add the **Corbit X Journey** web part, Publish.
 4. **Lock the page itself.** Site Pages > the page > Manage access > Stop inheriting permissions, then give Owners Edit and everyone else Read, so only owners can change the page layout.
@@ -32,6 +32,9 @@ Open a list, edit an item. **Order** sorts items and **IsActive** (untick) hides
 | Daily tip, featured guide, latest updates | Daily Tips, Featured Guides, Announcements | Title, ... |
 | Ask Kukua answers | FAQs | Title = question, Answer, Keywords, Suggested |
 | Poster images | Posters | PosterId (p1 to p6), Title, ImageUrl |
+
+## Go-live celebration
+When the countdown reaches zero a full-screen **"We are live!"** pop-up appears (confetti, Kukua, her voice) once per visitor. To preview it, add `?cxlive` to the page address.
 
 ## Kukua's voice
 Press Play in Kukua's player (bottom-left) and she reads the page from the hero, section by section, scrolling as she goes.

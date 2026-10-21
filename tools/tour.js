@@ -100,8 +100,11 @@ function segs(){
   return out;
 }
 /* every clip that can be spoken (used at build time to record the voice) */
+window.CXJ_LIVE_TEXT="We are live! Corbit X is live. Thank you, team, for getting us here. Smile, check, serve, and let's give every customer a warm welcome.";
+window.CXJ_SAY=function(t){cancelTour();V.enabled=true;V.muted=false;narrate(t,audioFor(t),true)};
 window.CXJ_CLIPS=function(){
   const seen={},list=[];
+  {const n=audioNameFor(window.CXJ_LIVE_TEXT);seen[n]=1;list.push({name:n,say:sp(window.CXJ_LIVE_TEXT)})}
   segs().forEach(s=>[s.texts].concat(s.alts?s.alts:[]).forEach(arr=>arr.forEach(t=>{if(!t)return;const n=audioNameFor(t);if(!seen[n]){seen[n]=1;list.push({name:n,say:(LISTS.KukuaMessages.some(x=>x.Text===t)||STAGES.some(x=>x.KukuaSays===t))?t:sp(t)})}})));
   return list;
 };

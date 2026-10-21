@@ -43,7 +43,75 @@ for gone in ('#bars', '#kpis', '#featCard', '#anTitle', 'dashIO', '.ready'):
 for label in ('<span class="eyebrow reveal">Corbit X Transformation Programme</span>', '<span class="eyebrow">Poster gallery</span>', '<span class="eyebrow">Coming to Corbit X</span>'):
     assert rc_markup.count(label) == 1, label
     rc_markup = rc_markup.replace(label, '')
+
+rc_script = sub1(r'if\(ms<=0\)\{\$\("#cdMsg"\)\.textContent="Corbit X is live\. Thank you for getting us here!";ms=0\}',
+    'if(ms<=0){$("#cdMsg").textContent="Corbit X is live. Thank you for getting us here!";const h=document.querySelector(".cd-label h3");if(h)h.textContent="We are live!";ms=0;liveCelebrate()}', rc_script)
+rc_script += r"""
+/* ===== WE ARE LIVE: celebration pop-up when the countdown reaches zero (add ?cxlive to the page address to preview it) ===== */
+let liveStop=false;
+function liveConfetti(cv){
+  if(matchMedia("(prefers-reduced-motion: reduce)").matches){cv.remove();return}
+  const ctx=cv.getContext("2d"),col=["#F26A1B","#FF8A3D","#FFFFFF","#545557","#FDE3D0","#D4540A"];
+  const fit=()=>{cv.width=cv.clientWidth;cv.height=cv.clientHeight};fit();
+  const bits=Array.from({length:160},()=>({x:Math.random()*cv.width,y:-Math.random()*cv.height,w:6+Math.random()*8,h:10+Math.random()*10,vy:2+Math.random()*3.5,vx:-1+Math.random()*2,r:Math.random()*6,vr:-.2+Math.random()*.4,c:col[Math.floor(Math.random()*col.length)]}));
+  const t0=performance.now();
+  (function frame(t){
+    if(liveStop||!cv.isConnected)return;
+    ctx.clearRect(0,0,cv.width,cv.height);
+    const fade=Math.max(0,1-Math.max(0,(t-t0-7000)/2500));
+    bits.forEach(b=>{b.x+=b.vx;b.y+=b.vy;b.r+=b.vr;if(b.y>cv.height+20&&t-t0<6500){b.y=-20;b.x=Math.random()*cv.width}
+      ctx.save();ctx.globalAlpha=fade;ctx.translate(b.x,b.y);ctx.rotate(b.r);ctx.fillStyle=b.c;ctx.fillRect(-b.w/2,-b.h/2,b.w,b.h);ctx.restore()});
+    if(fade>0)requestAnimationFrame(frame)
+  })(t0);
+}
+function liveCelebrate(force){
+  const key="cxj-live-"+CONFIG.goLive;let seen=false;try{seen=!!localStorage.getItem(key)}catch(e){}
+  if((seen&&!force)||document.getElementById("livePop"))return;
+  try{localStorage.setItem(key,"1")}catch(e){}
+  liveStop=false;
+  const host=document.querySelector(".cxp")||document.body;
+  const img=(document.querySelector(".hero-visual .disc img")||{}).src||"";
+  const pop=document.createElement("div");pop.id="livePop";pop.className="live-pop";
+  pop.setAttribute("role","dialog");pop.setAttribute("aria-modal","true");pop.setAttribute("aria-labelledby","liveTitle");
+  pop.innerHTML='<canvas class="live-conf" aria-hidden="true"></canvas><div class="live-card"><div class="live-badge"><i></i>LIVE</div>'
+    +(img?'<div class="live-disc"><span class="live-ring"></span><img src="'+img+'" alt=""></div>':'')
+    +'<h2 id="liveTitle" class="display">We are <span class="o">live!</span></h2>'
+    +'<p class="live-sub">Corbit X is live. Thank you, team, for getting us here.</p>'
+    +'<p class="live-tag">Smile. Check. Serve.</p>'
+    +'<button type="button" class="btn btn-primary live-go">Let&rsquo;s go</button></div>';
+  host.appendChild(pop);
+  requestAnimationFrame(()=>pop.classList.add("in"));
+  const esc=e=>{if(e.key==="Escape")close()};
+  const close=()=>{liveStop=true;pop.classList.remove("in");document.removeEventListener("keydown",esc);setTimeout(()=>pop.remove(),400)};
+  document.addEventListener("keydown",esc);
+  pop.querySelector(".live-go").addEventListener("click",close);
+  pop.addEventListener("click",e=>{if(e.target===pop)close()});
+  pop.querySelector(".live-go").focus();
+  liveConfetti(pop.querySelector(".live-conf"));
+  if(window.CXJ_SAY&&window.CXJ_LIVE_TEXT)try{window.CXJ_SAY(window.CXJ_LIVE_TEXT)}catch(e){}
+}
+window.CXJ_LIVE_PREVIEW=()=>liveCelebrate(true);
+if(/[?&]cxlive\b/.test(location.search))setTimeout(()=>liveCelebrate(true),700);
+"""
 rc_script += '\nwindow.CXJ_RC={CONFIG,POSTERS,CATS,PHASES,CAPS,FAQS,VIDEOS,QRC,UPDATES,DATES,CONTACTS,HUB,mq,GO,fmt,showPhase,showHub};\n'
+rc_css += """
+.live-pop{position:fixed;inset:0;z-index:300;display:grid;place-items:center;padding:20px;background:rgba(44,44,46,.82);backdrop-filter:blur(6px);opacity:0;transition:opacity .45s var(--ease)}
+.live-pop.in{opacity:1}
+.live-conf{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.live-card{position:relative;max-width:560px;width:100%;text-align:center;background:#fff;border-radius:32px;padding:34px 34px 38px;box-shadow:0 40px 90px rgba(0,0,0,.4);transform:translateY(30px) scale(.9);transition:transform .6s cubic-bezier(.34,1.56,.64,1)}
+.live-pop.in .live-card{transform:none}
+.live-badge{display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:#fff;font:800 14px var(--body);letter-spacing:.2em;padding:7px 16px 7px 12px;border-radius:999px}
+.live-badge i{width:10px;height:10px;border-radius:50%;background:#fff;animation:livePulse 1.2s infinite}
+.live-disc{position:relative;width:200px;height:200px;margin:18px auto 6px}
+.live-disc img{position:relative;width:100%;height:100%;object-fit:cover;border-radius:50%;box-shadow:0 14px 36px rgba(242,106,27,.35)}
+.live-ring{position:absolute;inset:-14px;border-radius:50%;border:6px solid rgba(242,106,27,.4);animation:liveRing 2s ease-out infinite}
+.live-card h2{font-size:clamp(52px,9vw,84px);color:var(--ink);margin:6px 0 8px}
+.live-sub{font-size:19px;color:var(--grey-700);margin-bottom:6px}
+.live-tag{font:800 24px var(--display);text-transform:uppercase;letter-spacing:.04em;color:var(--orange-deep);margin-bottom:22px}
+@keyframes livePulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.7)}}
+@keyframes liveRing{0%{transform:scale(.92);opacity:.9}100%{transform:scale(1.18);opacity:0}}
+@media (prefers-reduced-motion:reduce){.live-badge i,.live-ring{animation:none}.live-card{transition:none}}
+"""
 rc_css += """
 .cx-reading{outline:3px solid rgba(242,106,27,.55);outline-offset:-5px;transition:outline-color .3s}
 .cx-hear{position:absolute;z-index:6;right:14px;bottom:14px;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:#fff;color:var(--orange-deep);border:1.5px solid var(--orange);font:700 13px var(--body);box-shadow:var(--shadow);cursor:pointer;transition:transform .2s,background .2s}

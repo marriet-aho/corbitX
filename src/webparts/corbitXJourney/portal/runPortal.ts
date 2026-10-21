@@ -385,8 +385,11 @@ function segs(){
   return out;
 }
 /* every clip that can be spoken (used at build time to record the voice) */
+window.CXJ_LIVE_TEXT="We are live! Corbit X is live. Thank you, team, for getting us here. Smile, check, serve, and let's give every customer a warm welcome.";
+window.CXJ_SAY=function(t){cancelTour();V.enabled=true;V.muted=false;narrate(t,audioFor(t),true)};
 window.CXJ_CLIPS=function(){
   const seen={},list=[];
+  {const n=audioNameFor(window.CXJ_LIVE_TEXT);seen[n]=1;list.push({name:n,say:sp(window.CXJ_LIVE_TEXT)})}
   segs().forEach(s=>[s.texts].concat(s.alts?s.alts:[]).forEach(arr=>arr.forEach(t=>{if(!t)return;const n=audioNameFor(t);if(!seen[n]){seen[n]=1;list.push({name:n,say:(LISTS.KukuaMessages.some(x=>x.Text===t)||STAGES.some(x=>x.KukuaSays===t))?t:sp(t)})}})));
   return list;
 };
@@ -549,7 +552,7 @@ const pad=(n,l=2)=>String(n).padStart(l,"0");
 let last={};
 function tickCd(){
   let ms=GO-new Date();
-  if(ms<=0){$("#cdMsg").textContent="Corbit X is live. Thank you for getting us here!";ms=0}
+  if(ms<=0){$("#cdMsg").textContent="Corbit X is live. Thank you for getting us here!";const h=document.querySelector(".cd-label h3");if(h)h.textContent="We are live!";ms=0;liveCelebrate()}
   const d=Math.floor(ms/864e5),h=Math.floor(ms/36e5)%24,m=Math.floor(ms/6e4)%60,s=Math.floor(ms/1e3)%60;
   [["cdD",pad(d,3)],["cdH",pad(h)],["cdM",pad(m)],["cdS",pad(s)]].forEach(([id,v])=>{
     if(last[id]!==v){const el=document.getElementById(id);el.textContent=v;el.classList.remove("tick");void el.offsetWidth;el.classList.add("tick");last[id]=v}
@@ -671,6 +674,52 @@ $("#capGrid").innerHTML=CAPS.map((c,i)=>`<div class="cap ${c[3]?"wide":""} revea
 showPhase(CONFIG.currentPhase);showHub("faq");
 const rio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");rio.unobserve(e.target)}}),{threshold:.12,rootMargin:"0px 0px -40px 0px"});
 document.querySelectorAll(".reveal").forEach(el=>rio.observe(el));
+
+/* ===== WE ARE LIVE: celebration pop-up when the countdown reaches zero (add ?cxlive to the page address to preview it) ===== */
+let liveStop=false;
+function liveConfetti(cv){
+  if(matchMedia("(prefers-reduced-motion: reduce)").matches){cv.remove();return}
+  const ctx=cv.getContext("2d"),col=["#F26A1B","#FF8A3D","#FFFFFF","#545557","#FDE3D0","#D4540A"];
+  const fit=()=>{cv.width=cv.clientWidth;cv.height=cv.clientHeight};fit();
+  const bits=Array.from({length:160},()=>({x:Math.random()*cv.width,y:-Math.random()*cv.height,w:6+Math.random()*8,h:10+Math.random()*10,vy:2+Math.random()*3.5,vx:-1+Math.random()*2,r:Math.random()*6,vr:-.2+Math.random()*.4,c:col[Math.floor(Math.random()*col.length)]}));
+  const t0=performance.now();
+  (function frame(t){
+    if(liveStop||!cv.isConnected)return;
+    ctx.clearRect(0,0,cv.width,cv.height);
+    const fade=Math.max(0,1-Math.max(0,(t-t0-7000)/2500));
+    bits.forEach(b=>{b.x+=b.vx;b.y+=b.vy;b.r+=b.vr;if(b.y>cv.height+20&&t-t0<6500){b.y=-20;b.x=Math.random()*cv.width}
+      ctx.save();ctx.globalAlpha=fade;ctx.translate(b.x,b.y);ctx.rotate(b.r);ctx.fillStyle=b.c;ctx.fillRect(-b.w/2,-b.h/2,b.w,b.h);ctx.restore()});
+    if(fade>0)requestAnimationFrame(frame)
+  })(t0);
+}
+function liveCelebrate(force){
+  const key="cxj-live-"+CONFIG.goLive;let seen=false;try{seen=!!localStorage.getItem(key)}catch(e){}
+  if((seen&&!force)||document.getElementById("livePop"))return;
+  try{localStorage.setItem(key,"1")}catch(e){}
+  liveStop=false;
+  const host=document.querySelector(".cxp")||document.body;
+  const img=(document.querySelector(".hero-visual .disc img")||{}).src||"";
+  const pop=document.createElement("div");pop.id="livePop";pop.className="live-pop";
+  pop.setAttribute("role","dialog");pop.setAttribute("aria-modal","true");pop.setAttribute("aria-labelledby","liveTitle");
+  pop.innerHTML='<canvas class="live-conf" aria-hidden="true"></canvas><div class="live-card"><div class="live-badge"><i></i>LIVE</div>'
+    +(img?'<div class="live-disc"><span class="live-ring"></span><img src="'+img+'" alt=""></div>':'')
+    +'<h2 id="liveTitle" class="display">We are <span class="o">live!</span></h2>'
+    +'<p class="live-sub">Corbit X is live. Thank you, team, for getting us here.</p>'
+    +'<p class="live-tag">Smile. Check. Serve.</p>'
+    +'<button type="button" class="btn btn-primary live-go">Let&rsquo;s go</button></div>';
+  host.appendChild(pop);
+  requestAnimationFrame(()=>pop.classList.add("in"));
+  const esc=e=>{if(e.key==="Escape")close()};
+  const close=()=>{liveStop=true;pop.classList.remove("in");document.removeEventListener("keydown",esc);setTimeout(()=>pop.remove(),400)};
+  document.addEventListener("keydown",esc);
+  pop.querySelector(".live-go").addEventListener("click",close);
+  pop.addEventListener("click",e=>{if(e.target===pop)close()});
+  pop.querySelector(".live-go").focus();
+  liveConfetti(pop.querySelector(".live-conf"));
+  if(window.CXJ_SAY&&window.CXJ_LIVE_TEXT)try{window.CXJ_SAY(window.CXJ_LIVE_TEXT)}catch(e){}
+}
+window.CXJ_LIVE_PREVIEW=()=>liveCelebrate(true);
+if(/[?&]cxlive\b/.test(location.search))setTimeout(()=>liveCelebrate(true),700);
 
 window.CXJ_RC={CONFIG,POSTERS,CATS,PHASES,CAPS,FAQS,VIDEOS,QRC,UPDATES,DATES,CONTACTS,HUB,mq,GO,fmt,showPhase,showHub};
 

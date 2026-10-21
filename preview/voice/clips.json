@@ -1,5 +1,9 @@
 [
  {
+  "name": "td3c7bbd1",
+  "say": "We are live! Corbit X is live. Thank you, team, for getting us here. Smile, check, serve, and let's give every customer a warm welcome."
+ },
+ {
   "name": "ta8d0f1ea",
   "say": "Welcome to the Corbit X Readiness Centre. Preparing our people, processes and branches for the future of banking. Use the menu at the top of the page to jump to the staff guides, Kukua's journey, the Knowledge Hub, and what's coming."
  },
@@ -100,10 +104,6 @@
   "say": "What's in it for staff. Data Access: today, Screen-hopping; with Corbit X, Full 360 degree view in one screen. The gain: Faster and better service. Processing: today, Manual; with Corbit X, Automated. The gain: Less mundane work. Role Focus: today, Transaction processing; with Corbit X, Advisory and sales. The gain: A higher-value role. System Interface: today, Complex / static; with Corbit X, Modern / responsive. The gain: A better user experience."
  },
  {
-  "name": "tf593bd7a",
-  "say": "A little something for today. Share the new account number at every interaction."
- },
- {
   "name": "t3b0c78a9",
   "say": "A little something for today. Stay curious. Every guide brings us one step closer to Corbit X."
  },
@@ -122,6 +122,10 @@
  {
   "name": "taffe3d24",
   "say": "A little something for today. Not sure? Pause and check before you answer."
+ },
+ {
+  "name": "tf593bd7a",
+  "say": "A little something for today. Share the new account number at every interaction."
  },
  {
   "name": "t263bea50",
