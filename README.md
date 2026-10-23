@@ -4,6 +4,8 @@ One page section containing the Readiness Centre (hero, countdown to go-live, st
 and Kukua's journey (the dashboard is built from the "Highlights so far" figures), with Kukua reading the page section by section. **Every piece of content comes from SharePoint lists, and the
 lists are locked so only owners can edit them.**
 
+> **Creating the lists by hand?** See `docs/Corbit_X_SharePoint_Setup_Guide.docx` (step by step) and `docs/Corbit_X_List_Content.xlsx` (the starting content for every list).
+
 ## Set-up (4 steps)
 1. **Install the app.** Upload `package/corbit-x-journey.sppkg` to the App Catalog, Deploy, then add **Corbit X Journey** to your site (Site contents > New > App).
 2. **Create and lock the content.** In PowerShell with PnP.PowerShell installed:
