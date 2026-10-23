@@ -36,32 +36,32 @@
   "say": "Ask Kukua"
  },
  {
-  "name": "t2eae1e0e",
-  "say": "Project completion rate. 94 percent"
+  "name": "t15187d2c",
+  "say": "Overall simulation score (95 percent go-live gate). 93.4 percent"
  },
  {
-  "name": "t658429b4",
-  "say": "Staff confidence. 68 percent"
+  "name": "tdf21c2c3",
+  "say": "Staff confident in go-live readiness (45 percent at BSIM 1). 85 percent"
  },
  {
-  "name": "t368a4d0",
-  "say": "2,500 plus. Staff bank-wide"
+  "name": "t3ba1c6f9",
+  "say": "99.8 percent. Logged in at BSIM 4"
  },
  {
-  "name": "t9ecfd3c4",
-  "say": "30 plus. Champions across the bank"
+  "name": "t128c7b9f",
+  "say": "96 percent. Tickets fixed the same day"
  },
  {
-  "name": "t433b1ef1",
-  "say": "2. Bank-wide roadshows"
+  "name": "t333f6bcc",
+  "say": "94 percent. Branches ready"
  },
  {
-  "name": "tc1a378a",
-  "say": "3. Business simulations"
+  "name": "t2662ed48",
+  "say": "4. Business simulations completed"
  },
  {
-  "name": "tf6c188d5",
-  "say": "Latest announcement. The Corbit X Staff Guide series is live. Six practical guides now cover customer welcomes, account opening during the upgrade, new account numbers, cheques and the Sunday live checks. Read them before your next team huddle. 19 October 2026. Read the guides ,"
+  "name": "tc91fe1fe",
+  "say": "Latest announcement. Go-live is now Monday 1 February 2027. Go-live has moved to accommodate other important transactions the Bank is undertaking. The extra weeks help us go live with even greater confidence. See the new calendar in the timeline below. 23 October 2026. Read the guides ,"
  },
  {
   "name": "tbaa262c7",
@@ -120,20 +120,20 @@
   "say": "View guide. Business Continuity. Keeping Business Moving. Poster: Keep the Welcome. Start the Process. Kukua says. Business continues while we prepare for change. Discover how we maintain excellent service and support customers throughout the journey."
  },
  {
-  "name": "t310570bb",
-  "say": "At the Counter. Serve customers faster. Full 360 degree view in one screen. Credits and salaries at speed"
+  "name": "tf6ab43e3",
+  "say": "At the Counter. Quicker service at the counter. 360-degree customer view at the teller point. Faster credit and salary processing"
  },
  {
-  "name": "t45f59e8f",
-  "say": "Account Numbers. New format, same C I F: add “00” in front. Old numbers usable during the transition. Longer format = more security"
+  "name": "t9852be74",
+  "say": "Account Numbers. New 13-digit account numbers. Customer C I F gains “00” in front. Old numbers still work for more than six months"
  },
  {
-  "name": "taa077cf3",
-  "say": "Cheque Books. Order new books within 182 days. Current leaves accepted meanwhile. Books 5 plus years old won't migrate"
+  "name": "te044448f",
+  "say": "Cheque Books. Reorder within the first 182 days. Current leaves accepted in the meantime. Books over 5 years old are not migrated"
  },
  {
-  "name": "tdbfa71b1",
-  "say": "Statements. 0–12 months: instant via Corbit X. 12 months+: from secure backup. Cleaner, faster request process"
+  "name": "t4a857c47",
+  "say": "Statements. 0–12 months: straight from Corbit X. Older statements, back to account opening: from stored backup"
  },
  {
   "name": "teb31268c",
@@ -156,16 +156,16 @@
   "say": "Another tip"
  },
  {
+  "name": "tc2e3eb4b",
+  "say": "Go-live is now Monday 1 February 2027. Go-live has moved to accommodate other important transactions the Bank is undertaking. The extra weeks help us go live with even greater confidence."
+ },
+ {
   "name": "t6d4b9c59",
   "say": "Six Corbit X staff guides are now available. Explore them all on Kukua's journey, from account numbers to go-live readiness."
  },
  {
   "name": "tc2adee01",
   "say": "Look-up process included in training. Training covers how to find a customer's new account number in Corbit X."
- },
- {
-  "name": "t2030f991",
-  "say": "Printing new account numbers. Guidance on printing new account numbers for customers will follow."
  },
  {
   "name": "t1bd199e8",
@@ -180,8 +180,8 @@
   "say": "Coming soon. The 360 degree customer view. The 360 degree customer view. Everything about a customer on one screen"
  },
  {
-  "name": "t8cac7f23",
-  "say": "Coming soon. Account opening during the freeze. Account opening during the freeze. Start in Newgen, finalise from Thursday"
+  "name": "t28b39f17",
+  "say": "Coming soon. Account opening during the freeze. Account opening during the freeze. Start in Newgen, finalise from Thursday 4 February"
  },
  {
   "name": "t2dbec09",
@@ -192,24 +192,24 @@
   "say": "Coming soon. Serving customers through change. Serving customers through change. Smile. Check. Serve."
  },
  {
-  "name": "t3989e76d",
-  "say": "01 , Keep learning. Complete your training. Finish your end-user training modules and practise the new processes."
+  "name": "tc60afc85",
+  "say": "01 , 26 October, 23 December. Keep your skills sharp. Practise twice a week. Branches 7:15, 8:15 am; departments one hour, two days a week."
  },
  {
-  "name": "ta2f8a90e",
-  "say": "02 , Practise. Business simulations. Take part in simulations to build confidence before go-live."
+  "name": "t4de47839",
+  "say": "02 , 24 December, 3 January. Rest and recharge. No scheduled sessions. The Corbit X portal stays open if you want a refresher."
  },
  {
-  "name": "t7cd9b709",
-  "say": "03 , Connect. Meet your champion. Our 30 plus Corbit X champions are on hand to answer questions locally."
+  "name": "tfd59b6d5",
+  "say": "03 , 4, 22 January. Get go-live ready. One hour every working day, then certification for your role."
  },
  {
-  "name": "t57c2c705",
-  "say": "04 , Get ready. Sunday live checks. Join the live transaction and channel checks on the Sunday before go-live."
+  "name": "tb3fc20b1",
+  "say": "04 , 11, 17 January. Final systems check. Data migration and validation, then the business simulation on Sunday 17 January."
  },
  {
-  "name": "tbf29fa40",
-  "say": "05 , Go-live. Same warm welcome. Serve every customer with confidence on Corbit X."
+  "name": "t129cdabc",
+  "say": "05 , Monday 1 February 2027. Lift-off! Corbit X goes live. Arrive early, log in and welcome every customer."
  },
  {
   "name": "ta4ada27f",
@@ -252,28 +252,28 @@
   "say": "See key dates"
  },
  {
-  "name": "t78609dd5",
-  "say": "Awareness. Complete"
+  "name": "t64d8986f",
+  "say": "Keep your skills sharp. We are here"
  },
  {
-  "name": "t3c2c2fc7",
-  "say": "Training. We are here"
+  "name": "ta7e700d3",
+  "say": "Rest and recharge. Step 2"
  },
  {
-  "name": "t954ff9f3",
-  "say": "Readiness Testing. Phase 3"
+  "name": "t379f8fea",
+  "say": "Get go-live ready. Step 3"
  },
  {
-  "name": "t8a3917eb",
-  "say": "Go-Live. Phase 4"
+  "name": "t950a4cc3",
+  "say": "Final systems check. Step 4"
  },
  {
-  "name": "ta8cdc588",
-  "say": "Customer Support. Phase 5"
+  "name": "t8d99279e",
+  "say": "Lift-off weekend. Step 5"
  },
  {
-  "name": "t3e8c6157",
-  "say": "Stabilization. Phase 6"
+  "name": "t93f64c3d",
+  "say": "After go-live. After go-live"
  },
  {
   "name": "t42a21e78",
@@ -286,10 +286,6 @@
  {
   "name": "t6be14083",
   "say": "Old Number? We Can Help! Staff guide poster"
- },
- {
-  "name": "tfbb37d20",
-  "say": "Keep the Welcome. Start the Process. Staff guide poster"
  },
  {
   "name": "tc6f375e7",
@@ -314,6 +310,10 @@
  {
   "name": "t383be9a1",
   "say": "Support Contacts"
+ },
+ {
+  "name": "t80dc470d",
+  "say": "When does Corbit X go live?+"
  },
  {
   "name": "t109c7f0b",
@@ -342,6 +342,18 @@
  {
   "name": "t47382c83",
   "say": "Will new account numbers be printed for customers?+"
+ },
+ {
+  "name": "t454d59b6",
+  "say": "How do I read the new account number?+"
+ },
+ {
+  "name": "t1932efc4",
+  "say": "What should I do if I'm stuck?+"
+ },
+ {
+  "name": "ta6943023",
+  "say": "What if someone asks a customer for their OTP?+"
  },
  {
   "name": "tc70bd586",
@@ -380,24 +392,32 @@
   "say": "Start training"
  },
  {
-  "name": "t9d559da7",
-  "say": "Account numbers. Old numbers accepted for 6 plus months. Look up the new number in Corbit X. Share the new number every time"
+  "name": "ta4d10e43",
+  "say": "Account numbers. 13 digits: currency (2), customer type (1), serial (8), check (2). Add “00” before an old C I F. Old numbers accepted for more than six months. Look up and share the new number every time"
  },
  {
-  "name": "t67201a51",
-  "say": "Cheques. Old-number cheques: 6 months, usual checks. Encourage new chequebook requests early. Books recorded 5 plus years ago can't be used"
+  "name": "t11958c7a",
+  "say": "Cheques. Old-number cheques: six months (182 days), until 2 August 2027, usual checks. Encourage new chequebook requests early. Books recorded 5 plus years ago can't be used"
  },
  {
-  "name": "t6e9881a1",
-  "say": "Account opening. Start in Newgen, collect all documents. Deposits via the designated G L. Finalise from Thursday after go-live"
+  "name": "t580d48f0",
+  "say": "Account opening. Start in Newgen, collect all documents. Deposits via the designated G L. Finalise from Thursday 4 February"
  },
  {
-  "name": "tde25370f",
-  "say": "Go-live weekend. Sunday: live checks with real funds. No branch-day close or end of day on Sunday. Run end of day at close of business Monday"
+  "name": "tc9228500",
+  "say": "Go-live weekend. Friday 29 January: finish transactions by the 2:00pm cut-off. Sunday 31 January: live checks with real funds. No branch-day close or end of day on Sunday. Monday 1 February: arrive by 7:00am; end of day at close of business"
  },
  {
-  "name": "tdd184",
-  "say": "Every customer. Smile and serve. Keep customers informed. Listen calmly; pause and check if unsure. Never turn a customer away"
+  "name": "taed85f34",
+  "say": "Every customer. Smile and serve. Keep customers informed. Listen calmly; pause and check if unsure. Never turn a customer away. Never share your login, PIN or OTP"
+ },
+ {
+  "name": "t6569a51d",
+  "say": "BOS authorisers. KYC first (STSKYCMN): search by KYC Reference, not by status. Then C I F (STSCIF): authorise only after the KYC is done. Cheque book request (CASCHBOO): the account must already be open"
+ },
+ {
+  "name": "t585272a4",
+  "say": "October. Go-live moves to Monday 1 February 2027. Go-live has moved to accommodate other important transactions the Bank is undertaking. The extra weeks help us go live with even greater confidence."
  },
  {
   "name": "t5bd31468",
@@ -408,40 +428,60 @@
   "say": "October. Account-number look-up included in training. Training covers how to look up a customer's new account number in Corbit X. Complete your modules before go-live."
  },
  {
+  "name": "tc2c5e0ab",
+  "say": "September. Business simulation 4: 93.4 percent. Our overall simulation score rose from 51 percent to 93.4 percent across four simulations, 1.6 points from the 95 percent go-live gate."
+ },
+ {
   "name": "t6a876976",
   "say": "October. Printing new account numbers. Guidance on printing new account numbers for customers will follow. Watch this space."
  },
  {
-  "name": "te101dffa",
-  "say": "1 February week. Static data freeze begins. Account opening unavailable in Flexcube 11.1 and Corbit X. Start applications in Newgen."
+  "name": "te8f0f19f",
+  "say": "Monday, 11 January. Static data migration. Customer and account data moves to Corbit X."
  },
  {
-  "name": "t83afbbf1",
-  "say": "Sunday, 7 February. Sunday live checks. Branch Operations Supervisors open the branch day; all staff run live transaction and channel checks."
+  "name": "te66d8d2b",
+  "say": "Wednesday, 13 January. Data validation begins. Every record checked and confirmed, Wednesday 13 to Friday 15 January."
  },
  {
-  "name": "t7f4ebece",
-  "say": "Monday, 8 February. Corbit X go-live. Continue Sunday's branch day; run end of day at close of business."
+  "name": "td85525b6",
+  "say": "Saturday, 16 January. Financial validation. Balances checked to the last pesewa."
  },
  {
-  "name": "t7514ca3e",
-  "say": "Thursday, 11 February. Account opening resumes. Finalise pending applications and provide account numbers."
+  "name": "t2c2fc4d0",
+  "say": "Sunday, 17 January. Business simulation. Migration plus a full day of business replay."
  },
  {
-  "name": "t24c32508",
-  "say": "8 August 2027. Old-number cheques end. Cheques bearing old account numbers are no longer accepted."
+  "name": "t47a111a2",
+  "say": "Friday, 29 January. Final cut-off, 2:00pm. Last day on the current system. Balance cash and vault, clear suspense and run the final end of day."
  },
  {
-  "name": "t25868674",
-  "say": "Corbit X Programme Office. Programme questions and feedback. [Add email / extension]"
+  "name": "t8e129d1f",
+  "say": "Sunday, 31 January. Sunday live checks. Branch Operations Supervisors open the branch day; all staff run live transaction and channel checks. Do not close the day or run end of day."
+ },
+ {
+  "name": "t9acdc2d8",
+  "say": "Monday, 1 February. Corbit X go-live. Arrive by 7:00am. Continue Sunday's branch day; run end of day at close of business."
+ },
+ {
+  "name": "tc61132d0",
+  "say": "Thursday, 4 February. Account opening resumes. Finalise pending applications and provide account numbers."
+ },
+ {
+  "name": "tdc331aab",
+  "say": "2 August 2027. Old-number cheques end. Six months (182 days) after go-live: cheques bearing old account numbers are no longer accepted."
+ },
+ {
+  "name": "t468922e0",
+  "say": "Your champion. First line of help: local support and floor-walking. [Add name]"
+ },
+ {
+  "name": "t78c8eeed",
+  "say": "Command Centre. Log a ticket with a screenshot: issues, fixes and coordination. [Add contact]"
  },
  {
   "name": "td1e1313b",
   "say": "Branch Operations Support. Go-live weekend and branch-day issues. [Add contact]"
- },
- {
-  "name": "tda1d947",
-  "say": "IT Service Desk. System access and technical faults. [Add contact]"
  },
  {
   "name": "tdfda134f",
@@ -452,24 +492,16 @@
   "say": "Customer Experience Team. Escalated customer concerns. [Add contact]"
  },
  {
-  "name": "t86a4ee29",
-  "say": "Your Regional Champion. Local support and floor-walking. [Add name]"
- },
- {
-  "name": "t2745b758",
-  "say": "New System. Same Warm Welcome. Staff guide poster"
- },
- {
-  "name": "td68037bf",
-  "say": "Project Updates. Knowledge Hub"
+  "name": "ta85c6820",
+  "say": "Fraud and Risk. Report anything suspicious. The bank never asks for a PIN, password or OTP. [Add contact]"
  },
  {
   "name": "t68ed1bf4",
   "say": "frequently asked questions. Knowledge Hub"
  },
  {
-  "name": "t5b112c3b",
-  "say": "Sunday Checks. Monday Confidence. Staff guide poster"
+  "name": "tfbb37d20",
+  "say": "Keep the Welcome. Start the Process. Staff guide poster"
  },
  {
   "name": "t903c29a2",
@@ -478,6 +510,14 @@
  {
   "name": "t1fd6b46e",
   "say": "Support Contacts. Knowledge Hub"
+ },
+ {
+  "name": "t5b112c3b",
+  "say": "Sunday Checks. Monday Confidence. Staff guide poster"
+ },
+ {
+  "name": "t2745b758",
+  "say": "New System. Same Warm Welcome. Staff guide poster"
  },
  {
   "name": "t7b3aaf41",
@@ -496,24 +536,24 @@
   "say": "Welcome to the Corbit X Readiness Centre. Preparing our people, processes and branches for the future of banking. Use the menu at the top of the page to jump to the staff guides, Kukua's journey, the Knowledge Hub, and what's coming."
  },
  {
-  "name": "t5ccb4584",
-  "say": "Corbit X is expected to go live on Monday 8 February 2027. The countdown shows the days, hours, minutes and seconds remaining. Every day counts, so let's get ready together."
+  "name": "t97f5b7bd",
+  "say": "Corbit X is expected to go live on Monday 1 February 2027. The countdown shows the days, hours, minutes and seconds remaining. Every day counts, so let's get ready together."
  },
  {
   "name": "welcome",
-  "say": "Hello! I'm Kukua, your Corbit X guide. Over the coming months, I'll help you discover what Corbit X means for our customers, branches, and teams. Let's get started."
+  "say": "Hello! I'm Kukua, your Corbit X guide. Between now and go-live on Monday 1 February 2027, I'll help you discover what Corbit X means for our customers, branches, and teams. Let's get started."
  },
  {
-  "name": "tab43d428",
-  "say": "Look how far we've come together! These numbers show the energy our people are putting into Corbit X."
+  "name": "tfde93184",
+  "say": "Look how far we've come together! Our simulation score rose from 51 percent to 93.4 percent, and confidence has nearly doubled."
  },
  {
-  "name": "t791bfb15",
-  "say": "Highlights so far. No. of Staff: 2,500 plus Staff bank-wide; 94 percent Project completion rate. Staff Engagement: 30 plus Champions across the bank; 2 Bank-wide roadshows. Business Simulation: 3 Business simulations; 68 percent Staff confidence."
+  "name": "t1aad0199",
+  "say": "Highlights so far. Overall readiness: 93.4 percent Overall simulation score (95 percent go-live gate); 85 percent Staff confident in go-live readiness (45 percent at BSIM 1). System and support: 99.8 percent Logged in at BSIM 4; 96 percent Tickets fixed the same day. Branches: 94 percent Branches ready; 4 Business simulations completed."
  },
  {
-  "name": "tecf5551b",
-  "say": "Latest announcement. The Corbit X Staff Guide series is live. Six practical guides now cover customer welcomes, account opening during the upgrade, new account numbers, cheques and the Sunday live checks. Read them before your next team huddle."
+  "name": "t728b4e9",
+  "say": "Latest announcement. Go-live is now Monday 1 February 2027. Go-live has moved to accommodate other important transactions the Bank is undertaking. The extra weeks help us go live with even greater confidence. See the new calendar in the timeline below."
  },
  {
   "name": "tdbfd1d5a",
@@ -604,8 +644,8 @@
   "say": "Big changes are coming, and they're good ones. Here's what Corbit X means for our customers."
  },
  {
-  "name": "tde923271",
-  "say": "For customers. At the Counter: Serve customers faster, Full 360 degree view in one screen, Credits and salaries at speed. Account Numbers: New format, same C I F: add “00” in front, Old numbers usable during the transition, Longer format = more security. Cheque Books: Order new books within 182 days, Current leaves accepted meanwhile, Books 5 plus years old won't migrate. Statements: 0–12 months: instant via Corbit X, 12 months+: from secure backup, Cleaner, faster request process."
+  "name": "t9b6ee3b2",
+  "say": "For customers. At the Counter: Quicker service at the counter, 360-degree customer view at the teller point, Faster credit and salary processing. Account Numbers: New 13-digit account numbers, Customer C I F gains “00” in front, Old numbers still work for more than six months. Cheque Books: Reorder within the first 182 days, Current leaves accepted in the meantime, Books over 5 years old are not migrated. Statements: 0–12 months: straight from Corbit X, Older statements, back to account opening: from stored backup."
  },
  {
   "name": "t467636ac",
@@ -616,8 +656,8 @@
   "say": "What's in it for staff. Data Access: today, Screen-hopping; with Corbit X, Full 360 degree view in one screen. The gain: Faster and better service. Processing: today, Manual; with Corbit X, Automated. The gain: Less mundane work. Role Focus: today, Transaction processing; with Corbit X, Advisory and sales. The gain: A higher-value role. System Interface: today, Complex / static; with Corbit X, Modern / responsive. The gain: A better user experience."
  },
  {
-  "name": "t27a05b9c",
-  "say": "A little something for today. Never let a system change become a reason to turn a customer away."
+  "name": "tdc7b9577",
+  "say": "A little something for today. Knowledge builds confidence."
  },
  {
   "name": "t3b0c78a9",
@@ -632,10 +672,6 @@
   "say": "A little something for today. Small actions today help ensure a smooth transition tomorrow."
  },
  {
-  "name": "tdc7b9577",
-  "say": "A little something for today. Knowledge builds confidence."
- },
- {
   "name": "taffe3d24",
   "say": "A little something for today. Not sure? Pause and check before you answer."
  },
@@ -646,6 +682,18 @@
  {
   "name": "t263bea50",
   "say": "A little something for today. Encourage customers to request new chequebooks early."
+ },
+ {
+  "name": "t27a05b9c",
+  "say": "A little something for today. Never let a system change become a reason to turn a customer away."
+ },
+ {
+  "name": "t4467a309",
+  "say": "A little something for today. Stuck? Check the guide, ask your champion, log a Command Centre ticket, then update the customer."
+ },
+ {
+  "name": "tcfc47400",
+  "say": "A little something for today. The bank never asks for a PIN, password or OTP. Never share your login."
  },
  {
   "name": "t7d618889",
@@ -660,8 +708,8 @@
   "say": "Guide of the week. New Chapter. New Chequebook. Kukua's take: A gentle nudge to request a new chequebook early gives customers a real head start."
  },
  {
-  "name": "t47154723",
-  "say": "Guide of the week. Keep the Welcome. Start the Process. Kukua's take: Account opening pauses briefly, but our welcome never does. Start in Newgen and finalise from Thursday."
+  "name": "t452c1a57",
+  "say": "Guide of the week. Keep the Welcome. Start the Process. Kukua's take: Account opening pauses briefly, but our welcome never does. Start in Newgen and finalise from Thursday 4 February."
  },
  {
   "name": "t51864de3",
@@ -672,8 +720,8 @@
   "say": "Guide of the week. Sunday Checks. Monday Confidence. Kukua's take: Real transactions, real funds, real teamwork. This is how we start strong."
  },
  {
-  "name": "t9a6ffcb2",
-  "say": "Latest updates. Six Corbit X staff guides are now available. Explore them all on Kukua's journey, from account numbers to go-live readiness. Look-up process included in training. Training covers how to find a customer's new account number in Corbit X. Printing new account numbers. Guidance on printing new account numbers for customers will follow."
+  "name": "tebdbeac",
+  "say": "Latest updates. Go-live is now Monday 1 February 2027. Go-live has moved to accommodate other important transactions the Bank is undertaking. The extra weeks help us go live with even greater confidence. Six Corbit X staff guides are now available. Explore them all on Kukua's journey, from account numbers to go-live readiness. Look-up process included in training. Training covers how to find a customer's new account number in Corbit X."
  },
  {
   "name": "t7143f47f",
@@ -684,12 +732,12 @@
   "say": "End-user training. Videos: Corbit X: the big picture; Finding a new account number; The 360 degree customer view; Account opening during the freeze; Sunday live checks walkthrough; Serving customers through change. Pictures: Campaign: New System. Same Warm Welcome.; Campaign: Sunday Checks; Campaign: Old Number? We Can Help!. Some videos are marked coming soon."
  },
  {
-  "name": "tc8f7c8a5",
-  "say": "So, what's next? Here are the steps that will take us from today all the way to go-live."
+  "name": "t55195f8d",
+  "say": "So, what's next? Here are the five steps that take us from today to go-live on Monday 1 February 2027."
  },
  {
-  "name": "t9d790dc1",
-  "say": "What's next. Keep learning: Complete your training. Finish your end-user training modules and practise the new processes. Practise: Business simulations. Take part in simulations to build confidence before go-live. Connect: Meet your champion. Our 30 plus Corbit X champions are on hand to answer questions locally. Get ready: Sunday live checks. Join the live transaction and channel checks on the Sunday before go-live. Go-live: Same warm welcome. Serve every customer with confidence on Corbit X."
+  "name": "t42777fc6",
+  "say": "What's next. 26 October, 23 December: Keep your skills sharp. Practise twice a week. Branches 7:15, 8:15 am; departments one hour, two days a week. 24 December, 3 January: Rest and recharge. No scheduled sessions. The Corbit X portal stays open if you want a refresher. 4, 22 January: Get go-live ready. One hour every working day, then certification for your role. 11, 17 January: Final systems check. Data migration and validation, then the business simulation on Sunday 17 January. Monday 1 February 2027: Lift-off!. Corbit X goes live. Arrive early, log in and welcome every customer."
  },
  {
   "name": "t919d6ceb",
@@ -708,36 +756,36 @@
   "say": "Go-Live Operations. Operational readiness activities, testing responsibilities and go-live procedures. Sunday Checks. Monday Confidence. Live checks before go-live."
  },
  {
-  "name": "t3bab008c",
-  "say": "Our key messages. One Journey. One Platform. One Corbit X. Smile. Check. Serve. Look it up. Share it. Keep banking moving. Check together. Start strong. Give customers a head start! Here for your journey"
+  "name": "t3cf3b7b3",
+  "say": "Our key messages. One Journey. One Platform. One Corbit X. Same warm welcome. New system. One team. Smile. Check. Serve. Look it up. Share it. Keep banking moving. Check together. Start strong. Never turn a customer away. Give customers a head start! Here for your journey"
  },
  {
-  "name": "t35a1c9b8",
-  "say": "The road to go-live. Six phases take us from awareness to a stable new platform. Select a phase to see what it means for you and the materials that support it."
+  "name": "tbe47f37c",
+  "say": "The road to go-live. Five steps take us to lift-off on Monday 1 February 2027, with support continuing after go-live. Select a step to see what it means for you and the materials that support it."
  },
  {
-  "name": "t2b1eb6bd",
-  "say": "Phase 1, Awareness. Now, ongoing. Building understanding of what Corbit X is, why we are moving and what changes for customers and staff. What to focus on: Read the six Corbit X Staff Guides; Share the key messages in team huddles; Know where to find answers in the Knowledge Hub."
+  "name": "tc8c3e7bd",
+  "say": "Step 1, Keep your skills sharp. 26 October, 23 December 2026. Regular practice, so everyone is confident on Corbit X before go-live. What to focus on: Practise twice a week, every week; Branches: 7:15, 8:15 am. Departments: one hour, two days a week; Final session: Wednesday 23 December."
  },
  {
-  "name": "t1a590321",
-  "say": "Phase 2, Training. Before go-live. Hands-on learning so every colleague can work confidently in Corbit X, including the new account-number look-up process. What to focus on: Complete your assigned training modules; Practise looking up new account numbers; Keep the quick reference cards close."
+  "name": "t51a6034c",
+  "say": "Step 2, Rest and recharge. 24 December 2026, 3 January 2027. A break to celebrate with your loved ones. There are no scheduled sessions. What to focus on: No scheduled sessions; Celebrate with your loved ones; The Corbit X portal stays open if you want a refresher."
  },
  {
-  "name": "t8971a1ed",
-  "say": "Phase 3, Readiness Testing. Go-live weekend. Live transaction and channel checks on the Sunday immediately before go-live, led by Branch Operations Supervisors with all branch staff participating. What to focus on: Test deposits, branch transactions, ATMs and the mobile app; Real transactions with real funds: follow controls; Do not close the branch day or run end of day on Sunday."
+  "name": "te16774f0",
+  "say": "Step 3, Get go-live ready. 4, 22 January 2027. One hour every working day (15 days): a refresher, then certification for your role. What to focus on: Branches: 7:15, 8:15 am. Departments: time set by your HoD; Complete your refresher, then get certified by 22 January; Champions check in on your practice; Branch Operations Supervisors, BSSMs and HoDs make sure every session happens."
  },
  {
-  "name": "t8ce33bad",
-  "say": "Phase 4, Go-Live. Go-live Monday. Corbit X opens for business. Continue the same branch day from Sunday and lead every interaction with a warm welcome. What to focus on: Run end of day at close of business on Monday; Start account-opening requests in Newgen; Smile. Check. Serve."
+  "name": "tbee58b15",
+  "say": "Step 4, Final systems check. 11, 17 January 2027. Before lift-off, we make sure every record lands safely in Corbit X. Then we fly a full practice mission together on Sunday 17 January. What to focus on: Monday 11 January: static data migration; Wednesday 13, Friday 15 January: data validation. Saturday 16 January: financial validation; Sunday 17 January: business simulation (migration plus a full day of business replay)."
  },
  {
-  "name": "ta97f3eb0",
-  "say": "Phase 5, Customer Support. First weeks after go-live. Helping customers through the change: new account numbers, cheques, chequebooks and account opening. What to focus on: Look up and share new account numbers at every interaction; Accept old-number cheques subject to the usual checks; Help customers with affected chequebooks find a way forward."
+  "name": "t1042e237",
+  "say": "Step 5, Lift-off weekend. Friday 29 January, Monday 1 February 2027. Friday 29 January is the last day on the current system, with a 2:00pm cut-off. Sunday 31 January is the live-check day. Monday 1 February is go-live. What to focus on: Friday 29 January: finish all transactions by 2:00pm, balance cash and vault, run the final end of day; Sunday 31 January: Branch Operations Supervisors open the branch day and all staff run live checks with real funds. Do not close the day or run end of day; Monday 1 February: arrive by 7:00am, log in, check printers and apps, welcome every customer and run end of day at close of business."
  },
  {
-  "name": "t7fcdaf68",
-  "say": "Phase 6, Stabilization. Six months after go-live. Embedding new ways of working, closing out transition arrangements and building on the platform. What to focus on: Old-number cheques no longer accepted after six months; Keep encouraging use of new account numbers; Share feedback to help us improve."
+  "name": "t726a62a6",
+  "say": "After go-live, After go-live. From Monday 1 February 2027. Support for customers and colleagues through the first days, weeks and months. What to focus on: Monday 1, Wednesday 3 February: start account openings in Newgen. Accounts are finalised from Thursday 4 February; First weeks: hypercare, with daily check-ins, the Command Centre on call and champions on the floor; Old-number cheques are accepted until 2 August 2027, and old account numbers are still accepted."
  },
  {
   "name": "t8d776ae8",
@@ -748,24 +796,28 @@
   "say": "Corbit X Knowledge Hub. Everything you need, in one place. Answers, training, quick references and key dates, so you can serve customers with confidence from day one. The hub has seven tabs: frequently asked questions, training videos, staff guides, quick reference cards, project updates, key dates and milestones, and support contacts."
  },
  {
-  "name": "ta06045d6",
-  "say": "Frequently asked question. Will customers' old account numbers still work after go-live? Yes. Old account numbers will continue to be accepted for more than six months after go-live. Look up the new number in Corbit X using the process covered in training, serve the customer, and share the new number so they use it next time."
+  "name": "t398fc906",
+  "say": "Frequently asked question. When does Corbit X go live? Corbit X goes live on Monday 1 February 2027, in every branch and department at the same time. The final cut-off on the current system is Friday 29 January at 2:00pm."
  },
  {
-  "name": "t28b61005",
-  "say": "Frequently asked question. Can customers still use cheques that show their old account number? Yes, for six months after go-live, subject to the usual checks. After six months these cheques will no longer be accepted, so encourage customers to request new chequebooks early."
+  "name": "t3e428ac6",
+  "say": "Frequently asked question. Will customers' old account numbers still work after go-live? Yes. Old account numbers will continue to be accepted for more than six months after go-live. The new account number has 13 digits, and the C I F gains “00” in front. Look up the new number in Corbit X using the process covered in training, serve the customer, and share the new number so they use it next time."
+ },
+ {
+  "name": "t44665e72",
+  "say": "Frequently asked question. Can customers still use cheques that show their old account number? Yes, for six months (182 days) after go-live, until 2 August 2027, subject to the usual checks. After that date these cheques will no longer be accepted, so encourage customers to request new chequebooks early."
  },
  {
   "name": "t3ddb80b5",
   "say": "Frequently asked question. What about chequebooks recorded more than five years ago? These chequebooks will not be migrated to Corbit X and can no longer be used. Affected customers have been notified. Explain the position with care, help them access funds through an approved alternative, and assist with a new chequebook where required."
  },
  {
-  "name": "t96643bc4",
-  "say": "Frequently asked question. Can we open new accounts during the upgrade? Account opening is unavailable in Flexcube 11.1 and Corbit X during the static data freeze (the week before go-live) and for the first three days after go-live. Start the application in Newgen, receive deposits through the designated G L, and finalise from Thursday after go-live. Never turn a customer away."
+  "name": "t656a5d7",
+  "say": "Frequently asked question. Can we open new accounts during the upgrade? Account opening is unavailable in Flexcube 11.1 and Corbit X during the static data freeze (the week before go-live) and for the first three days after go-live (Monday 1 to Wednesday 3 February). Start the application in Newgen, receive deposits through the designated G L, and finalise from Thursday 4 February. Never turn a customer away."
  },
  {
-  "name": "tf7e688c3",
-  "say": "Frequently asked question. What happens on the Sunday before go-live? Branch Operations Supervisors will open the branch day and all branch staff take part in live transaction and channel checks: deposits, branch transactions, ATMs, the mobile app and other instructed channels. These are real transactions with real funds. Do not close the branch day or run end of day on Sunday; continue into Monday and run end of day at close of business."
+  "name": "t529f33e9",
+  "say": "Frequently asked question. What happens on the Sunday before go-live? On Sunday 31 January 2027, Branch Operations Supervisors will open the branch day and all branch staff take part in live transaction and channel checks: deposits, branch transactions, ATMs, the mobile app and other instructed channels. These are real transactions with real funds. Do not close the branch day or run end of day on Sunday; continue into Monday and run end of day at close of business."
  },
  {
   "name": "t396f8c18",
@@ -776,28 +828,40 @@
   "say": "Frequently asked question. Will new account numbers be printed for customers? Guidance on printing new account numbers will follow. Until then, look up and share the new number at every interaction."
  },
  {
-  "name": "tb7e29baa",
-  "say": "Training videos. Short, focused videos to build your confidence in Corbit X. Corbit X: The big picture. Why we're moving and what changes. Finding a new account number. The look-up process in Corbit X. Account opening during the freeze. Start in Newgen, finalise from Thursday. Sunday live checks walkthrough. Your role on go-live weekend. Cheques and chequebooks after go-live. Old numbers, older books, new requests. Serving customers through change. Smile. Check. Serve. Links open in the learning platform once published."
+  "name": "t8a8fd59b",
+  "say": "Frequently asked question. How do I read the new account number? It has 13 digits. Digits 1 and 2 are the currency (00 cedi, 01 dollar, 02 pound, 03 euro). Digit 3 is the customer type (1 individual, 2 non-individual, 3 banks and others). Digits 4 to 11 are a serial number, and digits 12 and 13 are check digits. Always add “00” in front of an existing C I F."
+ },
+ {
+  "name": "t5e3fb072",
+  "say": "Frequently asked question. What should I do if I'm stuck? Check the repository guide or F A Q, then ask your champion or team lead. If you are still stuck, log a Command Centre ticket with a screenshot, and update the customer while you wait."
+ },
+ {
+  "name": "tbade79db",
+  "say": "Frequently asked question. What if someone asks a customer for their OTP? The bank never asks for a PIN, password or OTP, and you must never share your login. Tell the customer, and report anything suspicious to Fraud and Risk."
+ },
+ {
+  "name": "t8f1fb3de",
+  "say": "Training videos. Short, focused videos to build your confidence in Corbit X. Corbit X: The big picture. Why we're moving and what changes. Finding a new account number. The look-up process in Corbit X. Account opening during the freeze. Start in Newgen, finalise from Thursday 4 February. Sunday live checks walkthrough. Your role on go-live weekend. Cheques and chequebooks after go-live. Old numbers, older books, new requests. Serving customers through change. Smile. Check. Serve. Links open in the learning platform once published."
  },
  {
   "name": "tad73f450",
   "say": "Staff guides. All six campaign guides. Open any guide for the full poster and detailed guidance. The guides are: New System. Same Warm Welcome.; Keep the Welcome. Start the Process.; Old Number? We Can Help!; New Chapter. New Chequebook.; Older Chequebook? Find a Way Forward.; Sunday Checks. Monday Confidence."
  },
  {
-  "name": "td3c95b52",
-  "say": "Quick reference cards. The essentials at a glance, for the counter and the back office. Account numbers: Old numbers accepted for 6 plus months; Look up the new number in Corbit X; Share the new number every time. Cheques: Old-number cheques: 6 months, usual checks; Encourage new chequebook requests early; Books recorded 5 plus years ago can't be used. Account opening: Start in Newgen, collect all documents; Deposits via the designated G L; Finalise from Thursday after go-live. Go-live weekend: Sunday: live checks with real funds; No branch-day close or end of day on Sunday; Run end of day at close of business Monday. Every customer: Smile and serve. Keep customers informed; Listen calmly; pause and check if unsure; Never turn a customer away."
+  "name": "ta65ae61a",
+  "say": "Quick reference cards. The essentials at a glance, for the counter and the back office. Account numbers: 13 digits: currency (2), customer type (1), serial (8), check (2); Add “00” before an old C I F; Old numbers accepted for more than six months; Look up and share the new number every time. Cheques: Old-number cheques: six months (182 days), until 2 August 2027, usual checks; Encourage new chequebook requests early; Books recorded 5 plus years ago can't be used. Account opening: Start in Newgen, collect all documents; Deposits via the designated G L; Finalise from Thursday 4 February. Go-live weekend: Friday 29 January: finish transactions by the 2:00pm cut-off; Sunday 31 January: live checks with real funds; No branch-day close or end of day on Sunday; Monday 1 February: arrive by 7:00am; end of day at close of business. Every customer: Smile and serve. Keep customers informed; Listen calmly; pause and check if unsure; Never turn a customer away; Never share your login, PIN or OTP. BOS authorisers: KYC first (STSKYCMN): search by KYC Reference, not by status; Then C I F (STSCIF): authorise only after the KYC is done; Cheque book request (CASCHBOO): the account must already be open."
  },
  {
-  "name": "t3fd697bd",
-  "say": "Project updates. The latest news from the Corbit X programme. Staff Guide series complete. All six Corbit X Staff Guide posters are now available in the gallery, covering customer experience, account and chequebook transition, and go-live operations. Account-number look-up included in training. Training covers how to look up a customer's new account number in Corbit X. Complete your modules before go-live. Printing new account numbers. Guidance on printing new account numbers for customers will follow. Watch this space."
+  "name": "t9dd161b1",
+  "say": "Project updates. The latest news from the Corbit X programme. Go-live moves to Monday 1 February 2027. Go-live has moved to accommodate other important transactions the Bank is undertaking. The extra weeks help us go live with even greater confidence. Staff Guide series complete. All six Corbit X Staff Guide posters are now available in the gallery, covering customer experience, account and chequebook transition, and go-live operations. Account-number look-up included in training. Training covers how to look up a customer's new account number in Corbit X. Complete your modules before go-live. Business simulation 4: 93.4 percent. Our overall simulation score rose from 51 percent to 93.4 percent across four simulations, 1.6 points from the 95 percent go-live gate. Printing new account numbers. Guidance on printing new account numbers for customers will follow. Watch this space."
  },
  {
-  "name": "t3a98d09a",
-  "say": "Key dates and milestones. Calculated from the expected go-live date of Monday 8 February 2027. 1 February week: Static data freeze begins. Account opening unavailable in Flexcube 11.1 and Corbit X. Start applications in Newgen. Sunday, 7 February: Sunday live checks. Branch Operations Supervisors open the branch day; all staff run live transaction and channel checks. Monday, 8 February: Corbit X go-live. Continue Sunday's branch day; run end of day at close of business. Thursday, 11 February: Account opening resumes. Finalise pending applications and provide account numbers. 8 August 2027: Old-number cheques end. Cheques bearing old account numbers are no longer accepted. Dates will update automatically once the go-live date is confirmed."
+  "name": "te3905d54",
+  "say": "Key dates and milestones. Calculated from the expected go-live date of Monday 1 February 2027. Monday, 11 January: Static data migration. Customer and account data moves to Corbit X. Wednesday, 13 January: Data validation begins. Every record checked and confirmed, Wednesday 13 to Friday 15 January. Saturday, 16 January: Financial validation. Balances checked to the last pesewa. Sunday, 17 January: Business simulation. Migration plus a full day of business replay. Friday, 29 January: Final cut-off, 2:00pm. Last day on the current system. Balance cash and vault, clear suspense and run the final end of day. Sunday, 31 January: Sunday live checks. Branch Operations Supervisors open the branch day; all staff run live transaction and channel checks. Do not close the day or run end of day. Monday, 1 February: Corbit X go-live. Arrive by 7:00am. Continue Sunday's branch day; run end of day at close of business. Thursday, 4 February: Account opening resumes. Finalise pending applications and provide account numbers. 2 August 2027: Old-number cheques end. Six months (182 days) after go-live: cheques bearing old account numbers are no longer accepted. Dates will update automatically once the go-live date is confirmed."
  },
  {
-  "name": "t3b02542f",
-  "say": "Support contacts. Not sure? Pause, check, and reach out. Help is close by. You can contact: Corbit X Programme Office, for programme questions and feedback; Branch Operations Support, for go-live weekend and branch-day issues; IT Service Desk, for system access and technical faults; Learning and Development, for training access and completion; Customer Experience Team, for escalated customer concerns; Your Regional Champion, for local support and floor-walking. Contact details are shown on the page."
+  "name": "te304b420",
+  "say": "Support contacts. Not sure? Pause, check, and reach out. Help is close by. You can contact: Your champion, for first line of help: local support and floor-walking; Command Centre, for log a ticket with a screenshot: issues, fixes and coordination; Branch Operations Support, for go-live weekend and branch-day issues; Learning and Development, for training access and completion; Customer Experience Team, for escalated customer concerns; Fraud and Risk, for report anything suspicious. The bank never asks for a PIN, password or OTP. Contact details are shown on the page."
  },
  {
   "name": "tce4999bd",

@@ -78,8 +78,8 @@ function segs(){
   group("marquee",".marquee-wrap",false);
   add("Our key messages",".marquee-wrap",["Our key messages. "+(r.mq||[]).join(" ")]);
   group("timeline","#journey");
-  add("Programme timeline","#journey .sec-head",["The road to go-live. Six phases take us from awareness to a stable new platform. Select a phase to see what it means for you and the materials that support it."]);
-  (r.PHASES||[]).forEach((p,i)=>add("Phase "+(i+1)+": "+p.n,"#journey .tl",["Phase "+(i+1)+", "+p.n+". "+p.when+". "+p.d+" What to focus on: "+p.f.join("; ")+"."],()=>r.showPhase(i),null,{detail:true,key:"phase:"+i}));
+  add("Programme timeline","#journey .sec-head",["The road to go-live. Five steps take us to lift-off on Monday 1 February 2027, with support continuing after go-live. Select a step to see what it means for you and the materials that support it."]);
+  (r.PHASES||[]).forEach((p,i)=>add((i<5?"Step "+(i+1):"After go-live")+": "+p.n,"#journey .tl",[(i<5?"Step "+(i+1):"After go-live")+", "+p.n+". "+p.when+". "+p.d+" What to focus on: "+p.f.join("; ")+"."],()=>r.showPhase(i),null,{detail:true,key:"phase:"+i}));
   group("band2",".band.dark");
   add("Preparing today for tomorrow",".band.dark",["Preparing today for tomorrow's banking experience."]);
   group("hub","#hub");

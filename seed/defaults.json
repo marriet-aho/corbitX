@@ -2,7 +2,7 @@
  "KukuaMessages": [
   {
    "Key": "welcome",
-   "Text": "Hello! I'm Kukua, your Corbit X guide. Over the coming months, I'll help you discover what Corbit X means for our customers, branches, and teams. Let's get started.",
+   "Text": "Hello! I'm Kukua, your Corbit X guide. Between now and go-live on Monday 1 February 2027, I'll help you discover what Corbit X means for our customers, branches, and teams. Let's get started.",
    "AudioUrl": ""
   },
   {
@@ -32,7 +32,7 @@
   },
   {
    "Key": "chatFallback",
-   "Text": "Good question! I don't have an answer for that one yet. Try one of the suggested questions, or check with your Branch Operations Supervisor.",
+   "Text": "Good question! I don't have an answer for that one yet. Try one of the suggested questions, or check the guide, ask your champion, and log a Command Centre ticket if you are still stuck.",
    "AudioUrl": ""
   }
  ],
@@ -45,7 +45,7 @@
    "KukuaSays": "Customers may have questions about account numbers. Corbit X will introduce changes designed to support a smoother banking experience. This guide helps you confidently support every customer conversation.",
    "SecondaryLabel": "Learn More",
    "PanelKukua": "Here's how to help a customer who arrives with their old account number.",
-   "PanelIntro": "Old account numbers will continue to be accepted for more than six months after go-live.",
+   "PanelIntro": "Old account numbers will continue to be accepted for more than six months after go-live. The new account number has 13 digits, and a customer's CIF gains “00” in front.",
    "PanelPoints": [
     [
      "Look up",
@@ -71,11 +71,11 @@
    "KukuaSays": "Chequebook updates can raise customer questions. Understanding the process ensures we provide the right guidance and support.",
    "SecondaryLabel": "Quick Tips",
    "PanelKukua": "My quick tips for cheques that carry old account numbers.",
-   "PanelIntro": "Cheques bearing old account numbers are accepted for six months after go-live, subject to the usual checks. After six months, these cheques will no longer be accepted.",
+   "PanelIntro": "Cheques bearing old account numbers are accepted for six months (182 days) after go-live, until 2 August 2027, subject to the usual checks. After that date, these cheques will no longer be accepted.",
    "PanelPoints": [
     [
      "Accept",
-     "Accept old-number cheques for six months after go-live, subject to the usual checks."
+     "Accept old-number cheques until 2 August 2027, subject to the usual checks."
     ],
     [
      "Encourage",
@@ -121,11 +121,15 @@
    "KukuaSays": "Preparation drives success. Learn how readiness activities help teams operate confidently during key milestones.",
    "SecondaryLabel": "Read More",
    "PanelKukua": "Here's what happens on the Sunday before go-live, and your part in it.",
-   "PanelIntro": "On the Sunday immediately before go-live, BOSs will open the branch day. All branch staff will take part in live transaction and channel checks.",
+   "PanelIntro": "On Sunday 31 January 2027, the day before go-live, BOSs will open the branch day. All branch staff will take part in live transaction and channel checks.",
    "PanelPoints": [
     [
+     "Friday 29 January",
+     "Finish all transactions by the 2:00pm cut-off, balance cash and vault, clear suspense and run the final end of day."
+    ],
+    [
      "Test",
-     "Test deposits, branch transactions, ATMs, the mobile app and other instructed channels."
+     "On Sunday, test deposits, branch transactions, ATMs, the mobile app and other instructed channels."
     ],
     [
      "Real funds",
@@ -137,7 +141,7 @@
     ],
     [
      "Continue",
-     "Continue the same branch day into Monday. Run end of day at the close of business on Monday."
+     "Continue the same branch day into Monday 1 February. Run end of day at the close of business on Monday."
     ]
    ],
    "KeyMessage": "<b>Check together.</b> Start strong."
@@ -179,7 +183,7 @@
    "KukuaSays": "Business continues while we prepare for change. Discover how we maintain excellent service and support customers throughout the journey.",
    "SecondaryLabel": "Best Practices",
    "PanelKukua": "Account opening pauses for a short while, but our welcome never does. Here's how.",
-   "PanelIntro": "During the static data freeze in the week before go-live and the first three days after go-live, account opening is unavailable in Flexcube 11.1 and Corbit X.",
+   "PanelIntro": "During the static data freeze in the week before go-live and the first three days after go-live (Monday 1 to Wednesday 3 February), account opening is unavailable in Flexcube 11.1 and Corbit X.",
    "PanelPoints": [
     [
      "Start",
@@ -191,7 +195,7 @@
     ],
     [
      "Finalise",
-     "Finalise from Thursday after go-live and provide account numbers."
+     "Finalise from Thursday 4 February and provide account numbers."
     ]
    ],
    "PanelSay": "We are upgrading our systems to serve you better. We can start your application now. Your account number will be provided from Thursday after the upgrade.",
@@ -201,7 +205,7 @@
  "SectionIntros": [
   {
    "Key": "highlights",
-   "Text": "Look how far we've come together! These numbers show the energy our people are putting into Corbit X."
+   "Text": "Look how far we've come together! Our simulation score rose from 51% to 93.4%, and confidence has nearly doubled."
   },
   {
    "Key": "changes",
@@ -217,57 +221,57 @@
   },
   {
    "Key": "next",
-   "Text": "So, what's next? Here are the steps that will take us from today all the way to go-live."
+   "Text": "So, what's next? Here are the five steps that take us from today to go-live on Monday 1 February 2027."
   }
  ],
  "Highlights": [
   {
-   "Group": "No. of Staff",
-   "Icon": "users",
-   "Items": [
-    {
-     "Value": 2500,
-     "Suffix": "+",
-     "Label": "Staff bank-wide"
-    },
-    {
-     "Value": 94,
-     "Suffix": "%",
-     "Label": "Project completion rate",
-     "Bar": true
-    }
-   ]
-  },
-  {
-   "Group": "Staff Engagement",
-   "Icon": "heart",
-   "Items": [
-    {
-     "Value": 30,
-     "Suffix": "+",
-     "Label": "Champions across the bank"
-    },
-    {
-     "Value": 2,
-     "Suffix": "",
-     "Label": "Bank-wide roadshows"
-    }
-   ]
-  },
-  {
-   "Group": "Business Simulation",
+   "Group": "Overall readiness",
    "Icon": "sim",
    "Items": [
     {
-     "Value": 3,
-     "Suffix": "",
-     "Label": "Business simulations"
+     "Value": 93.4,
+     "Suffix": "%",
+     "Label": "Overall simulation score (95% go-live gate)",
+     "Bar": true
     },
     {
-     "Value": 68,
+     "Value": 85,
      "Suffix": "%",
-     "Label": "Staff confidence",
+     "Label": "Staff confident in go-live readiness (45% at BSIM 1)",
      "Bar": true
+    }
+   ]
+  },
+  {
+   "Group": "System and support",
+   "Icon": "check",
+   "Items": [
+    {
+     "Value": 99.8,
+     "Suffix": "%",
+     "Label": "Logged in at BSIM 4"
+    },
+    {
+     "Value": 96,
+     "Suffix": "%",
+     "Label": "Tickets fixed the same day"
+    }
+   ]
+  },
+  {
+   "Group": "Branches",
+   "Icon": "users",
+   "Items": [
+    {
+     "Value": 94,
+     "Suffix": "%",
+     "Label": "Branches ready"
+    },
+    {
+     "Value": 4,
+     "Suffix": "",
+     "Label": "Business simulations completed"
     }
    ]
   }
@@ -276,36 +280,35 @@
   {
    "Title": "At the Counter",
    "Points": [
-    "Serve customers faster",
-    "Full 360° view in one screen",
-    "Credits and salaries at speed"
+    "Quicker service at the counter",
+    "360-degree customer view at the teller point",
+    "Faster credit and salary processing"
    ]
   },
   {
    "Title": "Account Numbers",
    "Alt": true,
    "Points": [
-    "New format, same CIF: add “00” in front",
-    "Old numbers usable during the transition",
-    "Longer format = more security"
+    "New 13-digit account numbers",
+    "Customer CIF gains “00” in front",
+    "Old numbers still work for more than six months"
    ],
    "Viz": true
   },
   {
    "Title": "Cheque Books",
    "Points": [
-    "Order new books within 182 days",
-    "Current leaves accepted meanwhile",
-    "Books 5+ years old won't migrate"
+    "Reorder within the first 182 days",
+    "Current leaves accepted in the meantime",
+    "Books over 5 years old are not migrated"
    ]
   },
   {
    "Title": "Statements",
    "Alt": true,
    "Points": [
-    "0–12 months: instant via Corbit X",
-    "12 months+: from secure backup",
-    "Cleaner, faster request process"
+    "0–12 months: straight from Corbit X",
+    "Older statements, back to account opening: from stored backup"
    ]
   }
  ],
@@ -361,7 +364,7 @@
   {
    "Type": "Video",
    "Title": "Account opening during the freeze",
-   "Description": "Start in Newgen, finalise from Thursday",
+   "Description": "Start in Newgen, finalise from Thursday 4 February",
    "Url": ""
   },
   {
@@ -394,33 +397,33 @@
  ],
  "WhatsNext": [
   {
-   "Label": "Keep learning",
-   "Title": "Complete your training",
-   "Text": "Finish your end-user training modules and practise the new processes.",
+   "Label": "26 Oct – 23 Dec",
+   "Title": "Keep your skills sharp",
+   "Text": "Practise twice a week. Branches 7:15 – 8:15 am; departments one hour, two days a week.",
    "Icon": "cap"
   },
   {
-   "Label": "Practise",
-   "Title": "Business simulations",
-   "Text": "Take part in simulations to build confidence before go-live.",
-   "Icon": "sim"
+   "Label": "24 Dec – 3 Jan",
+   "Title": "Rest and recharge",
+   "Text": "No scheduled sessions. The Corbit X portal stays open if you want a refresher.",
+   "Icon": "heart"
   },
   {
-   "Label": "Connect",
-   "Title": "Meet your champion",
-   "Text": "Our 30+ Corbit X champions are on hand to answer questions locally.",
-   "Icon": "users"
-  },
-  {
-   "Label": "Get ready",
-   "Title": "Sunday live checks",
-   "Text": "Join the live transaction and channel checks on the Sunday before go-live.",
+   "Label": "4 – 22 Jan",
+   "Title": "Get go-live ready",
+   "Text": "One hour every working day, then certification for your role.",
    "Icon": "check"
   },
   {
-   "Label": "Go-live",
-   "Title": "Same warm welcome",
-   "Text": "Serve every customer with confidence on Corbit X.",
+   "Label": "11 – 17 Jan",
+   "Title": "Final systems check",
+   "Text": "Data migration and validation, then the business simulation on Sunday 17 January.",
+   "Icon": "sim"
+  },
+  {
+   "Label": "Mon 1 Feb 2027",
+   "Title": "Lift-off!",
+   "Text": "Corbit X goes live. Arrive early, log in and welcome every customer.",
    "Icon": "rocket"
   }
  ],
@@ -432,7 +435,9 @@
   "Not sure? Pause and check before you answer.",
   "Share the new account number at every interaction.",
   "Encourage customers to request new chequebooks early.",
-  "Never let a system change become a reason to turn a customer away."
+  "Never let a system change become a reason to turn a customer away.",
+  "Stuck? Check the guide, ask your champion, log a Command Centre ticket, then update the customer.",
+  "The bank never asks for a PIN, password or OTP. Never share your login."
  ],
  "FAQs": [
   {
@@ -451,13 +456,13 @@
    "Question": "How will customers benefit?",
    "Keywords": "customers benefit benefits customer better",
    "Suggested": true,
-   "Answer": "Faster service at the counter, a full 360° view of the customer on one screen, credits and salaries at speed, instant statements for the last 12 months and a more secure account-number format. While we transition, customers are well supported: old account numbers keep working for more than six months after go-live, and cheques with old numbers are accepted for six months."
+   "Answer": "Quicker service at the counter, a 360-degree customer view at the teller point, faster credit and salary processing, statements for the last 12 months straight from Corbit X and a more secure 13-digit account number. While we transition, old account numbers keep working for more than six months after go-live, and cheques with old numbers are accepted until 2 August 2027."
   },
   {
    "Question": "What changes for branches?",
    "Keywords": "branch branches change changes staff operations",
    "Suggested": true,
-   "Answer": "A few things to know: new account numbers (look them up in Corbit X and share them), cheque and chequebook changes, a short pause in account opening around go-live, and live checks on the Sunday before go-live. Each one has a stop on the journey.",
+   "Answer": "A few things to know: new account numbers (look them up in Corbit X and share them), cheque and chequebook changes, a short pause in account opening around go-live, and live checks on Sunday 31 January 2027. Each one has a stop on the journey.",
    "ActionLabel": "Open the journey",
    "ActionTarget": "journey"
   },
@@ -465,7 +470,7 @@
    "Question": "Where can I find guides?",
    "Keywords": "guide guides poster posters find where",
    "Suggested": true,
-   "Answer": "Right here! There are six guides on my journey. Tap 'View Guide' on any stop to see the full poster.",
+   "Answer": "Right here! There are six guides on my journey. Tap 'View Guide' on any stop to see the full poster. You will also find guides, staff FAQs and how-to videos on the Corbit X portal on the info portal.",
    "ActionLabel": "Take me there",
    "ActionTarget": "journey"
   },
@@ -473,13 +478,13 @@
    "Question": "Who can I contact for support?",
    "Keywords": "contact support help who phone email",
    "Suggested": true,
-   "Answer": "Start with your Branch Operations Supervisor (BOS). For anything else, consult the relevant internal team. Programme support contacts will be listed here."
+   "Answer": "Check the guide or FAQ first, then ask your champion or team lead. If you are still stuck, log a Command Centre ticket with a screenshot, and keep the customer updated while you wait. Contact details for the Command Centre will be listed here."
   },
   {
    "Question": "Will old account numbers still work?",
    "Keywords": "old account number numbers still work accepted",
    "Suggested": false,
-   "Answer": "Yes. Old account numbers will continue to be accepted for more than six months after go-live. The new format keeps the same CIF with “00” added in front. Look up the new number in Corbit X and share it with the customer.",
+   "Answer": "Yes. Old account numbers will continue to be accepted for more than six months after go-live. The new account number has 13 digits, and the CIF keeps the same number with “00” added in front. Look up the new number in Corbit X and share it with the customer.",
    "ActionLabel": "See the guide",
    "ActionTarget": "stop:1"
   },
@@ -487,7 +492,7 @@
    "Question": "Can we open accounts during the upgrade?",
    "Keywords": "open opening account new freeze newgen",
    "Suggested": false,
-   "Answer": "Account opening pauses during the static data freeze and the first three days after go-live. Start the application in Newgen, receive deposits through the designated GL, and finalise from Thursday after go-live.",
+   "Answer": "Account opening pauses during the static data freeze and the first three days after go-live (Monday 1 to Wednesday 3 February). Start the application in Newgen, receive deposits through the designated GL, and finalise from Thursday 4 February.",
    "ActionLabel": "See the guide",
    "ActionTarget": "stop:6"
   },
@@ -495,13 +500,13 @@
    "Question": "How do statements work in Corbit X?",
    "Keywords": "statement statements history backup",
    "Suggested": false,
-   "Answer": "Statements for the last 0–12 months are instant via Corbit X. Older statements (12 months+) come from secure backup, through a cleaner, faster request process."
+   "Answer": "Statements for the last 12 months come straight from Corbit X. Older statements, back to when the account was opened, come from stored backup."
   },
   {
    "Question": "What about cheques?",
    "Keywords": "cheque cheques chequebook chequebooks",
    "Suggested": false,
-   "Answer": "Cheques with old account numbers are accepted for six months after go-live, subject to the usual checks. Chequebooks recorded more than five years ago won't be migrated, so help those customers find an approved alternative.",
+   "Answer": "Cheques with old account numbers are accepted for six months (182 days) after go-live, until 2 August 2027, subject to the usual checks. Chequebooks recorded more than five years ago won't be migrated, so help those customers find an approved alternative. Encourage everyone to reorder early.",
    "ActionLabel": "See the guide",
    "ActionTarget": "stop:2"
   },
@@ -509,9 +514,29 @@
    "Question": "What happens on the Sunday before go-live?",
    "Keywords": "sunday checks testing test weekend live",
    "Suggested": false,
-   "Answer": "BOSs open the branch day and all branch staff run live transaction and channel checks with real funds. Don't close the branch day or run end of day on Sunday; continue into Monday.",
+   "Answer": "On Sunday 31 January 2027, BOSs open the branch day and all branch staff run live transaction and channel checks with real funds. Don't close the branch day or run end of day on Sunday; continue into Monday and run end of day at close of business.",
    "ActionLabel": "See the guide",
    "ActionTarget": "stop:4"
+  },
+  {
+   "Question": "When does Corbit X go live?",
+   "Keywords": "when date go-live golive live start monday february 2027 cut-off",
+   "Suggested": false,
+   "Answer": "Corbit X goes live on Monday 1 February 2027, in every branch and department at the same time. The final cut-off on the current system is Friday 29 January at 2:00pm.",
+   "ActionLabel": "See the guide",
+   "ActionTarget": "stop:4"
+  },
+  {
+   "Question": "How do I read the new account number?",
+   "Keywords": "account number new 13 digit digits currency customer type format read cif",
+   "Suggested": false,
+   "Answer": "It has 13 digits. Digits 1 and 2 are the currency (00 cedi, 01 dollar, 02 pound, 03 euro). Digit 3 is the customer type (1 individual, 2 non-individual, 3 banks and others). Digits 4 to 11 are a serial number, and digits 12 and 13 are check digits."
+  },
+  {
+   "Question": "What if someone asks a customer for their OTP?",
+   "Keywords": "otp pin password fraud scam suspicious login share",
+   "Suggested": false,
+   "Answer": "The bank never asks for a PIN, password or OTP, and you must never share your login. Tell the customer, and report anything suspicious to Fraud and Risk."
   }
  ],
  "FeaturedGuides": [
@@ -533,7 +558,7 @@
   {
    "PosterId": "p2",
    "Title": "Keep the Welcome. Start the Process.",
-   "KukuaCommentary": "Account opening pauses briefly, but our welcome never does. Start in Newgen and finalise from Thursday."
+   "KukuaCommentary": "Account opening pauses briefly, but our welcome never does. Start in Newgen and finalise from Thursday 4 February."
   },
   {
    "PosterId": "p5",
@@ -548,18 +573,18 @@
  ],
  "Announcements": [
   {
+   "Title": "Go-live is now Monday 1 February 2027",
+   "Body": "Go-live has moved to accommodate other important transactions the Bank is undertaking. The extra weeks help us go live with even greater confidence.",
+   "Icon": "spark"
+  },
+  {
    "Title": "Six Corbit X staff guides are now available",
    "Body": "Explore them all on Kukua's journey, from account numbers to go-live readiness.",
-   "Icon": "spark"
+   "Icon": "cap"
   },
   {
    "Title": "Look-up process included in training",
    "Body": "Training covers how to find a customer's new account number in Corbit X.",
-   "Icon": "cap"
-  },
-  {
-   "Title": "Printing new account numbers",
-   "Body": "Guidance on printing new account numbers for customers will follow.",
    "Icon": "print"
   }
  ]

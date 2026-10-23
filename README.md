@@ -22,7 +22,7 @@ Open a list, edit an item. **Order** sorts items and **IsActive** (untick) hides
 
 | Part of the page | List | Main columns |
 |---|---|---|
-| Go-live date, current phase, announcement card | Page Settings | Title = `GoLive` (e.g. `2027-02-08T00:00:00+00:00`), `CurrentPhase` (0 to 5), `AnnouncementTitle`, `AnnouncementBody`, `AnnouncementDate`, `FiguresAreIllustrative` (Yes/No); Value |
+| Go-live date, current phase, announcement card | Page Settings | Title = `GoLive` (e.g. `2027-02-01T00:00:00+00:00`), `CurrentPhase` (0 to 5), `AnnouncementTitle`, `AnnouncementBody`, `AnnouncementDate`, `FiguresAreIllustrative` (Yes/No); Value |
 | Staff-guide gallery and posters' detail pop-up | Staff Guides, Guide Categories | Title, PosterId, CatId, Short, Intro, Steps (one per line: `Heading \| text`), Key, Say, Note |
 | Timeline phases | Programme Phases | Title, Icon, When, Description, Focus (one per line), Materials (`p \| p1` poster, `h \| faq` hub tab) |
 | Knowledge Hub | Hub FAQs, Training Videos, Quick Reference Cards (`+` ok / `-` not), Project Updates, Key Dates (offset from go-live), Support Contacts | see each list |

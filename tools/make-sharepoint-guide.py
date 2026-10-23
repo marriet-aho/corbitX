@@ -60,7 +60,7 @@ EXTRA = {
  ('Project Updates', 'Date'): 'Write as YYYY-MM-DD, e.g. 2026-10-19',
  ('Customer Changes', 'Alt'): 'Yes gives the card the alternate (darker) style',
  ('Customer Changes', 'Viz'): 'Yes adds the small "00 + your CIF" picture (used on the Account Numbers card only)',
- ('Page Settings', 'Value'): 'Examples: GoLive = 2027-02-08T00:00:00+00:00; CurrentPhase = 1 (0 to 5)',
+ ('Page Settings', 'Value'): 'Examples: GoLive = 2027-02-01T00:00:00+00:00; CurrentPhase = 1 (0 to 5)',
 }
 
 def cols(d):
@@ -233,7 +233,7 @@ table([
  ('A column shows odd characters or all text on one line', 'The column is rich text, or the line breaks did not paste. Recreate it as plain multiple lines of text.'),
  ('Changes do not show', 'Refresh the page (Ctrl+F5). Check IsActive is Yes.'),
  ('Visitors see nothing from the lists', 'They need Read on the lists (see Part 5).'),
- ('The go-live date is wrong', 'Open Page Settings, row GoLive. Use the format 2027-02-08T00:00:00+00:00.'),
+ ('The go-live date is wrong', 'Open Page Settings, row GoLive. Use the format 2027-02-01T00:00:00+00:00.'),
 ], ['Problem', 'What to do'], [6.0, 11.0])
 
 doc.add_heading('8. The faster way (optional)', 1)

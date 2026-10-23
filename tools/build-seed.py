@@ -3,7 +3,8 @@
 import json, os
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 schema = json.load(open(os.path.join(ROOT, 'src/webparts/corbitXJourney/portal/schema.json')))
-D = json.load(open(os.path.join(ROOT, 'seed/defaults.json')))
+BASE = 'seed/before' if os.environ.get('BEFORE') else 'seed'   # BEFORE=1 builds the previous content's rows (for the change summary)
+D = json.load(open(os.path.join(ROOT, BASE + '/defaults.json')))
 seed = {}
 def val(t, v):
     if t == 'lines': return '\n'.join(v)
@@ -31,7 +32,7 @@ for d in schema['lists']:
     seed[d['list']] = rows
 
 # ---------- Readiness Centre lists
-RC = json.load(open(os.path.join(ROOT, 'seed/rc-defaults.json')))
+RC = json.load(open(os.path.join(ROOT, BASE + '/rc-defaults.json')))
 def addrc(name, rows): seed[name] = [dict(r, Order=i + 1, IsActive=True) for i, r in enumerate(rows)]
 addrc('Page Settings', [{'Title': k, 'Value': v} for k, v in RC['SETTINGS'].items()])
 addrc('Guide Categories', [{'Title': c['name'], 'CatId': c['id'], 'Description': c['desc']} for c in RC['CATS']])
@@ -46,5 +47,5 @@ addrc('Key Dates', [{'Title': d['Title'], 'Body': d['Body'], 'OffsetDays': d['Da
 addrc('Support Contacts', [{'Title': c[1], 'Icon': c[0], 'Purpose': c[2], 'Contact': c[3]} for c in RC['CONTACTS']])
 addrc('Key Messages', [{'Title': m} for m in RC['mq']])
 
-json.dump(seed, open(os.path.join(ROOT, 'seed/seed.json'), 'w'), ensure_ascii=False, indent=1)
+json.dump(seed, open(os.path.join(ROOT, BASE + '/seed.json'), 'w'), ensure_ascii=False, indent=1)
 print({k: len(v) for k, v in seed.items()})

@@ -1,0 +1,566 @@
+{
+ "KukuaMessages": [
+  {
+   "Key": "welcome",
+   "Text": "Hello! I'm Kukua, your Corbit X guide. Over the coming months, I'll help you discover what Corbit X means for our customers, branches, and teams. Let's get started.",
+   "AudioUrl": ""
+  },
+  {
+   "Key": "journeyIntro",
+   "Text": "Six stops, six guides. Use the arrows or swipe, and I'll tell you what each one is about.",
+   "AudioUrl": ""
+  },
+  {
+   "Key": "start",
+   "Text": "Ready? Our first stop is all about account numbers. Let's go!",
+   "AudioUrl": ""
+  },
+  {
+   "Key": "finish",
+   "Text": "You've reached the end of the journey. Well done! Come back any time to refresh your knowledge.",
+   "AudioUrl": ""
+  },
+  {
+   "Key": "closing",
+   "Text": "Corbit X is more than a system. It's a journey we are taking together. Keep learning, stay informed, and let's prepare for the future.",
+   "AudioUrl": ""
+  },
+  {
+   "Key": "chatGreeting",
+   "Text": "Hi, I'm Kukua! Ask me anything about Corbit X, or tap one of the questions below.",
+   "AudioUrl": ""
+  },
+  {
+   "Key": "chatFallback",
+   "Text": "Good question! I don't have an answer for that one yet. Try one of the suggested questions, or check with your Branch Operations Supervisor.",
+   "AudioUrl": ""
+  }
+ ],
+ "JourneyStages": [
+  {
+   "Order": 1,
+   "RailLabel": "Understanding the Transition",
+   "Title": "Understanding the Transition",
+   "PosterId": "p3",
+   "KukuaSays": "Customers may have questions about account numbers. Corbit X will introduce changes designed to support a smoother banking experience. This guide helps you confidently support every customer conversation.",
+   "SecondaryLabel": "Learn More",
+   "PanelKukua": "Here's how to help a customer who arrives with their old account number.",
+   "PanelIntro": "Old account numbers will continue to be accepted for more than six months after go-live.",
+   "PanelPoints": [
+    [
+     "Look up",
+     "Find the new account number in Corbit X using the process covered in training."
+    ],
+    [
+     "Serve",
+     "Serve the customer and support their transaction."
+    ],
+    [
+     "Share",
+     "Share the new account number at every interaction. Encourage its use next time."
+    ]
+   ],
+   "PanelNote": "Guidance on printing new account numbers will follow.",
+   "KeyMessage": "<b>Look it up. Share it.</b> Keep banking moving."
+  },
+  {
+   "Order": 2,
+   "RailLabel": "Cheque Transition",
+   "Title": "Chequebook Transition",
+   "PosterId": "p4",
+   "KukuaSays": "Chequebook updates can raise customer questions. Understanding the process ensures we provide the right guidance and support.",
+   "SecondaryLabel": "Quick Tips",
+   "PanelKukua": "My quick tips for cheques that carry old account numbers.",
+   "PanelIntro": "Cheques bearing old account numbers are accepted for six months after go-live, subject to the usual checks. After six months, these cheques will no longer be accepted.",
+   "PanelPoints": [
+    [
+     "Accept",
+     "Accept old-number cheques for six months after go-live, subject to the usual checks."
+    ],
+    [
+     "Encourage",
+     "Encourage customers to request new chequebooks early."
+    ],
+    [
+     "Explain",
+     "Explain the transition clearly and help customers with their request."
+    ]
+   ],
+   "KeyMessage": "<b>Give customers a head start!</b>"
+  },
+  {
+   "Order": 3,
+   "RailLabel": "Customer Support",
+   "Title": "Supporting Special Cases",
+   "PosterId": "p5",
+   "KukuaSays": "Some situations require special attention. Explore practical ways to help customers and identify available alternatives.",
+   "SecondaryLabel": "Support Process",
+   "PanelKukua": "Some older chequebooks can't come with us. Here's how to support those customers with care.",
+   "PanelIntro": "Affected chequebooks recorded in the system more than five years ago will not be migrated to Corbit X and can no longer be used. These customers have been notified.",
+   "PanelPoints": [
+    [
+     "Explain",
+     "Explain the position with care."
+    ],
+    [
+     "Help",
+     "Help the customer access funds through an approved alternative."
+    ],
+    [
+     "Assist",
+     "Assist with a new chequebook where required."
+    ]
+   ],
+   "KeyMessage": "<b>Do not turn the customer away.</b> Help them find a solution."
+  },
+  {
+   "Order": 4,
+   "RailLabel": "Operational Readiness",
+   "Title": "Operational Preparedness",
+   "PosterId": "p6",
+   "KukuaSays": "Preparation drives success. Learn how readiness activities help teams operate confidently during key milestones.",
+   "SecondaryLabel": "Read More",
+   "PanelKukua": "Here's what happens on the Sunday before go-live, and your part in it.",
+   "PanelIntro": "On the Sunday immediately before go-live, BOSs will open the branch day. All branch staff will take part in live transaction and channel checks.",
+   "PanelPoints": [
+    [
+     "Test",
+     "Test deposits, branch transactions, ATMs, the mobile app and other instructed channels."
+    ],
+    [
+     "Real funds",
+     "These are real transactions with real funds. Follow controls and report issues promptly."
+    ],
+    [
+     "Don't close",
+     "Do not close the branch day or run end of day on Sunday."
+    ],
+    [
+     "Continue",
+     "Continue the same branch day into Monday. Run end of day at the close of business on Monday."
+    ]
+   ],
+   "KeyMessage": "<b>Check together.</b> Start strong."
+  },
+  {
+   "Order": 5,
+   "RailLabel": "Customer Experience",
+   "Title": "Customer Experience First",
+   "PosterId": "p1",
+   "KukuaSays": "Technology will evolve, but our commitment to exceptional customer service remains unchanged.",
+   "SecondaryLabel": "Service Tips",
+   "PanelKukua": "My favourite service tips for go-live day. Let your smile lead!",
+   "PanelIntro": "Our upgrade should improve the customer experience. Make every customer feel welcome, valued and supported.",
+   "PanelPoints": [
+    [
+     "Smile & serve",
+     "Bring the same warmth, patience and care to every interaction. Keep customers informed and reassured."
+    ],
+    [
+     "Listen & pause",
+     "If a customer complains, listen calmly. If you are unsure, pause and check before answering."
+    ],
+    [
+     "Check quickly",
+     "Consult the relevant internal team for the information you need to serve the customer well."
+    ],
+    [
+     "Use the repository",
+     "Find the relevant guidebook or procedure. The information is at your fingertips, so use it."
+    ]
+   ],
+   "KeyMessage": "<b>Smile. Check. Serve.</b> Never let a system change become a reason to turn a customer away."
+  },
+  {
+   "Order": 6,
+   "RailLabel": "Business Continuity",
+   "Title": "Keeping Business Moving",
+   "PosterId": "p2",
+   "KukuaSays": "Business continues while we prepare for change. Discover how we maintain excellent service and support customers throughout the journey.",
+   "SecondaryLabel": "Best Practices",
+   "PanelKukua": "Account opening pauses for a short while, but our welcome never does. Here's how.",
+   "PanelIntro": "During the static data freeze in the week before go-live and the first three days after go-live, account opening is unavailable in Flexcube 11.1 and Corbit X.",
+   "PanelPoints": [
+    [
+     "Start",
+     "Start in Newgen. Collect all required documents."
+    ],
+    [
+     "Receive",
+     "Receive deposits through the designated GL. Record and monitor every deposit."
+    ],
+    [
+     "Finalise",
+     "Finalise from Thursday after go-live and provide account numbers."
+    ]
+   ],
+   "PanelSay": "We are upgrading our systems to serve you better. We can start your application now. Your account number will be provided from Thursday after the upgrade.",
+   "KeyMessage": "<b>Never turn away</b> an account-opening request because of the upgrade."
+  }
+ ],
+ "SectionIntros": [
+  {
+   "Key": "highlights",
+   "Text": "Look how far we've come together! These numbers show the energy our people are putting into Corbit X."
+  },
+  {
+   "Key": "changes",
+   "Text": "Big changes are coming, and they're good ones. Here's what Corbit X means for our customers."
+  },
+  {
+   "Key": "staff",
+   "Text": "Corbit X makes our work simpler too. Tap 'Today' and 'With Corbit X' to see the difference."
+  },
+  {
+   "Key": "training",
+   "Text": "Learning is how we get ready. Watch the training videos and see our teams in action."
+  },
+  {
+   "Key": "next",
+   "Text": "So, what's next? Here are the steps that will take us from today all the way to go-live."
+  }
+ ],
+ "Highlights": [
+  {
+   "Group": "No. of Staff",
+   "Icon": "users",
+   "Items": [
+    {
+     "Value": 2500,
+     "Suffix": "+",
+     "Label": "Staff bank-wide"
+    },
+    {
+     "Value": 94,
+     "Suffix": "%",
+     "Label": "Project completion rate",
+     "Bar": true
+    }
+   ]
+  },
+  {
+   "Group": "Staff Engagement",
+   "Icon": "heart",
+   "Items": [
+    {
+     "Value": 30,
+     "Suffix": "+",
+     "Label": "Champions across the bank"
+    },
+    {
+     "Value": 2,
+     "Suffix": "",
+     "Label": "Bank-wide roadshows"
+    }
+   ]
+  },
+  {
+   "Group": "Business Simulation",
+   "Icon": "sim",
+   "Items": [
+    {
+     "Value": 3,
+     "Suffix": "",
+     "Label": "Business simulations"
+    },
+    {
+     "Value": 68,
+     "Suffix": "%",
+     "Label": "Staff confidence",
+     "Bar": true
+    }
+   ]
+  }
+ ],
+ "CustomerChanges": [
+  {
+   "Title": "At the Counter",
+   "Points": [
+    "Serve customers faster",
+    "Full 360° view in one screen",
+    "Credits and salaries at speed"
+   ]
+  },
+  {
+   "Title": "Account Numbers",
+   "Alt": true,
+   "Points": [
+    "New format, same CIF: add “00” in front",
+    "Old numbers usable during the transition",
+    "Longer format = more security"
+   ],
+   "Viz": true
+  },
+  {
+   "Title": "Cheque Books",
+   "Points": [
+    "Order new books within 182 days",
+    "Current leaves accepted meanwhile",
+    "Books 5+ years old won't migrate"
+   ]
+  },
+  {
+   "Title": "Statements",
+   "Alt": true,
+   "Points": [
+    "0–12 months: instant via Corbit X",
+    "12 months+: from secure backup",
+    "Cleaner, faster request process"
+   ]
+  }
+ ],
+ "StaffChanges": [
+  {
+   "Title": "Data Access",
+   "Icon": "eye",
+   "Today": "Screen-hopping",
+   "CX": "Full 360° view in one screen",
+   "Gain": "Faster and better service"
+  },
+  {
+   "Title": "Processing",
+   "Icon": "bolt",
+   "Today": "Manual",
+   "CX": "Automated",
+   "Gain": "Less mundane work"
+  },
+  {
+   "Title": "Role Focus",
+   "Icon": "target",
+   "Today": "Transaction processing",
+   "CX": "Advisory & sales",
+   "Gain": "A higher-value role"
+  },
+  {
+   "Title": "System Interface",
+   "Icon": "layout",
+   "Today": "Complex / static",
+   "CX": "Modern / responsive",
+   "Gain": "A better user experience"
+  }
+ ],
+ "TrainingMedia": [
+  {
+   "Type": "Video",
+   "Title": "Corbit X: the big picture",
+   "Description": "What's changing and why it matters",
+   "Url": ""
+  },
+  {
+   "Type": "Video",
+   "Title": "Finding a new account number",
+   "Description": "The look-up process in Corbit X",
+   "Url": ""
+  },
+  {
+   "Type": "Video",
+   "Title": "The 360° customer view",
+   "Description": "Everything about a customer on one screen",
+   "Url": ""
+  },
+  {
+   "Type": "Video",
+   "Title": "Account opening during the freeze",
+   "Description": "Start in Newgen, finalise from Thursday",
+   "Url": ""
+  },
+  {
+   "Type": "Video",
+   "Title": "Sunday live checks walkthrough",
+   "Description": "Your role on go-live weekend",
+   "Url": ""
+  },
+  {
+   "Type": "Video",
+   "Title": "Serving customers through change",
+   "Description": "Smile. Check. Serve.",
+   "Url": ""
+  },
+  {
+   "Type": "Picture",
+   "Title": "Campaign: New System. Same Warm Welcome.",
+   "Url": "p1"
+  },
+  {
+   "Type": "Picture",
+   "Title": "Campaign: Sunday Checks",
+   "Url": "p6"
+  },
+  {
+   "Type": "Picture",
+   "Title": "Campaign: Old Number? We Can Help!",
+   "Url": "p3"
+  }
+ ],
+ "WhatsNext": [
+  {
+   "Label": "Keep learning",
+   "Title": "Complete your training",
+   "Text": "Finish your end-user training modules and practise the new processes.",
+   "Icon": "cap"
+  },
+  {
+   "Label": "Practise",
+   "Title": "Business simulations",
+   "Text": "Take part in simulations to build confidence before go-live.",
+   "Icon": "sim"
+  },
+  {
+   "Label": "Connect",
+   "Title": "Meet your champion",
+   "Text": "Our 30+ Corbit X champions are on hand to answer questions locally.",
+   "Icon": "users"
+  },
+  {
+   "Label": "Get ready",
+   "Title": "Sunday live checks",
+   "Text": "Join the live transaction and channel checks on the Sunday before go-live.",
+   "Icon": "check"
+  },
+  {
+   "Label": "Go-live",
+   "Title": "Same warm welcome",
+   "Text": "Serve every customer with confidence on Corbit X.",
+   "Icon": "rocket"
+  }
+ ],
+ "DailyTips": [
+  "Stay curious. Every guide brings us one step closer to Corbit X.",
+  "Prepared teams create exceptional customer experiences.",
+  "Small actions today help ensure a smooth transition tomorrow.",
+  "Knowledge builds confidence.",
+  "Not sure? Pause and check before you answer.",
+  "Share the new account number at every interaction.",
+  "Encourage customers to request new chequebooks early.",
+  "Never let a system change become a reason to turn a customer away."
+ ],
+ "FAQs": [
+  {
+   "Question": "What is Corbit X?",
+   "Keywords": "what is corbit x system platform",
+   "Suggested": true,
+   "Answer": "Corbit X is our new core banking platform. It replaces Flexcube 11.1 and will power how we serve customers in our branches and across our channels."
+  },
+  {
+   "Question": "Why are we moving to Corbit X?",
+   "Keywords": "why moving move change reason",
+   "Suggested": true,
+   "Answer": "We're moving to Corbit X to prepare for the future of banking: a modern platform that helps us serve customers better and work more simply as a team."
+  },
+  {
+   "Question": "How will customers benefit?",
+   "Keywords": "customers benefit benefits customer better",
+   "Suggested": true,
+   "Answer": "Faster service at the counter, a full 360° view of the customer on one screen, credits and salaries at speed, instant statements for the last 12 months and a more secure account-number format. While we transition, customers are well supported: old account numbers keep working for more than six months after go-live, and cheques with old numbers are accepted for six months."
+  },
+  {
+   "Question": "What changes for branches?",
+   "Keywords": "branch branches change changes staff operations",
+   "Suggested": true,
+   "Answer": "A few things to know: new account numbers (look them up in Corbit X and share them), cheque and chequebook changes, a short pause in account opening around go-live, and live checks on the Sunday before go-live. Each one has a stop on the journey.",
+   "ActionLabel": "Open the journey",
+   "ActionTarget": "journey"
+  },
+  {
+   "Question": "Where can I find guides?",
+   "Keywords": "guide guides poster posters find where",
+   "Suggested": true,
+   "Answer": "Right here! There are six guides on my journey. Tap 'View Guide' on any stop to see the full poster.",
+   "ActionLabel": "Take me there",
+   "ActionTarget": "journey"
+  },
+  {
+   "Question": "Who can I contact for support?",
+   "Keywords": "contact support help who phone email",
+   "Suggested": true,
+   "Answer": "Start with your Branch Operations Supervisor (BOS). For anything else, consult the relevant internal team. Programme support contacts will be listed here."
+  },
+  {
+   "Question": "Will old account numbers still work?",
+   "Keywords": "old account number numbers still work accepted",
+   "Suggested": false,
+   "Answer": "Yes. Old account numbers will continue to be accepted for more than six months after go-live. The new format keeps the same CIF with “00” added in front. Look up the new number in Corbit X and share it with the customer.",
+   "ActionLabel": "See the guide",
+   "ActionTarget": "stop:1"
+  },
+  {
+   "Question": "Can we open accounts during the upgrade?",
+   "Keywords": "open opening account new freeze newgen",
+   "Suggested": false,
+   "Answer": "Account opening pauses during the static data freeze and the first three days after go-live. Start the application in Newgen, receive deposits through the designated GL, and finalise from Thursday after go-live.",
+   "ActionLabel": "See the guide",
+   "ActionTarget": "stop:6"
+  },
+  {
+   "Question": "How do statements work in Corbit X?",
+   "Keywords": "statement statements history backup",
+   "Suggested": false,
+   "Answer": "Statements for the last 0–12 months are instant via Corbit X. Older statements (12 months+) come from secure backup, through a cleaner, faster request process."
+  },
+  {
+   "Question": "What about cheques?",
+   "Keywords": "cheque cheques chequebook chequebooks",
+   "Suggested": false,
+   "Answer": "Cheques with old account numbers are accepted for six months after go-live, subject to the usual checks. Chequebooks recorded more than five years ago won't be migrated, so help those customers find an approved alternative.",
+   "ActionLabel": "See the guide",
+   "ActionTarget": "stop:2"
+  },
+  {
+   "Question": "What happens on the Sunday before go-live?",
+   "Keywords": "sunday checks testing test weekend live",
+   "Suggested": false,
+   "Answer": "BOSs open the branch day and all branch staff run live transaction and channel checks with real funds. Don't close the branch day or run end of day on Sunday; continue into Monday.",
+   "ActionLabel": "See the guide",
+   "ActionTarget": "stop:4"
+  }
+ ],
+ "FeaturedGuides": [
+  {
+   "PosterId": "p1",
+   "Title": "New System. Same Warm Welcome.",
+   "KukuaCommentary": "This one is close to my heart. Systems change, but a warm smile never goes out of style."
+  },
+  {
+   "PosterId": "p3",
+   "Title": "Old Number? We Can Help!",
+   "KukuaCommentary": "Account numbers are the question I expect most. Look it up, share it and keep banking moving."
+  },
+  {
+   "PosterId": "p4",
+   "Title": "New Chapter. New Chequebook.",
+   "KukuaCommentary": "A gentle nudge to request a new chequebook early gives customers a real head start."
+  },
+  {
+   "PosterId": "p2",
+   "Title": "Keep the Welcome. Start the Process.",
+   "KukuaCommentary": "Account opening pauses briefly, but our welcome never does. Start in Newgen and finalise from Thursday."
+  },
+  {
+   "PosterId": "p5",
+   "Title": "Older Chequebook? Find a Way Forward.",
+   "KukuaCommentary": "Some customers need a little extra care. Explain kindly and help them find an approved alternative."
+  },
+  {
+   "PosterId": "p6",
+   "Title": "Sunday Checks. Monday Confidence.",
+   "KukuaCommentary": "Real transactions, real funds, real teamwork. This is how we start strong."
+  }
+ ],
+ "Announcements": [
+  {
+   "Title": "Six Corbit X staff guides are now available",
+   "Body": "Explore them all on Kukua's journey, from account numbers to go-live readiness.",
+   "Icon": "spark"
+  },
+  {
+   "Title": "Look-up process included in training",
+   "Body": "Training covers how to find a customer's new account number in Corbit X.",
+   "Icon": "cap"
+  },
+  {
+   "Title": "Printing new account numbers",
+   "Body": "Guidance on printing new account numbers for customers will follow.",
+   "Icon": "print"
+  }
+ ]
+}

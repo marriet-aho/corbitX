@@ -364,8 +364,8 @@ function segs(){
   group("marquee",".marquee-wrap",false);
   add("Our key messages",".marquee-wrap",["Our key messages. "+(r.mq||[]).join(" ")]);
   group("timeline","#journey");
-  add("Programme timeline","#journey .sec-head",["The road to go-live. Six phases take us from awareness to a stable new platform. Select a phase to see what it means for you and the materials that support it."]);
-  (r.PHASES||[]).forEach((p,i)=>add("Phase "+(i+1)+": "+p.n,"#journey .tl",["Phase "+(i+1)+", "+p.n+". "+p.when+". "+p.d+" What to focus on: "+p.f.join("; ")+"."],()=>r.showPhase(i),null,{detail:true,key:"phase:"+i}));
+  add("Programme timeline","#journey .sec-head",["The road to go-live. Five steps take us to lift-off on Monday 1 February 2027, with support continuing after go-live. Select a step to see what it means for you and the materials that support it."]);
+  (r.PHASES||[]).forEach((p,i)=>add((i<5?"Step "+(i+1):"After go-live")+": "+p.n,"#journey .tl",[(i<5?"Step "+(i+1):"After go-live")+", "+p.n+". "+p.when+". "+p.d+" What to focus on: "+p.f.join("; ")+"."],()=>r.showPhase(i),null,{detail:true,key:"phase:"+i}));
   group("band2",".band.dark");
   add("Preparing today for tomorrow",".band.dark",["Preparing today for tomorrow's banking experience."]);
   group("hub","#hub");
@@ -590,10 +590,10 @@ window.addEventListener("load",window.CXJ_SETUP);
 /* ================== CONFIG — edit these values ================== */
 const CONFIG = {
   // Go-live is a Monday (the Sunday before is the live-check day). PLACEHOLDER — set the confirmed date.
-  goLive: "2027-02-08T00:00:00+00:00",
+  goLive: "2027-02-01T00:00:00+00:00",
   goLiveConfirmed: false,          // set true once the date is confirmed to remove the "provisional" label
-  currentPhase: 1,                 // 0 Awareness · 1 Training · 2 Readiness Testing · 3 Go-Live · 4 Customer Support · 5 Stabilization
-  dataIsIllustrative: true,        // set false once the figures below come from the programme tracker
+  currentPhase: 0,                 // 0 Awareness · 1 Training · 2 Readiness Testing · 3 Go-Live · 4 Customer Support · 5 Stabilization
+  dataIsIllustrative: false,        // set false once the figures below come from the programme tracker
   workstreams: [
     ["People & Training", 68],
     ["Processes & Procedures", 74],
@@ -608,9 +608,9 @@ const CONFIG = {
     {v:"days", s:"", l:"Days to go-live"}
   ],
   announcement: {
-    title: "The Corbit X Staff Guide series is live",
-    body: "Six practical guides now cover customer welcomes, account opening during the upgrade, new account numbers, cheques and the Sunday live checks. Read them before your next team huddle.",
-    date: "2026-10-19"
+    title: "Go-live is now Monday 1 February 2027",
+    body: "Go-live has moved to accommodate other important transactions the Bank is undertaking. The extra weeks help us go live with even greater confidence. See the new calendar in the timeline below.",
+    date: "2026-10-23"
   }
 };
 {const S=RCDATA.SETTINGS||{};if(S.AnnouncementTitle)CONFIG.announcement.title=S.AnnouncementTitle;if(S.AnnouncementBody)CONFIG.announcement.body=S.AnnouncementBody;if(/^\d{4}-\d{2}-\d{2}/.test(S.AnnouncementDate||""))CONFIG.announcement.date=S.AnnouncementDate.slice(0,10);if(S.FiguresAreIllustrative!==undefined&&S.FiguresAreIllustrative!=="")CONFIG.dataIsIllustrative=/^(yes|true|1)$/i.test(S.FiguresAreIllustrative)}
@@ -690,7 +690,7 @@ $("#kpis").innerHTML=hlItems.filter(i=>!i.Bar).map(i=>`<div class="kpi"><b><span
 const A=CONFIG.announcement;$("#anTitle").textContent=A.title;$("#anBody").textContent=A.body;$("#anDate").textContent=fmt(new Date(A.date+"T12:00:00"));
 
 function countUp(el){const to=+el.dataset.to,dur=1600,t0=performance.now();
-  const step=t=>{const p=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-p,3);el.textContent=Math.round(to*e).toLocaleString();if(p<1)requestAnimationFrame(step)};requestAnimationFrame(step)}
+  const step=t=>{const p=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-p,3);el.textContent=(String(to).indexOf(".")>0?(to*e).toFixed(String(to).split(".")[1].length):Math.round(to*e).toLocaleString());if(p<1)requestAnimationFrame(step)};requestAnimationFrame(step)}
 const dashIO=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;dashIO.unobserve(e.target);
   e.target.querySelectorAll(".count").forEach(countUp);
   e.target.querySelectorAll(".bar i").forEach(b=>b.style.width=b.dataset.w+"%");
@@ -707,10 +707,10 @@ $("#featCard").addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e
 /* GALLERY */
 const ASIDE=`<div class="aside reveal"><span class="eyebrow">At a glance</span><h4>Go-live weekend<br>& the week after</h4>
   <div class="wk">
-    <div><small>Week before</small><b>Data freeze</b><p>Start new accounts in Newgen. Deposits via the designated GL.</p></div>
-    <div><small>Sunday</small><b>Live checks</b><p>Real transactions, real funds. No branch-day close or EOD.</p></div>
-    <div class="hl"><small>Monday</small><b>Go-live</b><p>Same branch day continues. EOD at close of business.</p></div>
-    <div><small>Thursday</small><b>Finalise</b><p>Complete pending account openings and share numbers.</p></div>
+    <div><small>Fri 29 Jan</small><b>Final cut-off</b><p>Finish all transactions by 2:00pm. Run the final end of day on the current system.</p></div>
+    <div><small>Sun 31 Jan</small><b>Live checks</b><p>Real transactions, real funds. No branch-day close or EOD.</p></div>
+    <div class="hl"><small>Mon 1 Feb</small><b>Go-live</b><p>Arrive by 7:00am. Same branch day continues. New accounts start in Newgen until Wed 3 Feb. EOD at close of business.</p></div>
+    <div><small>Thu 4 Feb</small><b>Finalise</b><p>Complete pending account openings and share new account numbers.</p></div>
   </div>
   <p style="position:relative;margin-top:22px;font-weight:600;font-size:17px"><span class="o">Check together. Start strong.</span> If something doesn't look right on Sunday, report it promptly.</p>
   <a class="btn btn-primary" href="#hub" data-hub="dates">See key dates</a></div>`;
@@ -761,10 +761,10 @@ $("#marquee").innerHTML=[...mq,...mq].map(t=>`<span>${t}</span>`).join("");
 const PHASES=RCDATA.PHASES;CONFIG.currentPhase=Math.max(0,Math.min(Number(CONFIG.currentPhase)||0,PHASES.length-1));
 const track=$("#tlTrack");
 track.insertAdjacentHTML("beforeend",PHASES.map((p,i)=>{const st=i<CONFIG.currentPhase?"done":i===CONFIG.currentPhase?"now":"";
-  return `<button class="phase ${st}" role="tab" data-i="${i}" aria-selected="false"><span class="dot">${ic(p.ic)}</span><span class="txt"><b>${p.n}</b><small>${st==="done"?"Complete":st==="now"?"We are here":"Phase "+(i+1)}</small></span></button>`}).join(""));
+  return `<button class="phase ${st}" role="tab" data-i="${i}" aria-selected="false"><span class="dot">${ic(p.ic)}</span><span class="txt"><b>${p.n}</b><small>${st==="done"?"Complete":st==="now"?"We are here":(i<5?"Step "+(i+1):"After go-live")}</small></span></button>`}).join(""));
 function showPhase(i){const p=PHASES[i];
   track.querySelectorAll(".phase").forEach(b=>b.setAttribute("aria-selected",+b.dataset.i===i));
-  $("#tlPanel").innerHTML=`<div class="tl-panel" key="${i}"><div><span class="eyebrow">Phase ${i+1} · ${p.when}</span><h3>${p.n}</h3><p>${p.d}</p><ul class="focus">${p.f.map(x=>`<li>${x}</li>`).join("")}</ul></div>
+  $("#tlPanel").innerHTML=`<div class="tl-panel" key="${i}"><div><span class="eyebrow">${i<5?"Step "+(i+1):"After go-live"} · ${p.when}</span><h3>${p.n}</h3><p>${p.d}</p><ul class="focus">${p.f.map(x=>`<li>${x}</li>`).join("")}</ul></div>
    <div class="mats"><h4>Communication materials</h4><div class="mat-list">${p.m.map(([t,id])=>t==="p"?(()=>{const q=POSTERS.find(x=>x.id===id);return `<button class="mat" data-poster="${id}"><img src="${IMG[id]}" alt=""><span><b>${q.title}</b><small>Staff guide poster</small></span></button>`})():(()=>{const h=HUB.find(x=>x.id===id);return `<button class="mat" data-hub="${id}"><span class="mi">${ic(h.ic)}</span><span><b>${h.n}</b><small>Knowledge Hub</small></span></button>`})()).join("")}</div></div></div>`;
 }
 track.addEventListener("click",e=>{const b=e.target.closest(".phase");if(!b)return;showPhase(+b.dataset.i);if(innerWidth<=900)$("#tlPanel").scrollIntoView({behavior:"smooth",block:"start"})});

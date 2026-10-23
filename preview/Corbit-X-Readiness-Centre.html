@@ -577,7 +577,7 @@ footer{position:relative;z-index:1;margin-top:80px;border-top:3px solid var(--or
   <div class="wrap">
     <div class="sec-head reveal">
       <div><span class="eyebrow">Programme timeline</span><h2 class="display">The road to <span class="o">Go-Live</span></h2></div>
-      <p>Six phases take us from awareness to a stable new platform. Select a phase to see what it means for you and the materials that support it.</p>
+      <p>Five steps take us to lift-off on Monday 1 February 2027, with support continuing after go-live. Select a step to see what it means for you and the materials that support it.</p>
     </div>
     <div class="tl reveal">
       <div class="tl-track" id="tlTrack" role="tablist" aria-label="Programme phases">
@@ -673,10 +673,10 @@ footer{position:relative;z-index:1;margin-top:80px;border-top:3px solid var(--or
 /* ================== CONFIG — edit these values ================== */
 const CONFIG = {
   // Go-live is a Monday (the Sunday before is the live-check day). PLACEHOLDER — set the confirmed date.
-  goLive: "2027-03-01T08:00:00+01:00",
+  goLive: "2027-02-01T00:00:00+00:00",
   goLiveConfirmed: false,          // set true once the date is confirmed to remove the "provisional" label
-  currentPhase: 1,                 // 0 Awareness · 1 Training · 2 Readiness Testing · 3 Go-Live · 4 Customer Support · 5 Stabilization
-  dataIsIllustrative: true,        // set false once the figures below come from the programme tracker
+  currentPhase: 0,                 // 0 Awareness · 1 Training · 2 Readiness Testing · 3 Go-Live · 4 Customer Support · 5 Stabilization
+  dataIsIllustrative: false,        // set false once the figures below come from the programme tracker
   workstreams: [
     ["People & Training", 68],
     ["Processes & Procedures", 74],
@@ -691,9 +691,9 @@ const CONFIG = {
     {v:"days", s:"", l:"Days to go-live"}
   ],
   announcement: {
-    title: "The Corbit X Staff Guide series is live",
-    body: "Six practical guides now cover customer welcomes, account opening during the upgrade, new account numbers, cheques and the Sunday live checks. Read them before your next team huddle.",
-    date: "2026-10-19"
+    title: "Go-live is now Monday 1 February 2027",
+    body: "Go-live has moved to accommodate other important transactions the Bank is undertaking. The extra weeks help us go live with even greater confidence. See the new calendar in the timeline below.",
+    date: "2026-10-23"
   }
 };
 /* ================================================================ */
@@ -706,47 +706,149 @@ const CATS = [
   {id:"ops", name:"Go-Live Operations", desc:"Operational readiness activities, testing responsibilities and go-live procedures."}
 ];
 
-const POSTERS = [
-  {id:"p1",cat:"cx",title:"New System. Same Warm Welcome.",short:"On go-live day, let your smile lead.",
-   intro:"Our upgrade should improve the customer experience. Make every customer feel welcome, valued and supported.",
-   steps:[["Smile & Serve","Bring the same warmth, patience and care to every interaction. Keep customers informed and reassured."],
-          ["Listen & Pause","If a customer complains, listen calmly. If you are unsure, pause and check before answering."],
-          ["Check Quickly","Consult the relevant internal team for the information you need to serve the customer well."],
-          ["Use the Repository","Find the relevant guidebook or procedure. The information is at your fingertips — use it."]],
-   key:"<b>Smile. Check. Serve.</b> Never let a system change become a reason to turn a customer away."},
-  {id:"p2",cat:"cx",title:"Keep the Welcome. Start the Process.",short:"Account opening during the upgrade.",
-   intro:"During the static data freeze in the week before go-live and the first three days after go-live, account opening is unavailable in Flexcube 11.1 and Corbit X.",
-   steps:[["Start","Start in Newgen. Collect all required documents."],
-          ["Receive","Receive deposits through the designated GL. Record and monitor every deposit."],
-          ["Finalise","Finalise from Thursday after go-live and provide account numbers."]],
-   say:"We are upgrading our systems to serve you better. We can start your application now. Your account number will be provided from Thursday after the upgrade.",
-   key:"<b>Never turn away</b> an account-opening request because of the upgrade."},
-  {id:"p3",cat:"acc",title:"Old Number? We Can Help!",short:"Help customers find their new account number.",
-   intro:"Old account numbers will continue to be accepted for more than six months after go-live.",
-   steps:[["Look Up","Look up the new account number in Corbit X using the process covered in training."],
-          ["Serve","Serve the customer and support their transaction."],
-          ["Share","Share the new account number at every interaction. Encourage its use next time."]],
-   note:"Guidance on printing new account numbers will follow.",
-   key:"<b>Look it up. Share it.</b> Keep banking moving."},
-  {id:"p4",cat:"acc",title:"New Chapter. New Chequebook.",short:"Cheques with old account numbers.",
-   intro:"Accept cheques bearing old account numbers for six months after go-live, subject to the usual checks. After six months, these cheques will no longer be accepted.",
-   steps:[["Accept","Accept old-number cheques for six months after go-live, subject to the usual checks."],
-          ["Encourage","Encourage customers to request new chequebooks early."],
-          ["Explain","Explain the transition clearly and help customers with their request."]],
-   key:"<b>Give customers a head start!</b>"},
-  {id:"p5",cat:"acc",title:"Older Chequebook? Find a Way Forward.",short:"Support customers with affected chequebooks.",
-   intro:"Affected chequebooks recorded in the system more than five years ago will not be migrated to Corbit X and can no longer be used. These customers have been notified.",
-   steps:[["Explain","Explain the position with care."],
-          ["Help","Help the customer access funds through an approved alternative."],
-          ["Assist","Assist with a new chequebook where required."]],
-   key:"<b>Do not turn the customer away.</b> Help them find a solution."},
-  {id:"p6",cat:"ops",title:"Sunday Checks. Monday Confidence.",short:"Live checks before go-live.",
-   intro:"On the Sunday immediately before go-live, BOSs will open the branch day. All branch staff will participate in live transaction and channel checks.",
-   steps:[["Test","Test deposits, branch transactions, ATMs, the mobile app and other instructed channels."],
-          ["Real Funds","These are REAL transactions with REAL funds. Follow controls and report issues promptly."],
-          ["Do Not Close","Do not close the branch day or run end of day on Sunday."],
-          ["Continue","Continue the same branch day into Monday. Run end of day at the close of business on Monday."]],
-   key:"<b>Check together.</b> Start strong."}
+const POSTERS=[
+ {
+  "id": "p1",
+  "cat": "cx",
+  "title": "New System. Same Warm Welcome.",
+  "short": "On go-live day, let your smile lead.",
+  "intro": "Our upgrade should improve the customer experience. Make every customer feel welcome, valued and supported.",
+  "steps": [
+   [
+    "Smile & Serve",
+    "Bring the same warmth, patience and care to every interaction. Keep customers informed and reassured."
+   ],
+   [
+    "Listen & Pause",
+    "If a customer complains, listen calmly. If you are unsure, pause and check before answering."
+   ],
+   [
+    "Check Quickly",
+    "Consult the relevant internal team for the information you need to serve the customer well."
+   ],
+   [
+    "Use the Repository",
+    "Find the relevant guidebook or procedure. The information is at your fingertips — use it."
+   ]
+  ],
+  "key": "<b>Smile. Check. Serve.</b> Never let a system change become a reason to turn a customer away."
+ },
+ {
+  "id": "p2",
+  "cat": "cx",
+  "title": "Keep the Welcome. Start the Process.",
+  "short": "Account opening during the upgrade.",
+  "intro": "During the static data freeze in the week before go-live and the first three days after go-live (Monday 1 to Wednesday 3 February 2027), account opening is unavailable in Flexcube 11.1 and Corbit X.",
+  "steps": [
+   [
+    "Start",
+    "Start in Newgen. Collect all required documents."
+   ],
+   [
+    "Receive",
+    "Receive deposits through the designated GL. Record and monitor every deposit."
+   ],
+   [
+    "Finalise",
+    "Finalise from Thursday 4 February 2027 and provide account numbers."
+   ]
+  ],
+  "say": "We are upgrading our systems to serve you better. We can start your application now. Your account number will be provided from Thursday after the upgrade.",
+  "key": "<b>Never turn away</b> an account-opening request because of the upgrade."
+ },
+ {
+  "id": "p3",
+  "cat": "acc",
+  "title": "Old Number? We Can Help!",
+  "short": "Help customers find their new account number.",
+  "intro": "Old account numbers will continue to be accepted for more than six months after go-live. The new account number has 13 digits, and a customer's CIF gains “00” in front.",
+  "steps": [
+   [
+    "Look Up",
+    "Look up the new account number in Corbit X using the process covered in training."
+   ],
+   [
+    "Serve",
+    "Serve the customer and support their transaction."
+   ],
+   [
+    "Share",
+    "Share the new account number at every interaction. Encourage its use next time."
+   ]
+  ],
+  "note": "Guidance on printing new account numbers will follow.",
+  "key": "<b>Look it up. Share it.</b> Keep banking moving."
+ },
+ {
+  "id": "p4",
+  "cat": "acc",
+  "title": "New Chapter. New Chequebook.",
+  "short": "Cheques with old account numbers.",
+  "intro": "Accept cheques bearing old account numbers for six months (182 days) after go-live, until 2 August 2027, subject to the usual checks. After that date, these cheques will no longer be accepted.",
+  "steps": [
+   [
+    "Accept",
+    "Accept old-number cheques until 2 August 2027, subject to the usual checks."
+   ],
+   [
+    "Encourage",
+    "Encourage customers to request new chequebooks early."
+   ],
+   [
+    "Explain",
+    "Explain the transition clearly and help customers with their request."
+   ]
+  ],
+  "key": "<b>Give customers a head start!</b>"
+ },
+ {
+  "id": "p5",
+  "cat": "acc",
+  "title": "Older Chequebook? Find a Way Forward.",
+  "short": "Support customers with affected chequebooks.",
+  "intro": "Affected chequebooks recorded in the system more than five years ago will not be migrated to Corbit X and can no longer be used. These customers have been notified.",
+  "steps": [
+   [
+    "Explain",
+    "Explain the position with care."
+   ],
+   [
+    "Help",
+    "Help the customer access funds through an approved alternative."
+   ],
+   [
+    "Assist",
+    "Assist with a new chequebook where required."
+   ]
+  ],
+  "key": "<b>Do not turn the customer away.</b> Help them find a solution."
+ },
+ {
+  "id": "p6",
+  "cat": "ops",
+  "title": "Sunday Checks. Monday Confidence.",
+  "short": "Live checks before go-live.",
+  "intro": "On Sunday 31 January 2027, the day before go-live, BOSs will open the branch day. All branch staff will participate in live transaction and channel checks.",
+  "steps": [
+   [
+    "Test",
+    "Test deposits, branch transactions, ATMs, the mobile app and other instructed channels."
+   ],
+   [
+    "Real Funds",
+    "These are REAL transactions with REAL funds. Follow controls and report issues promptly."
+   ],
+   [
+    "Do Not Close",
+    "Do not close the branch day or run end of day on Sunday."
+   ],
+   [
+    "Continue",
+    "Continue the same branch day into Monday 1 February. Run end of day at the close of business on Monday."
+   ]
+  ],
+  "key": "<b>Check together.</b> Start strong."
+ }
 ];
 
 const ICONS = {
@@ -834,10 +936,10 @@ $("#featCard").addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e
 /* GALLERY */
 const ASIDE=`<div class="aside reveal"><span class="eyebrow">At a glance</span><h4>Go-live weekend<br>& the week after</h4>
   <div class="wk">
-    <div><small>Week before</small><b>Data freeze</b><p>Start new accounts in Newgen. Deposits via the designated GL.</p></div>
-    <div><small>Sunday</small><b>Live checks</b><p>Real transactions, real funds. No branch-day close or EOD.</p></div>
-    <div class="hl"><small>Monday</small><b>Go-live</b><p>Same branch day continues. EOD at close of business.</p></div>
-    <div><small>Thursday</small><b>Finalise</b><p>Complete pending account openings and share numbers.</p></div>
+    <div><small>Fri 29 Jan</small><b>Final cut-off</b><p>Finish all transactions by 2:00pm. Run the final end of day on the current system.</p></div>
+    <div><small>Sun 31 Jan</small><b>Live checks</b><p>Real transactions, real funds. No branch-day close or EOD.</p></div>
+    <div class="hl"><small>Mon 1 Feb</small><b>Go-live</b><p>Arrive by 7:00am. Same branch day continues. New accounts start in Newgen until Wed 3 Feb. EOD at close of business.</p></div>
+    <div><small>Thu 4 Feb</small><b>Finalise</b><p>Complete pending account openings and share new account numbers.</p></div>
   </div>
   <p style="position:relative;margin-top:22px;font-weight:600;font-size:17px"><span class="o">Check together. Start strong.</span> If something doesn't look right on Sunday, report it promptly.</p>
   <a class="btn btn-primary" href="#hub" data-hub="dates">See key dates</a></div>`;
@@ -881,30 +983,181 @@ let tx=null;lb.addEventListener("touchstart",e=>{tx=e.touches[0].clientX},{passi
 lb.addEventListener("touchend",e=>{if(tx===null)return;const dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>70)go(dx<0?1:-1);tx=null});
 
 /* MARQUEE */
-const mq=["One Journey. One Platform. One Corbit X.","Smile. Check. Serve.","Look it up. Share it. Keep banking moving.","Check together. Start strong.","Give customers a head start!","Here for your journey"];
+const mq=[
+ "One Journey. One Platform. One Corbit X.",
+ "Same warm welcome. New system. One team.",
+ "Smile. Check. Serve.",
+ "Look it up. Share it. Keep banking moving.",
+ "Check together. Start strong.",
+ "Never turn a customer away.",
+ "Give customers a head start!",
+ "Here for your journey"
+];
 $("#marquee").innerHTML=[...mq,...mq].map(t=>`<span>${t}</span>`).join("");
 
 /* TIMELINE */
 const PHASES=[
-  {n:"Awareness",ic:"megaphone",when:"Now – ongoing",d:"Building understanding of what Corbit X is, why we are moving and what changes for customers and staff.",
-   f:["Read the six Corbit X Staff Guides","Share the key messages in team huddles","Know where to find answers in the Knowledge Hub"],m:[["p","p1"],["p","p3"],["h","updates"],["h","faq"]]},
-  {n:"Training",ic:"cap",when:"Before go-live",d:"Hands-on learning so every colleague can work confidently in Corbit X, including the new account-number look-up process.",
-   f:["Complete your assigned training modules","Practise looking up new account numbers","Keep the quick reference cards close"],m:[["h","videos"],["h","qrc"],["p","p3"],["p","p2"]]},
-  {n:"Readiness Testing",ic:"check",when:"Go-live weekend",d:"Live transaction and channel checks on the Sunday immediately before go-live, led by BOSs with all branch staff participating.",
-   f:["Test deposits, branch transactions, ATMs and the mobile app","Real transactions with real funds: follow controls","Do not close the branch day or run end of day on Sunday"],m:[["p","p6"],["h","dates"],["h","contacts"]]},
-  {n:"Go-Live",ic:"rocket",when:"Go-live Monday",d:"Corbit X opens for business. Continue the same branch day from Sunday and lead every interaction with a warm welcome.",
-   f:["Run end of day at close of business on Monday","Start account-opening requests in Newgen","Smile. Check. Serve."],m:[["p","p1"],["p","p2"],["p","p6"]]},
-  {n:"Customer Support",ic:"heart",when:"First weeks after go-live",d:"Helping customers through the change: new account numbers, cheques, chequebooks and account opening.",
-   f:["Look up and share new account numbers at every interaction","Accept old-number cheques subject to the usual checks","Help customers with affected chequebooks find a way forward"],m:[["p","p3"],["p","p4"],["p","p5"],["h","contacts"]]},
-  {n:"Stabilization",ic:"chart",when:"Six months after go-live",d:"Embedding new ways of working, closing out transition arrangements and building on the platform.",
-   f:["Old-number cheques no longer accepted after six months","Keep encouraging use of new account numbers","Share feedback to help us improve"],m:[["p","p4"],["h","dates"],["h","updates"],["h","faq"]]}
+ {
+  "n": "Keep your skills sharp",
+  "ic": "cap",
+  "when": "26 Oct – 23 Dec 2026",
+  "d": "Regular practice, so everyone is confident on Corbit X before go-live.",
+  "f": [
+   "Practise twice a week, every week",
+   "Branches: 7:15 – 8:15 am. Departments: one hour, two days a week",
+   "Final session: Wednesday 23 December"
+  ],
+  "m": [
+   [
+    "h",
+    "videos"
+   ],
+   [
+    "h",
+    "qrc"
+   ],
+   [
+    "p",
+    "p3"
+   ]
+  ]
+ },
+ {
+  "n": "Rest and recharge",
+  "ic": "heart",
+  "when": "24 Dec 2026 – 3 Jan 2027",
+  "d": "A break to celebrate with your loved ones. There are no scheduled sessions.",
+  "f": [
+   "No scheduled sessions",
+   "Celebrate with your loved ones",
+   "The Corbit X portal stays open if you want a refresher"
+  ],
+  "m": [
+   [
+    "h",
+    "faq"
+   ],
+   [
+    "h",
+    "videos"
+   ]
+  ]
+ },
+ {
+  "n": "Get go-live ready",
+  "ic": "check",
+  "when": "4 – 22 Jan 2027",
+  "d": "One hour every working day (15 days): a refresher, then certification for your role.",
+  "f": [
+   "Branches: 7:15 – 8:15 am. Departments: time set by your HoD",
+   "Complete your refresher, then get certified by 22 January",
+   "Champions check in on your practice; BOSs, BSSMs and HoDs make sure every session happens"
+  ],
+  "m": [
+   [
+    "h",
+    "videos"
+   ],
+   [
+    "h",
+    "qrc"
+   ],
+   [
+    "p",
+    "p3"
+   ],
+   [
+    "p",
+    "p2"
+   ]
+  ]
+ },
+ {
+  "n": "Final systems check",
+  "ic": "chart",
+  "when": "11 – 17 Jan 2027",
+  "d": "Before lift-off, we make sure every record lands safely in Corbit X. Then we fly a full practice mission together on Sunday 17 January.",
+  "f": [
+   "Mon 11 Jan: static data migration",
+   "Wed 13 – Fri 15 Jan: data validation. Sat 16 Jan: financial validation",
+   "Sun 17 Jan: business simulation (migration plus a full day of business replay)"
+  ],
+  "m": [
+   [
+    "h",
+    "dates"
+   ],
+   [
+    "h",
+    "contacts"
+   ]
+  ]
+ },
+ {
+  "n": "Lift-off weekend",
+  "ic": "rocket",
+  "when": "Fri 29 Jan – Mon 1 Feb 2027",
+  "d": "Friday 29 January is the last day on the current system, with a 2:00pm cut-off. Sunday 31 January is the live-check day. Monday 1 February is go-live.",
+  "f": [
+   "Fri 29 Jan: finish all transactions by 2:00pm, balance cash and vault, run the final end of day",
+   "Sun 31 Jan: BOSs open the branch day and all staff run live checks with real funds. Do not close the day or run end of day",
+   "Mon 1 Feb: arrive by 7:00am, log in, check printers and apps, welcome every customer and run end of day at close of business"
+  ],
+  "m": [
+   [
+    "p",
+    "p6"
+   ],
+   [
+    "p",
+    "p1"
+   ],
+   [
+    "h",
+    "dates"
+   ]
+  ]
+ },
+ {
+  "n": "After go-live",
+  "ic": "heart",
+  "when": "From Mon 1 Feb 2027",
+  "d": "Support for customers and colleagues through the first days, weeks and months.",
+  "f": [
+   "Mon 1 – Wed 3 Feb: start account openings in Newgen. Accounts are finalised from Thu 4 Feb",
+   "First weeks: hypercare, with daily check-ins, the Command Centre on call and champions on the floor",
+   "Old-number cheques are accepted until 2 August 2027, and old account numbers are still accepted"
+  ],
+  "m": [
+   [
+    "p",
+    "p2"
+   ],
+   [
+    "p",
+    "p3"
+   ],
+   [
+    "p",
+    "p4"
+   ],
+   [
+    "p",
+    "p5"
+   ],
+   [
+    "h",
+    "contacts"
+   ]
+  ]
+ }
 ];
 const track=$("#tlTrack");
 track.insertAdjacentHTML("beforeend",PHASES.map((p,i)=>{const st=i<CONFIG.currentPhase?"done":i===CONFIG.currentPhase?"now":"";
-  return `<button class="phase ${st}" role="tab" data-i="${i}" aria-selected="false"><span class="dot">${ic(p.ic)}</span><span class="txt"><b>${p.n}</b><small>${st==="done"?"Complete":st==="now"?"We are here":"Phase "+(i+1)}</small></span></button>`}).join(""));
+  return `<button class="phase ${st}" role="tab" data-i="${i}" aria-selected="false"><span class="dot">${ic(p.ic)}</span><span class="txt"><b>${p.n}</b><small>${st==="done"?"Complete":st==="now"?"We are here":(i<5?"Step "+(i+1):"After go-live")}</small></span></button>`}).join(""));
 function showPhase(i){const p=PHASES[i];
   track.querySelectorAll(".phase").forEach(b=>b.setAttribute("aria-selected",+b.dataset.i===i));
-  $("#tlPanel").innerHTML=`<div class="tl-panel" key="${i}"><div><span class="eyebrow">Phase ${i+1} · ${p.when}</span><h3>${p.n}</h3><p>${p.d}</p><ul class="focus">${p.f.map(x=>`<li>${x}</li>`).join("")}</ul></div>
+  $("#tlPanel").innerHTML=`<div class="tl-panel" key="${i}"><div><span class="eyebrow">${i<5?"Step "+(i+1):"After go-live"} · ${p.when}</span><h3>${p.n}</h3><p>${p.d}</p><ul class="focus">${p.f.map(x=>`<li>${x}</li>`).join("")}</ul></div>
    <div class="mats"><h4>Communication materials</h4><div class="mat-list">${p.m.map(([t,id])=>t==="p"?(()=>{const q=POSTERS.find(x=>x.id===id);return `<button class="mat" data-poster="${id}"><img src="${IMG[id]}" alt=""><span><b>${q.title}</b><small>Staff guide poster</small></span></button>`})():(()=>{const h=HUB.find(x=>x.id===id);return `<button class="mat" data-hub="${id}"><span class="mi">${ic(h.ic)}</span><span><b>${h.n}</b><small>Knowledge Hub</small></span></button>`})()).join("")}</div></div></div>`;
 }
 track.addEventListener("click",e=>{const b=e.target.closest(".phase");if(!b)return;showPhase(+b.dataset.i);if(innerWidth<=900)$("#tlPanel").scrollIntoView({behavior:"smooth",block:"start"})});
@@ -920,41 +1173,342 @@ const HUB=[
   {id:"qrc",n:"Quick Reference Cards",ic:"card"},{id:"updates",n:"Project Updates",ic:"news"},{id:"dates",n:"Key Dates & Milestones",ic:"cal"},{id:"contacts",n:"Support Contacts",ic:"phone"}
 ];
 const FAQS=[
-  ["Will customers' old account numbers still work after go-live?","Yes. Old account numbers will continue to be accepted for more than six months after go-live. Look up the new number in Corbit X using the process covered in training, serve the customer, and share the new number so they use it next time.","p3"],
-  ["Can customers still use cheques that show their old account number?","Yes, for six months after go-live, subject to the usual checks. After six months these cheques will no longer be accepted, so encourage customers to request new chequebooks early.","p4"],
-  ["What about chequebooks recorded more than five years ago?","These chequebooks will not be migrated to Corbit X and can no longer be used. Affected customers have been notified. Explain the position with care, help them access funds through an approved alternative, and assist with a new chequebook where required.","p5"],
-  ["Can we open new accounts during the upgrade?","Account opening is unavailable in Flexcube 11.1 and Corbit X during the static data freeze (the week before go-live) and for the first three days after go-live. Start the application in Newgen, receive deposits through the designated GL, and finalise from Thursday after go-live. Never turn a customer away.","p2"],
-  ["What happens on the Sunday before go-live?","BOSs will open the branch day and all branch staff take part in live transaction and channel checks: deposits, branch transactions, ATMs, the mobile app and other instructed channels. These are real transactions with real funds. Do not close the branch day or run end of day on Sunday; continue into Monday and run end of day at close of business.","p6"],
-  ["What should I do if I'm not sure how to answer a customer?","Pause and check before answering. Consult the relevant internal team, or find the guidebook or procedure in the repository. Never let a system change become a reason to turn a customer away.","p1"],
-  ["Will new account numbers be printed for customers?","Guidance on printing new account numbers will follow. Until then, look up and share the new number at every interaction.","p3"]
+ [
+  "When does Corbit X go live?",
+  "Corbit X goes live on Monday 1 February 2027, in every branch and department at the same time. The final cut-off on the current system is Friday 29 January at 2:00pm.",
+  "p6"
+ ],
+ [
+  "Will customers' old account numbers still work after go-live?",
+  "Yes. Old account numbers will continue to be accepted for more than six months after go-live. The new account number has 13 digits, and the CIF gains “00” in front. Look up the new number in Corbit X using the process covered in training, serve the customer, and share the new number so they use it next time.",
+  "p3"
+ ],
+ [
+  "Can customers still use cheques that show their old account number?",
+  "Yes, for six months (182 days) after go-live, until 2 August 2027, subject to the usual checks. After that date these cheques will no longer be accepted, so encourage customers to request new chequebooks early.",
+  "p4"
+ ],
+ [
+  "What about chequebooks recorded more than five years ago?",
+  "These chequebooks will not be migrated to Corbit X and can no longer be used. Affected customers have been notified. Explain the position with care, help them access funds through an approved alternative, and assist with a new chequebook where required.",
+  "p5"
+ ],
+ [
+  "Can we open new accounts during the upgrade?",
+  "Account opening is unavailable in Flexcube 11.1 and Corbit X during the static data freeze (the week before go-live) and for the first three days after go-live (Monday 1 to Wednesday 3 February). Start the application in Newgen, receive deposits through the designated GL, and finalise from Thursday 4 February. Never turn a customer away.",
+  "p2"
+ ],
+ [
+  "What happens on the Sunday before go-live?",
+  "On Sunday 31 January 2027, BOSs will open the branch day and all branch staff take part in live transaction and channel checks: deposits, branch transactions, ATMs, the mobile app and other instructed channels. These are real transactions with real funds. Do not close the branch day or run end of day on Sunday; continue into Monday and run end of day at close of business.",
+  "p6"
+ ],
+ [
+  "What should I do if I'm not sure how to answer a customer?",
+  "Pause and check before answering. Consult the relevant internal team, or find the guidebook or procedure in the repository. Never let a system change become a reason to turn a customer away.",
+  "p1"
+ ],
+ [
+  "Will new account numbers be printed for customers?",
+  "Guidance on printing new account numbers will follow. Until then, look up and share the new number at every interaction.",
+  "p3"
+ ],
+ [
+  "How do I read the new account number?",
+  "It has 13 digits. Digits 1 and 2 are the currency (00 cedi, 01 dollar, 02 pound, 03 euro). Digit 3 is the customer type (1 individual, 2 non-individual, 3 banks and others). Digits 4 to 11 are a serial number, and digits 12 and 13 are check digits. Always add “00” in front of an existing CIF.",
+  "p3"
+ ],
+ [
+  "What should I do if I'm stuck?",
+  "Check the repository guide or FAQ, then ask your champion or team lead. If you are still stuck, log a Command Centre ticket with a screenshot, and update the customer while you wait.",
+  "p1"
+ ],
+ [
+  "What if someone asks a customer for their OTP?",
+  "The bank never asks for a PIN, password or OTP, and you must never share your login. Tell the customer, and report anything suspicious to Fraud and Risk.",
+  "p1"
+ ]
 ];
-const VIDEOS=[["Corbit X: The big picture","Why we're moving and what changes"],["Finding a new account number","The look-up process in Corbit X"],["Account opening during the freeze","Start in Newgen, finalise from Thursday"],["Sunday live checks walkthrough","Your role on go-live weekend"],["Cheques & chequebooks after go-live","Old numbers, older books, new requests"],["Serving customers through change","Smile. Check. Serve."]];
+const VIDEOS=[
+ [
+  "Corbit X: The big picture",
+  "Why we're moving and what changes"
+ ],
+ [
+  "Finding a new account number",
+  "The look-up process in Corbit X"
+ ],
+ [
+  "Account opening during the freeze",
+  "Start in Newgen, finalise from Thursday 4 February"
+ ],
+ [
+  "Sunday live checks walkthrough",
+  "Your role on go-live weekend"
+ ],
+ [
+  "Cheques & chequebooks after go-live",
+  "Old numbers, older books, new requests"
+ ],
+ [
+  "Serving customers through change",
+  "Smile. Check. Serve."
+ ]
+];
 const QRC=[
-  ["Account numbers",[["tick","Old numbers accepted for 6+ months"],["tick","Look up the new number in Corbit X"],["tick","Share the new number every time"]]],
-  ["Cheques",[["tick","Old-number cheques: 6 months, usual checks"],["tick","Encourage new chequebook requests early"],["x","Books recorded 5+ years ago can't be used"]]],
-  ["Account opening",[["tick","Start in Newgen, collect all documents"],["tick","Deposits via the designated GL"],["tick","Finalise from Thursday after go-live"]]],
-  ["Go-live weekend",[["tick","Sunday: live checks with real funds"],["x","No branch-day close or EOD on Sunday"],["tick","Run EOD at close of business Monday"]]],
-  ["Every customer",[["tick","Smile & serve. Keep customers informed"],["tick","Listen calmly; pause and check if unsure"],["x","Never turn a customer away"]]]
+ [
+  "Account numbers",
+  [
+   [
+    "tick",
+    "13 digits: currency (2), customer type (1), serial (8), check (2)"
+   ],
+   [
+    "tick",
+    "Add “00” before an old CIF"
+   ],
+   [
+    "tick",
+    "Old numbers accepted for more than six months"
+   ],
+   [
+    "tick",
+    "Look up and share the new number every time"
+   ]
+  ]
+ ],
+ [
+  "Cheques",
+  [
+   [
+    "tick",
+    "Old-number cheques: six months (182 days), until 2 August 2027, usual checks"
+   ],
+   [
+    "tick",
+    "Encourage new chequebook requests early"
+   ],
+   [
+    "x",
+    "Books recorded 5+ years ago can't be used"
+   ]
+  ]
+ ],
+ [
+  "Account opening",
+  [
+   [
+    "tick",
+    "Start in Newgen, collect all documents"
+   ],
+   [
+    "tick",
+    "Deposits via the designated GL"
+   ],
+   [
+    "tick",
+    "Finalise from Thursday 4 February"
+   ]
+  ]
+ ],
+ [
+  "Go-live weekend",
+  [
+   [
+    "tick",
+    "Fri 29 Jan: finish transactions by the 2:00pm cut-off"
+   ],
+   [
+    "tick",
+    "Sun 31 Jan: live checks with real funds"
+   ],
+   [
+    "x",
+    "No branch-day close or EOD on Sunday"
+   ],
+   [
+    "tick",
+    "Mon 1 Feb: arrive by 7:00am; EOD at close of business"
+   ]
+  ]
+ ],
+ [
+  "Every customer",
+  [
+   [
+    "tick",
+    "Smile & serve. Keep customers informed"
+   ],
+   [
+    "tick",
+    "Listen calmly; pause and check if unsure"
+   ],
+   [
+    "x",
+    "Never turn a customer away"
+   ],
+   [
+    "x",
+    "Never share your login, PIN or OTP"
+   ]
+  ]
+ ],
+ [
+  "BOS authorisers",
+  [
+   [
+    "tick",
+    "KYC first (STSKYCMN): search by KYC Reference, not by status"
+   ],
+   [
+    "tick",
+    "Then CIF (STSCIF): authorise only after the KYC is done"
+   ],
+   [
+    "tick",
+    "Cheque book request (CASCHBOO): the account must already be open"
+   ]
+  ]
+ ]
 ];
 const UPDATES=[
-  [A.date,"Staff Guide series complete","All six Corbit X Staff Guide posters are now available in the gallery, covering customer experience, account and chequebook transition, and go-live operations."],
-  [A.date,"Account-number look-up included in training","Training covers how to look up a customer's new account number in Corbit X. Complete your modules before go-live."],
-  [A.date,"Printing new account numbers","Guidance on printing new account numbers for customers will follow. Watch this space."]
+ [
+  "2026-10-23",
+  "Go-live moves to Monday 1 February 2027",
+  "Go-live has moved to accommodate other important transactions the Bank is undertaking. The extra weeks help us go live with even greater confidence."
+ ],
+ [
+  "2026-10-19",
+  "Staff Guide series complete",
+  "All six Corbit X Staff Guide posters are now available in the gallery, covering customer experience, account and chequebook transition, and go-live operations."
+ ],
+ [
+  "2026-10-19",
+  "Account-number look-up included in training",
+  "Training covers how to look up a customer's new account number in Corbit X. Complete your modules before go-live."
+ ],
+ [
+  "2026-09-20",
+  "Business simulation 4: 93.4%",
+  "Our overall simulation score rose from 51% to 93.4% across four simulations, 1.6 points from the 95% go-live gate."
+ ],
+ [
+  "2026-10-19",
+  "Printing new account numbers",
+  "Guidance on printing new account numbers for customers will follow. Watch this space."
+ ]
 ];
 const DATES=[
-  [fmt(addDays(GO,-7),{day:"numeric",month:"short"})+" week","Static data freeze begins","Account opening unavailable in Flexcube 11.1 and Corbit X. Start applications in Newgen.",false],
-  [fmt(addDays(GO,-1),{weekday:"short",day:"numeric",month:"short"}),"Sunday live checks","BOSs open the branch day; all staff run live transaction and channel checks.",false],
-  [fmt(GO,{weekday:"short",day:"numeric",month:"short"}),"Corbit X go-live","Continue Sunday's branch day; run end of day at close of business.",true],
-  [fmt(addDays(GO,3),{weekday:"short",day:"numeric",month:"short"}),"Account opening resumes","Finalise pending applications and provide account numbers.",false],
-  [fmt(sixM,{day:"numeric",month:"short",year:"numeric"}),"Old-number cheques end","Cheques bearing old account numbers are no longer accepted.",true]
-];
+ {
+  "Title": "Static data migration",
+  "Body": "Customer and account data moves to Corbit X.",
+  "Big": false,
+  "Days": -21,
+  "Months": 0,
+  "Fmt": "Day"
+ },
+ {
+  "Title": "Data validation begins",
+  "Body": "Every record checked and confirmed, Wednesday 13 to Friday 15 January.",
+  "Big": false,
+  "Days": -19,
+  "Months": 0,
+  "Fmt": "Day"
+ },
+ {
+  "Title": "Financial validation",
+  "Body": "Balances checked to the last pesewa.",
+  "Big": false,
+  "Days": -16,
+  "Months": 0,
+  "Fmt": "Day"
+ },
+ {
+  "Title": "Business simulation",
+  "Body": "Migration plus a full day of business replay.",
+  "Big": true,
+  "Days": -15,
+  "Months": 0,
+  "Fmt": "Day"
+ },
+ {
+  "Title": "Final cut-off, 2:00pm",
+  "Body": "Last day on the current system. Balance cash and vault, clear suspense and run the final end of day.",
+  "Big": false,
+  "Days": -3,
+  "Months": 0,
+  "Fmt": "Day"
+ },
+ {
+  "Title": "Sunday live checks",
+  "Body": "BOSs open the branch day; all staff run live transaction and channel checks. Do not close the day or run end of day.",
+  "Big": false,
+  "Days": -1,
+  "Months": 0,
+  "Fmt": "Day"
+ },
+ {
+  "Title": "Corbit X go-live",
+  "Body": "Arrive by 7:00am. Continue Sunday's branch day; run end of day at close of business.",
+  "Big": true,
+  "Days": 0,
+  "Months": 0,
+  "Fmt": "Day"
+ },
+ {
+  "Title": "Account opening resumes",
+  "Body": "Finalise pending applications and provide account numbers.",
+  "Big": false,
+  "Days": 3,
+  "Months": 0,
+  "Fmt": "Day"
+ },
+ {
+  "Title": "Old-number cheques end",
+  "Body": "Six months (182 days) after go-live: cheques bearing old account numbers are no longer accepted.",
+  "Big": true,
+  "Days": 182,
+  "Months": 0,
+  "Fmt": "Full"
+ }
+].map(d=>{const t=addMonths(addDays(GO,d.Days),d.Months);const label=d.Fmt==="Week"?fmt(t,{day:"numeric",month:"short"})+" week":d.Fmt==="Full"?fmt(t,{day:"numeric",month:"short",year:"numeric"}):fmt(t,{weekday:"short",day:"numeric",month:"short"});return [label,d.Title,d.Body,!!d.Big]});
 const CONTACTS=[
-  ["user","Corbit X Programme Office","Programme questions and feedback","[Add email / extension]"],
-  ["shield","Branch Operations Support","Go-live weekend and branch-day issues","[Add contact]"],
-  ["phoneapp","IT Service Desk","System access and technical faults","[Add contact]"],
-  ["cap","Learning & Development","Training access and completion","[Add contact]"],
-  ["heart","Customer Experience Team","Escalated customer concerns","[Add contact]"],
-  ["building","Your Regional Champion","Local support and floor-walking","[Add name]"]
+ [
+  "user",
+  "Your champion",
+  "First line of help: local support and floor-walking",
+  "[Add name]"
+ ],
+ [
+  "phoneapp",
+  "Command Centre",
+  "Log a ticket with a screenshot: issues, fixes and coordination",
+  "[Add contact]"
+ ],
+ [
+  "shield",
+  "Branch Operations Support",
+  "Go-live weekend and branch-day issues",
+  "[Add contact]"
+ ],
+ [
+  "cap",
+  "Learning & Development",
+  "Training access and completion",
+  "[Add contact]"
+ ],
+ [
+  "heart",
+  "Customer Experience Team",
+  "Escalated customer concerns",
+  "[Add contact]"
+ ],
+ [
+  "building",
+  "Fraud and Risk",
+  "Report anything suspicious. The bank never asks for a PIN, password or OTP",
+  "[Add contact]"
+ ]
 ];
 function hubContent(id){
   switch(id){

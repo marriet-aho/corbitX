@@ -50,7 +50,7 @@ export const RC_DEFAULTS: any = {
    "cat": "cx",
    "title": "Keep the Welcome. Start the Process.",
    "short": "Account opening during the upgrade.",
-   "intro": "During the static data freeze in the week before go-live and the first three days after go-live, account opening is unavailable in Flexcube 11.1 and Corbit X.",
+   "intro": "During the static data freeze in the week before go-live and the first three days after go-live (Monday 1 to Wednesday 3 February 2027), account opening is unavailable in Flexcube 11.1 and Corbit X.",
    "steps": [
     [
      "Start",
@@ -62,7 +62,7 @@ export const RC_DEFAULTS: any = {
     ],
     [
      "Finalise",
-     "Finalise from Thursday after go-live and provide account numbers."
+     "Finalise from Thursday 4 February 2027 and provide account numbers."
     ]
    ],
    "say": "We are upgrading our systems to serve you better. We can start your application now. Your account number will be provided from Thursday after the upgrade.",
@@ -73,7 +73,7 @@ export const RC_DEFAULTS: any = {
    "cat": "acc",
    "title": "Old Number? We Can Help!",
    "short": "Help customers find their new account number.",
-   "intro": "Old account numbers will continue to be accepted for more than six months after go-live.",
+   "intro": "Old account numbers will continue to be accepted for more than six months after go-live. The new account number has 13 digits, and a customer's CIF gains “00” in front.",
    "steps": [
     [
      "Look Up",
@@ -96,11 +96,11 @@ export const RC_DEFAULTS: any = {
    "cat": "acc",
    "title": "New Chapter. New Chequebook.",
    "short": "Cheques with old account numbers.",
-   "intro": "Accept cheques bearing old account numbers for six months after go-live, subject to the usual checks. After six months, these cheques will no longer be accepted.",
+   "intro": "Accept cheques bearing old account numbers for six months (182 days) after go-live, until 2 August 2027, subject to the usual checks. After that date, these cheques will no longer be accepted.",
    "steps": [
     [
      "Accept",
-     "Accept old-number cheques for six months after go-live, subject to the usual checks."
+     "Accept old-number cheques until 2 August 2027, subject to the usual checks."
     ],
     [
      "Encourage",
@@ -140,7 +140,7 @@ export const RC_DEFAULTS: any = {
    "cat": "ops",
    "title": "Sunday Checks. Monday Confidence.",
    "short": "Live checks before go-live.",
-   "intro": "On the Sunday immediately before go-live, BOSs will open the branch day. All branch staff will participate in live transaction and channel checks.",
+   "intro": "On Sunday 31 January 2027, the day before go-live, BOSs will open the branch day. All branch staff will participate in live transaction and channel checks.",
    "steps": [
     [
      "Test",
@@ -156,7 +156,7 @@ export const RC_DEFAULTS: any = {
     ],
     [
      "Continue",
-     "Continue the same branch day into Monday. Run end of day at the close of business on Monday."
+     "Continue the same branch day into Monday 1 February. Run end of day at the close of business on Monday."
     ]
    ],
    "key": "<b>Check together.</b> Start strong."
@@ -164,43 +164,60 @@ export const RC_DEFAULTS: any = {
  ],
  "PHASES": [
   {
-   "n": "Awareness",
-   "ic": "megaphone",
-   "when": "Now – ongoing",
-   "d": "Building understanding of what Corbit X is, why we are moving and what changes for customers and staff.",
+   "n": "Keep your skills sharp",
+   "ic": "cap",
+   "when": "26 Oct – 23 Dec 2026",
+   "d": "Regular practice, so everyone is confident on Corbit X before go-live.",
    "f": [
-    "Read the six Corbit X Staff Guides",
-    "Share the key messages in team huddles",
-    "Know where to find answers in the Knowledge Hub"
+    "Practise twice a week, every week",
+    "Branches: 7:15 – 8:15 am. Departments: one hour, two days a week",
+    "Final session: Wednesday 23 December"
    ],
    "m": [
     [
-     "p",
-     "p1"
+     "h",
+     "videos"
+    ],
+    [
+     "h",
+     "qrc"
     ],
     [
      "p",
      "p3"
-    ],
-    [
-     "h",
-     "updates"
-    ],
-    [
-     "h",
-     "faq"
     ]
    ]
   },
   {
-   "n": "Training",
-   "ic": "cap",
-   "when": "Before go-live",
-   "d": "Hands-on learning so every colleague can work confidently in Corbit X, including the new account-number look-up process.",
+   "n": "Rest and recharge",
+   "ic": "heart",
+   "when": "24 Dec 2026 – 3 Jan 2027",
+   "d": "A break to celebrate with your loved ones. There are no scheduled sessions.",
    "f": [
-    "Complete your assigned training modules",
-    "Practise looking up new account numbers",
-    "Keep the quick reference cards close"
+    "No scheduled sessions",
+    "Celebrate with your loved ones",
+    "The Corbit X portal stays open if you want a refresher"
+   ],
+   "m": [
+    [
+     "h",
+     "faq"
+    ],
+    [
+     "h",
+     "videos"
+    ]
+   ]
+  },
+  {
+   "n": "Get go-live ready",
+   "ic": "check",
+   "when": "4 – 22 Jan 2027",
+   "d": "One hour every working day (15 days): a refresher, then certification for your role.",
+   "f": [
+    "Branches: 7:15 – 8:15 am. Departments: time set by your HoD",
+    "Complete your refresher, then get certified by 22 January",
+    "Champions check in on your practice; BOSs, BSSMs and HoDs make sure every session happens"
    ],
    "m": [
     [
@@ -222,20 +239,16 @@ export const RC_DEFAULTS: any = {
    ]
   },
   {
-   "n": "Readiness Testing",
-   "ic": "check",
-   "when": "Go-live weekend",
-   "d": "Live transaction and channel checks on the Sunday immediately before go-live, led by BOSs with all branch staff participating.",
+   "n": "Final systems check",
+   "ic": "chart",
+   "when": "11 – 17 Jan 2027",
+   "d": "Before lift-off, we make sure every record lands safely in Corbit X. Then we fly a full practice mission together on Sunday 17 January.",
    "f": [
-    "Test deposits, branch transactions, ATMs and the mobile app",
-    "Real transactions with real funds: follow controls",
-    "Do not close the branch day or run end of day on Sunday"
+    "Mon 11 Jan: static data migration",
+    "Wed 13 – Fri 15 Jan: data validation. Sat 16 Jan: financial validation",
+    "Sun 17 Jan: business simulation (migration plus a full day of business replay)"
    ],
    "m": [
-    [
-     "p",
-     "p6"
-    ],
     [
      "h",
      "dates"
@@ -247,41 +260,45 @@ export const RC_DEFAULTS: any = {
    ]
   },
   {
-   "n": "Go-Live",
+   "n": "Lift-off weekend",
    "ic": "rocket",
-   "when": "Go-live Monday",
-   "d": "Corbit X opens for business. Continue the same branch day from Sunday and lead every interaction with a warm welcome.",
+   "when": "Fri 29 Jan – Mon 1 Feb 2027",
+   "d": "Friday 29 January is the last day on the current system, with a 2:00pm cut-off. Sunday 31 January is the live-check day. Monday 1 February is go-live.",
    "f": [
-    "Run end of day at close of business on Monday",
-    "Start account-opening requests in Newgen",
-    "Smile. Check. Serve."
+    "Fri 29 Jan: finish all transactions by 2:00pm, balance cash and vault, run the final end of day",
+    "Sun 31 Jan: BOSs open the branch day and all staff run live checks with real funds. Do not close the day or run end of day",
+    "Mon 1 Feb: arrive by 7:00am, log in, check printers and apps, welcome every customer and run end of day at close of business"
    ],
    "m": [
+    [
+     "p",
+     "p6"
+    ],
     [
      "p",
      "p1"
     ],
     [
-     "p",
-     "p2"
-    ],
-    [
-     "p",
-     "p6"
+     "h",
+     "dates"
     ]
    ]
   },
   {
-   "n": "Customer Support",
+   "n": "After go-live",
    "ic": "heart",
-   "when": "First weeks after go-live",
-   "d": "Helping customers through the change: new account numbers, cheques, chequebooks and account opening.",
+   "when": "From Mon 1 Feb 2027",
+   "d": "Support for customers and colleagues through the first days, weeks and months.",
    "f": [
-    "Look up and share new account numbers at every interaction",
-    "Accept old-number cheques subject to the usual checks",
-    "Help customers with affected chequebooks find a way forward"
+    "Mon 1 – Wed 3 Feb: start account openings in Newgen. Accounts are finalised from Thu 4 Feb",
+    "First weeks: hypercare, with daily check-ins, the Command Centre on call and champions on the floor",
+    "Old-number cheques are accepted until 2 August 2027, and old account numbers are still accepted"
    ],
    "m": [
+    [
+     "p",
+     "p2"
+    ],
     [
      "p",
      "p3"
@@ -297,35 +314,6 @@ export const RC_DEFAULTS: any = {
     [
      "h",
      "contacts"
-    ]
-   ]
-  },
-  {
-   "n": "Stabilization",
-   "ic": "chart",
-   "when": "Six months after go-live",
-   "d": "Embedding new ways of working, closing out transition arrangements and building on the platform.",
-   "f": [
-    "Old-number cheques no longer accepted after six months",
-    "Keep encouraging use of new account numbers",
-    "Share feedback to help us improve"
-   ],
-   "m": [
-    [
-     "p",
-     "p4"
-    ],
-    [
-     "h",
-     "dates"
-    ],
-    [
-     "h",
-     "updates"
-    ],
-    [
-     "h",
-     "faq"
     ]
    ]
   }
@@ -376,13 +364,18 @@ export const RC_DEFAULTS: any = {
  ],
  "FAQS": [
   [
+   "When does Corbit X go live?",
+   "Corbit X goes live on Monday 1 February 2027, in every branch and department at the same time. The final cut-off on the current system is Friday 29 January at 2:00pm.",
+   "p6"
+  ],
+  [
    "Will customers' old account numbers still work after go-live?",
-   "Yes. Old account numbers will continue to be accepted for more than six months after go-live. Look up the new number in Corbit X using the process covered in training, serve the customer, and share the new number so they use it next time.",
+   "Yes. Old account numbers will continue to be accepted for more than six months after go-live. The new account number has 13 digits, and the CIF gains “00” in front. Look up the new number in Corbit X using the process covered in training, serve the customer, and share the new number so they use it next time.",
    "p3"
   ],
   [
    "Can customers still use cheques that show their old account number?",
-   "Yes, for six months after go-live, subject to the usual checks. After six months these cheques will no longer be accepted, so encourage customers to request new chequebooks early.",
+   "Yes, for six months (182 days) after go-live, until 2 August 2027, subject to the usual checks. After that date these cheques will no longer be accepted, so encourage customers to request new chequebooks early.",
    "p4"
   ],
   [
@@ -392,12 +385,12 @@ export const RC_DEFAULTS: any = {
   ],
   [
    "Can we open new accounts during the upgrade?",
-   "Account opening is unavailable in Flexcube 11.1 and Corbit X during the static data freeze (the week before go-live) and for the first three days after go-live. Start the application in Newgen, receive deposits through the designated GL, and finalise from Thursday after go-live. Never turn a customer away.",
+   "Account opening is unavailable in Flexcube 11.1 and Corbit X during the static data freeze (the week before go-live) and for the first three days after go-live (Monday 1 to Wednesday 3 February). Start the application in Newgen, receive deposits through the designated GL, and finalise from Thursday 4 February. Never turn a customer away.",
    "p2"
   ],
   [
    "What happens on the Sunday before go-live?",
-   "BOSs will open the branch day and all branch staff take part in live transaction and channel checks: deposits, branch transactions, ATMs, the mobile app and other instructed channels. These are real transactions with real funds. Do not close the branch day or run end of day on Sunday; continue into Monday and run end of day at close of business.",
+   "On Sunday 31 January 2027, BOSs will open the branch day and all branch staff take part in live transaction and channel checks: deposits, branch transactions, ATMs, the mobile app and other instructed channels. These are real transactions with real funds. Do not close the branch day or run end of day on Sunday; continue into Monday and run end of day at close of business.",
    "p6"
   ],
   [
@@ -409,6 +402,21 @@ export const RC_DEFAULTS: any = {
    "Will new account numbers be printed for customers?",
    "Guidance on printing new account numbers will follow. Until then, look up and share the new number at every interaction.",
    "p3"
+  ],
+  [
+   "How do I read the new account number?",
+   "It has 13 digits. Digits 1 and 2 are the currency (00 cedi, 01 dollar, 02 pound, 03 euro). Digit 3 is the customer type (1 individual, 2 non-individual, 3 banks and others). Digits 4 to 11 are a serial number, and digits 12 and 13 are check digits. Always add “00” in front of an existing CIF.",
+   "p3"
+  ],
+  [
+   "What should I do if I'm stuck?",
+   "Check the repository guide or FAQ, then ask your champion or team lead. If you are still stuck, log a Command Centre ticket with a screenshot, and update the customer while you wait.",
+   "p1"
+  ],
+  [
+   "What if someone asks a customer for their OTP?",
+   "The bank never asks for a PIN, password or OTP, and you must never share your login. Tell the customer, and report anything suspicious to Fraud and Risk.",
+   "p1"
   ]
  ],
  "VIDEOS": [
@@ -422,7 +430,7 @@ export const RC_DEFAULTS: any = {
   ],
   [
    "Account opening during the freeze",
-   "Start in Newgen, finalise from Thursday"
+   "Start in Newgen, finalise from Thursday 4 February"
   ],
   [
    "Sunday live checks walkthrough",
@@ -443,15 +451,19 @@ export const RC_DEFAULTS: any = {
    [
     [
      "tick",
-     "Old numbers accepted for 6+ months"
+     "13 digits: currency (2), customer type (1), serial (8), check (2)"
     ],
     [
      "tick",
-     "Look up the new number in Corbit X"
+     "Add “00” before an old CIF"
     ],
     [
      "tick",
-     "Share the new number every time"
+     "Old numbers accepted for more than six months"
+    ],
+    [
+     "tick",
+     "Look up and share the new number every time"
     ]
    ]
   ],
@@ -460,7 +472,7 @@ export const RC_DEFAULTS: any = {
    [
     [
      "tick",
-     "Old-number cheques: 6 months, usual checks"
+     "Old-number cheques: six months (182 days), until 2 August 2027, usual checks"
     ],
     [
      "tick",
@@ -485,7 +497,7 @@ export const RC_DEFAULTS: any = {
     ],
     [
      "tick",
-     "Finalise from Thursday after go-live"
+     "Finalise from Thursday 4 February"
     ]
    ]
   ],
@@ -494,7 +506,11 @@ export const RC_DEFAULTS: any = {
    [
     [
      "tick",
-     "Sunday: live checks with real funds"
+     "Fri 29 Jan: finish transactions by the 2:00pm cut-off"
+    ],
+    [
+     "tick",
+     "Sun 31 Jan: live checks with real funds"
     ],
     [
      "x",
@@ -502,7 +518,7 @@ export const RC_DEFAULTS: any = {
     ],
     [
      "tick",
-     "Run EOD at close of business Monday"
+     "Mon 1 Feb: arrive by 7:00am; EOD at close of business"
     ]
    ]
   ],
@@ -520,11 +536,37 @@ export const RC_DEFAULTS: any = {
     [
      "x",
      "Never turn a customer away"
+    ],
+    [
+     "x",
+     "Never share your login, PIN or OTP"
+    ]
+   ]
+  ],
+  [
+   "BOS authorisers",
+   [
+    [
+     "tick",
+     "KYC first (STSKYCMN): search by KYC Reference, not by status"
+    ],
+    [
+     "tick",
+     "Then CIF (STSCIF): authorise only after the KYC is done"
+    ],
+    [
+     "tick",
+     "Cheque book request (CASCHBOO): the account must already be open"
     ]
    ]
   ]
  ],
  "UPDATES": [
+  [
+   "2026-10-23",
+   "Go-live moves to Monday 1 February 2027",
+   "Go-live has moved to accommodate other important transactions the Bank is undertaking. The extra weeks help us go live with even greater confidence."
+  ],
   [
    "2026-10-19",
    "Staff Guide series complete",
@@ -536,6 +578,11 @@ export const RC_DEFAULTS: any = {
    "Training covers how to look up a customer's new account number in Corbit X. Complete your modules before go-live."
   ],
   [
+   "2026-09-20",
+   "Business simulation 4: 93.4%",
+   "Our overall simulation score rose from 51% to 93.4% across four simulations, 1.6 points from the 95% go-live gate."
+  ],
+  [
    "2026-10-19",
    "Printing new account numbers",
    "Guidance on printing new account numbers for customers will follow. Watch this space."
@@ -544,20 +591,20 @@ export const RC_DEFAULTS: any = {
  "CONTACTS": [
   [
    "user",
-   "Corbit X Programme Office",
-   "Programme questions and feedback",
-   "[Add email / extension]"
+   "Your champion",
+   "First line of help: local support and floor-walking",
+   "[Add name]"
+  ],
+  [
+   "phoneapp",
+   "Command Centre",
+   "Log a ticket with a screenshot: issues, fixes and coordination",
+   "[Add contact]"
   ],
   [
    "shield",
    "Branch Operations Support",
    "Go-live weekend and branch-day issues",
-   "[Add contact]"
-  ],
-  [
-   "phoneapp",
-   "IT Service Desk",
-   "System access and technical faults",
    "[Add contact]"
   ],
   [
@@ -574,26 +621,28 @@ export const RC_DEFAULTS: any = {
   ],
   [
    "building",
-   "Your Regional Champion",
-   "Local support and floor-walking",
-   "[Add name]"
+   "Fraud and Risk",
+   "Report anything suspicious. The bank never asks for a PIN, password or OTP",
+   "[Add contact]"
   ]
  ],
  "mq": [
   "One Journey. One Platform. One Corbit X.",
+  "Same warm welcome. New system. One team.",
   "Smile. Check. Serve.",
   "Look it up. Share it. Keep banking moving.",
   "Check together. Start strong.",
+  "Never turn a customer away.",
   "Give customers a head start!",
   "Here for your journey"
  ],
  "SETTINGS": {
-  "GoLive": "2027-02-08T00:00:00+00:00",
-  "CurrentPhase": "1",
-  "AnnouncementTitle": "The Corbit X Staff Guide series is live",
-  "AnnouncementBody": "Six practical guides now cover customer welcomes, account opening during the upgrade, new account numbers, cheques and the Sunday live checks. Read them before your next team huddle.",
-  "AnnouncementDate": "2026-10-19",
-  "FiguresAreIllustrative": "Yes"
+  "GoLive": "2027-02-01T00:00:00+00:00",
+  "CurrentPhase": "0",
+  "AnnouncementTitle": "Go-live is now Monday 1 February 2027",
+  "AnnouncementBody": "Go-live has moved to accommodate other important transactions the Bank is undertaking. The extra weeks help us go live with even greater confidence. See the new calendar in the timeline below.",
+  "AnnouncementDate": "2026-10-23",
+  "FiguresAreIllustrative": "No"
  },
  "WORKSTREAMS": [
   [
@@ -641,16 +690,48 @@ export const RC_DEFAULTS: any = {
  ],
  "DATES": [
   {
-   "Title": "Static data freeze begins",
-   "Body": "Account opening unavailable in Flexcube 11.1 and Corbit X. Start applications in Newgen.",
+   "Title": "Static data migration",
+   "Body": "Customer and account data moves to Corbit X.",
    "Big": false,
-   "Days": -7,
+   "Days": -21,
    "Months": 0,
-   "Fmt": "Week"
+   "Fmt": "Day"
+  },
+  {
+   "Title": "Data validation begins",
+   "Body": "Every record checked and confirmed, Wednesday 13 to Friday 15 January.",
+   "Big": false,
+   "Days": -19,
+   "Months": 0,
+   "Fmt": "Day"
+  },
+  {
+   "Title": "Financial validation",
+   "Body": "Balances checked to the last pesewa.",
+   "Big": false,
+   "Days": -16,
+   "Months": 0,
+   "Fmt": "Day"
+  },
+  {
+   "Title": "Business simulation",
+   "Body": "Migration plus a full day of business replay.",
+   "Big": true,
+   "Days": -15,
+   "Months": 0,
+   "Fmt": "Day"
+  },
+  {
+   "Title": "Final cut-off, 2:00pm",
+   "Body": "Last day on the current system. Balance cash and vault, clear suspense and run the final end of day.",
+   "Big": false,
+   "Days": -3,
+   "Months": 0,
+   "Fmt": "Day"
   },
   {
    "Title": "Sunday live checks",
-   "Body": "BOSs open the branch day; all staff run live transaction and channel checks.",
+   "Body": "BOSs open the branch day; all staff run live transaction and channel checks. Do not close the day or run end of day.",
    "Big": false,
    "Days": -1,
    "Months": 0,
@@ -658,7 +739,7 @@ export const RC_DEFAULTS: any = {
   },
   {
    "Title": "Corbit X go-live",
-   "Body": "Continue Sunday's branch day; run end of day at close of business.",
+   "Body": "Arrive by 7:00am. Continue Sunday's branch day; run end of day at close of business.",
    "Big": true,
    "Days": 0,
    "Months": 0,
@@ -674,10 +755,10 @@ export const RC_DEFAULTS: any = {
   },
   {
    "Title": "Old-number cheques end",
-   "Body": "Cheques bearing old account numbers are no longer accepted.",
+   "Body": "Six months (182 days) after go-live: cheques bearing old account numbers are no longer accepted.",
    "Big": true,
-   "Days": 0,
-   "Months": 6,
+   "Days": 182,
+   "Months": 0,
    "Fmt": "Full"
   }
  ]
